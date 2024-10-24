@@ -1,0 +1,117 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-manager-nav></app-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+     
+      
+       <div class="staff-management-tools mat-elevation-z8">
+        <h1>Staff Management Tools</h1>
+      
+        <!-- Employee Directory -->
+        <div class="section">
+          <mat-card class="staff-card">
+            <mat-card-header>
+              <mat-card-title>Employee Directory</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-grid-list cols="3" rowHeight="150px" gutterSize="20px">
+                <mat-grid-tile *ngFor="let staff of staffList">
+                  <div class="employee-profile">
+                    <img [src]="staff.photo" alt="{{staff.name}}" class="profile-pic" />
+                    <h3>{{staff.name}}</h3>
+                    <p>{{staff.position}}</p>
+                    <p>{{staff.department}}</p>
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      
+        <!-- Performance Reviews -->
+        <div class="section">
+          <mat-card class="performance-card">
+            <mat-card-header>
+              <mat-card-title>Performance Reviews</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-expansion-panel *ngFor="let review of performanceReviews">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{review.name}} - {{review.department}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Performance Score: {{review.score}}/10
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{review.comments}}</p>
+              </mat-expansion-panel>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      
+        <!-- Scheduling -->
+        <div class="section">
+          <mat-card class="scheduling-card">
+            <mat-card-header>
+              <mat-card-title>Scheduling</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-table [dataSource]="scheduleData" class="mat-elevation-z1">
+                <!-- Columns -->
+                <ng-container matColumnDef="employee">
+                  <mat-header-cell *matHeaderCellDef> Employee </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.employee}} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="shift">
+                  <mat-header-cell *matHeaderCellDef> Shift </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.shift}} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="day">
+                  <mat-header-cell *matHeaderCellDef> Day </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.day}} </mat-cell>
+                </ng-container>
+      
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

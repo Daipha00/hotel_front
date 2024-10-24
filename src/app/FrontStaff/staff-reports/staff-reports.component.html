@@ -1,0 +1,76 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <!-- <div class="reports-access-container"> -->
+        <!-- <h2>Reports Access</h2> -->
+      <!--  -->
+        <!-- <mat-tab-group> -->
+          Daily Reservations Report Tab
+          <!-- <mat-tab label="Daily Reservations"> -->
+            <!-- <div class="report-container"> -->
+              <!-- <h3>Daily Reservations</h3> -->
+              <!-- <mat-list> -->
+                <!-- <mat-list-item *ngFor="let reservation of dailyReservations"> -->
+                  <!-- <div class="report-item"> -->
+                    <!-- <p><strong>Reservation ID:</strong> {{ reservation.id }}</p> -->
+                    <!-- <p><strong>Guest Name:</strong> {{ reservation.guestName }}</p> -->
+                    <!-- <p><strong>Room Number:</strong> {{ reservation.roomNumber }}</p> -->
+                    <!-- <p><strong>Date:</strong> {{ reservation.date }}</p> -->
+                  <!-- </div> -->
+                <!-- </mat-list-item> -->
+              <!-- </mat-list> -->
+            <!-- </div> -->
+          <!-- </mat-tab> -->
+          <!--  -->
+          Another Report Tab (if applicable)
+          <!-- <mat-tab label="Check-out Summary"> -->
+            <!-- <div class="report-container"> -->
+              <!-- <h3>Today's Check-Out Summary</h3> -->
+              <!-- <mat-list> -->
+                <!-- <mat-list-item *ngFor="let checkout of checkouts"> -->
+                  <!-- <div class="report-item"> -->
+                    <!-- <p><strong>Guest Name:</strong> {{ checkout.guestName }}</p> -->
+                    <!-- <p><strong>Check-Out Time:</strong> {{ checkout.time }}</p> -->
+                    <!-- <p><strong>Total Bill:</strong> {{ checkout.totalBill | currency }}</p> -->
+                  <!-- </div> -->
+                <!-- </mat-list-item> -->
+              <!-- </mat-list> -->
+            <!-- </div> -->
+          <!-- </mat-tab> -->
+        <!-- </mat-tab-group> -->
+      <!-- </div> -->
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

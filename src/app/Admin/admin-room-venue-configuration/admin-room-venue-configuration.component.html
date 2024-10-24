@@ -1,0 +1,242 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Hotel System</span>
+      </mat-toolbar>
+      <app-admin-navigation></app-admin-navigation>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span></span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="room-venue-configuration">
+  <mat-tab-group>
+    <!-- Manage Rooms Tab -->
+    <mat-tab label="Manage Rooms">
+      <div class="room-management">
+        <h2>Room Management</h2>
+
+        <!-- Room Form for Add/Edit -->
+        <form class="room-form">
+          <mat-form-field class="full-width">
+            <mat-label>Room Type</mat-label>
+            <input matInput [(ngModel)]="roomType" placeholder="Enter room type" name="roomType">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>PAX</mat-label>
+            <input matInput [(ngModel)]="roomPax" placeholder="Enter room PAX" type="number" name="roomPax">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Price</mat-label>
+            <input matInput [(ngModel)]="roomPrice" placeholder="Enter room price" type="number" name="roomPrice">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Availability Status</mat-label>
+            <input matInput [(ngModel)]="roomAvailabilityStatus" placeholder="Enter availability status" name="roomAvailabilityStatus">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="roomDescription" placeholder="Enter room description" name="roomDescription"></textarea>
+          </mat-form-field>
+          
+          <input type="file" (change)="onRoomFileSelected($event)" />
+
+          <button mat-raised-button color="primary" (click)="saveRoom()">Save Room</button>
+        </form>
+
+        <!-- Room List Table -->
+        <mat-table [dataSource]="roomData" class="mat-elevation-z8 room-table">
+          <ng-container matColumnDef="roomType">
+            <mat-header-cell *matHeaderCellDef> Room Type </mat-header-cell>
+            <mat-cell *matCellDef="let room"> {{ room.roomType }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="pax">
+            <mat-header-cell *matHeaderCellDef> PAX </mat-header-cell>
+            <mat-cell *matCellDef="let room"> {{ room.pax }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let room"> {{ room.price | currency }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="availabilityStatus">
+            <mat-header-cell *matHeaderCellDef> Availability Status </mat-header-cell>
+            <mat-cell *matCellDef="let room"> {{ room.availabilityStatus }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+            <mat-cell *matCellDef="let room"> {{ room.description }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="roomImage">
+            <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+            <mat-cell *matCellDef="let room">
+              <button mat-icon-button (click)="openImageDialog(room.image)" style="color: rgba(0, 0, 255, 0.73);">
+                <mat-icon>image</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let room">
+              <button mat-icon-button color="primary" (click)="editRoom(room)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteRoom(room)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-tab>
+
+    <!-- Manage Venues Tab -->
+    <mat-tab label="Manage Venues">
+      <div class="venue-management">
+        <h2>Venue Management</h2>
+
+        <!-- Venue Form for Add/Edit -->
+        <form class="venue-form">
+          <mat-form-field class="full-width">
+            <mat-label>Venue Type</mat-label>
+            <input matInput [(ngModel)]="venueType" placeholder="Enter venue type" name="venueType">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Capacity</mat-label>
+            <input matInput [(ngModel)]="venueCapacity" placeholder="Enter venue capacity" type="number" name="venueCapacity">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Price</mat-label>
+            <input matInput [(ngModel)]="venuePrice" placeholder="Enter venue price" type="number" name="venuePrice">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Location</mat-label>
+            <input matInput [(ngModel)]="venueLocation" placeholder="Enter venue location" name="venueLocation">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Availability Status</mat-label>
+            <input matInput [(ngModel)]="venueAvailabilityStatus" placeholder="Enter availability status" name="venueAvailabilityStatus">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="venueDescription" placeholder="Enter venue description" name="venueDescription"></textarea>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Venue Package</mat-label>
+            <input matInput [(ngModel)]="venuePackage" placeholder="Enter venue package" name="venuePackage">
+          </mat-form-field>
+          
+          <input type="file" (change)="onVenueFileSelected($event)" />
+
+          <button mat-raised-button color="primary" (click)="saveVenue()">Save Venue</button>
+        </form>
+
+        <!-- Venue List Table -->
+        <mat-table [dataSource]="venueData" class="mat-elevation-z8 venue-table">
+          <ng-container matColumnDef="venueType">
+            <mat-header-cell *matHeaderCellDef> Venue Type </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.venueType }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="capacity">
+            <mat-header-cell *matHeaderCellDef> Capacity </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.capacity }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.price | currency }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="location">
+            <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.location }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="availabilityStatus">
+            <mat-header-cell *matHeaderCellDef> Availability Status </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.availabilityStatus }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.description }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="venuePackage">
+            <mat-header-cell *matHeaderCellDef> VenuePackage </mat-header-cell>
+            <mat-cell *matCellDef="let venue"> {{ venue.venuePackage }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="venueImage">
+            <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+            <mat-cell *matCellDef="let venue">
+              <button mat-icon-button (click)="openImageDialog(venue.image)" style="color: rgba(0, 0, 255, 0.73);">
+                <mat-icon>image</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let venue">
+              <button mat-icon-button color="primary" (click)="editVenue(venue)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteVenue(venue)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="venueColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: venueColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

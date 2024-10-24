@@ -1,0 +1,116 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <mat-tab-group>
+        <!-- Guest Check-In Tab -->
+        <mat-tab label="Check-In">
+          <div class="check-in-container">
+            <h2>Guest Check-In</h2>
+            <form>
+              <!-- Guest Name -->
+              <mat-form-field appearance="outline">
+                <mat-label>Guest Name</mat-label>
+                <input matInput [(ngModel)]="guestNameCheckIn" placeholder="Enter guest name" required name="Status">
+              </mat-form-field>
+      
+              <!-- Reservation ID -->
+              <mat-form-field appearance="outline">
+                <mat-label>Reservation ID</mat-label>
+                <input matInput [(ngModel)]="reservationId" placeholder="Enter reservation ID" required name="Status">
+              </mat-form-field>
+      
+              <!-- Assign Room -->
+              <mat-form-field appearance="outline">
+                <mat-label>Assign Room</mat-label>
+                <mat-select [(ngModel)]="assignedRoom" required name="Status">
+                  <mat-option *ngFor="let room of availableRooms" [value]="room">
+                    {{ room }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+      
+              <!-- Initial Payment -->
+              <mat-form-field appearance="outline">
+                <mat-label>Initial Payment</mat-label>
+                <input matInput [(ngModel)]="initialPayment" type="number" placeholder="Enter payment amount" required name="Status">
+              </mat-form-field>
+      
+              <!-- Confirm Check-In Button -->
+              <button mat-raised-button color="primary" (click)="confirmCheckIn()">Confirm Check-In</button>
+            </form>
+          </div>
+        </mat-tab>
+      
+        <!-- Guest Check-Out Tab -->
+        <mat-tab label="Check-Out">
+          <div class="check-out-container">
+            <h2>Guest Check-Out</h2>
+            <form>
+              <!-- Guest Name -->
+              <mat-form-field appearance="outline">
+                <mat-label>Guest Name</mat-label>
+                <input matInput [(ngModel)]="guestNameCheckOut" placeholder="Enter guest name" required name="Status">
+              </mat-form-field>
+      
+              <!-- Final Bill -->
+              <mat-form-field appearance="outline">
+                <mat-label>Final Bill Amount</mat-label>
+                <input matInput [(ngModel)]="finalBillAmount" type="number" placeholder="Enter final bill amount" required name="Status">
+              </mat-form-field>
+      
+              <!-- Payment Amount -->
+              <mat-form-field appearance="outline">
+                <mat-label>Payment Amount</mat-label>
+                <input matInput [(ngModel)]="paymentAmount" type="number" placeholder="Enter payment amount" required name="Status">
+              </mat-form-field>
+      
+              <!-- Room Status -->
+              <mat-form-field appearance="outline">
+                <mat-label>Room Status</mat-label>
+                <mat-select [(ngModel)]="roomStatus" required name="Status">
+                  <mat-option value="cleaned">Cleaned</mat-option>
+                  <mat-option value="maintenance">Under Maintenance</mat-option>
+                </mat-select>
+              </mat-form-field>
+      
+              <!-- Process Check-Out Button -->
+              <button mat-raised-button color="accent" (click)="processCheckOut()">Process Check-Out</button>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

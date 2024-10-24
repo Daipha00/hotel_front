@@ -1,0 +1,84 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="communication-center">
+        <mat-tab-group class="custom-tabs">
+          <!-- Internal Notifications Tab -->
+          <mat-tab label="Internal Notifications">
+            <div class="tab-content">
+              <h2 class="tab-title">Internal Notifications</h2>
+              <div class="notifications-section">
+                <mat-form-field class="full-width">
+                  <mat-label>Send Notification</mat-label>
+                  <textarea matInput placeholder="Type your message here..."></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="send-notification-btn">Send</button>
+                <div class="notification-messages">
+                  <h3>Sent Notifications:</h3>
+                  <mat-list>
+                    <mat-list-item *ngFor="let notification of notifications">
+                      {{ notification }}
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+      
+          <!-- Guest Communication Tab -->
+          <mat-tab label="Guest Communication">
+            <div class="tab-content">
+              <h2 class="tab-title">Guest Communication</h2>
+              <div class="guest-communication-section">
+                <mat-form-field class="full-width">
+                  <mat-label>Response to Guest</mat-label>
+                  <textarea matInput placeholder="Type your response here..."></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="accent" class="send-response-btn">Send Response</button>
+                <div class="guest-messages">
+                  <h3>Guest Messages:</h3>
+                  <mat-list>
+                    <mat-list-item *ngFor="let message of guestMessages">
+                      {{ message }}
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

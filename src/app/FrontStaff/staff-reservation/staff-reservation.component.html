@@ -1,0 +1,121 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+       <div class="staff-reservation">
+        <h2>Reservations Section</h2>
+      
+        <mat-tab-group>
+          <mat-tab label="Create New Reservation">
+            <form class="reservation-form" (submit)="addReservation(); $event.preventDefault();">
+              <mat-form-field>
+                <mat-label>Guest Name</mat-label>
+                <input matInput [(ngModel)]="newReservation.guestName" required  name="a">
+              </mat-form-field>
+      
+              <mat-form-field>
+                <mat-label>Room Type</mat-label>
+                <mat-select [(ngModel)]="newReservation.roomType" required  name="a">
+                  <mat-option *ngFor="let roomType of roomTypes" [value]="roomType"  >
+                    {{ roomType }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+      
+              <mat-form-field>
+                <mat-label>Check-in Date</mat-label>
+                <input matInput type="date" [(ngModel)]="newReservation.checkInDate" required  name="a">
+              </mat-form-field>
+      
+              <mat-form-field>
+                <mat-label>Check-out Date</mat-label>
+                <input matInput type="date" [(ngModel)]="newReservation.checkOutDate" required name="a">
+              </mat-form-field>
+      
+              <button mat-raised-button color="primary">Add Reservation</button>
+            </form>
+          </mat-tab>
+      
+          <mat-tab label="View Reservations">
+            <div class="filter-section">
+              <mat-form-field>
+                <mat-label>Search Reservations</mat-label>
+                <input matInput (input)="onSearchChange($event)"  name="a">
+              </mat-form-field>
+            </div>
+      
+            <mat-table [dataSource]="filteredReservations" class="reservations-table">
+              <ng-container matColumnDef="guestName">
+                <mat-header-cell *matHeaderCellDef> Guest Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.guestName }} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="roomType">
+                <mat-header-cell *matHeaderCellDef> Room Type </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.roomType }} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="checkInDate">
+                <mat-header-cell *matHeaderCellDef> Check-in Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.checkInDate }} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="checkOutDate">
+                <mat-header-cell *matHeaderCellDef> Check-out Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.checkOutDate }} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+              </ng-container>
+      
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-button (click)="updateReservation(element)">Edit</button>
+                  <button mat-button color="warn" (click)="cancelReservation(element)">Cancel</button>
+                </mat-cell>
+              </ng-container>
+      
+              <mat-header-row *matHeaderRowDef="['guestName', 'roomType', 'checkInDate', 'checkOutDate', 'status', 'action']"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: ['guestName', 'roomType', 'checkInDate', 'checkOutDate', 'status', 'action'];"></mat-row>
+            </mat-table>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

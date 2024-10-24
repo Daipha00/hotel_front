@@ -1,0 +1,120 @@
+/* Dashboard container styling */
+.dashboard-container {
+    padding: 50px; /* Generous padding for spaciousness */
+    display: grid;
+    gap: 40px; /* Increased gap for a luxurious feel */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid layout */
+    background: linear-gradient(135deg, #e2e2e2, #ffffff); /* Light gradient background */
+  }
+  
+  /* Title styling */
+  .dashboard-title {
+    text-align: center;
+    font-size: 40px; /* Larger title size */
+    color: #333; /* Darker color for strong contrast */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Elegant font */
+    font-weight: 700; /* Bold font weight */
+  }
+  
+  /* Card styling */
+  .info-card {
+    background-color: white; /* Card background */
+    border-radius: 20px; /* Rounded corners for sophistication */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for elegance */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    overflow: hidden; /* Clip contents that overflow */
+    border: 1px solid #d1d1d1; /* Light border around cards */
+  }
+  
+  /* Card hover effect */
+  .info-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  /* Header styling for each card */
+  .mat-card-header {
+    background: linear-gradient(90deg, #007bff, #00bfff); /* Gradient background for headers */
+    color: white; /* White text for contrast */
+    padding: 20px; /* Padding for the header */
+    font-size: 24px; /* Header font size */
+    border-bottom: 4px solid #0056b3; /* Darker border for emphasis */
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+  }
+  
+  /* Card content styling */
+  .card-content {
+    padding: 30px; /* Generous padding inside the card */
+  }
+  
+  /* Task list styling */
+  .task-list {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+  }
+  
+  /* Task item styling */
+  .task-item {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between item and status */
+    align-items: center; /* Center vertically */
+    padding: 15px 20px; /* Padding for the item */
+    border-bottom: 1px solid #e0e0e0; /* Light gray divider */
+    color: #444; /* Darker text for contrast */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  }
+  
+  /* Task item hover effect */
+  .task-item:hover {
+    background-color: #e8f5ff; /* Light blue hover effect */
+    transform: translateX(5px); /* Subtle slide on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  /* Additional styling for task descriptions */
+  .task-item span {
+    font-weight: bold; /* Bold font for task names */
+    color: #007bff; /* Blue text color for emphasis */
+  }
+  
+  /* Badge styling for task status */
+  .task-status {
+    padding: 5px 15px; /* Padding for the badge */
+    border-radius: 50px; /* Rounded badge */
+    font-size: 14px; /* Smaller font size */
+    font-weight: bold; /* Bold font */
+  }
+  
+  /* Badge colors */
+  .status-pending {
+    background-color: #ffc107; /* Yellow for pending */
+    color: white; /* White text */
+  }
+  
+  .status-completed {
+    background-color: #28a745; /* Green for completed */
+    color: white; /* White text */
+  }
+  
+  .status-cancelled {
+    background-color: #dc3545; /* Red for cancelled */
+    color: white; /* White text */
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-title {
+      font-size: 32px; /* Adjust title size for smaller screens */
+    }
+  
+    .info-card {
+      padding: 10px; /* Less padding on smaller screens */
+    }
+  
+    .task-item {
+      padding: 10px 15px; /* Less padding for task items on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,79 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+    <!--  -->
+       <!-- <mat-tab-group> -->
+        View Guest Profiles Tab
+        <!-- <mat-tab label="View Guest Profiles"> -->
+          <!-- <div class="guest-profiles-container"> -->
+            <!-- <h2>Guest Profiles</h2> -->
+            <!-- <mat-card *ngFor="let profile of guestProfiles" class="guest-profile-card"> -->
+              <!-- <mat-card-header> -->
+                <!-- <mat-card-title>{{ profile.name }}</mat-card-title> -->
+                <!-- <mat-card-subtitle>Guest History: {{ profile.history }}</mat-card-subtitle> -->
+              <!-- </mat-card-header> -->
+              <!-- <mat-card-content> -->
+                <!-- <p><strong>Preferences:</strong> {{ profile.preferences }}</p> -->
+                <!-- <p><strong>Special Requests:</strong> {{ profile.specialRequests }}</p> -->
+              <!-- </mat-card-content> -->
+            <!-- </mat-card> -->
+          <!-- </div> -->
+        <!-- </mat-tab> -->
+      <!--  -->
+        Handle Guest Inquiries Tab
+        <!-- <mat-tab label="Handle Guest Inquiries"> -->
+          <!-- <div class="guest-inquiry-container"> -->
+            <!-- <h2>Guest Inquiries</h2> -->
+            <!-- <form> -->
+              Guest Name
+              <!-- <mat-form-field appearance="outline"> -->
+                <!-- <mat-label>Guest Name</mat-label> -->
+                <!-- <input matInput [(ngModel)]="guestInquiry.name" placeholder="Enter guest name" required> -->
+              <!-- </mat-form-field> -->
+      <!--  -->
+              Inquiry
+              <!-- <mat-form-field appearance="outline"> -->
+                <!-- <mat-label>Inquiry</mat-label> -->
+                <!-- <textarea matInput [(ngModel)]="guestInquiry.inquiry" placeholder="Enter inquiry" required></textarea> -->
+              <!-- </mat-form-field> -->
+      <!--  -->
+              Submit Inquiry Button
+              <!-- <button mat-raised-button color="primary" (click)="submitInquiry()">Submit Inquiry</button> -->
+            <!-- </form> -->
+          <!-- </div> -->
+        <!-- </mat-tab> -->
+      <!-- </mat-tab-group> -->
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

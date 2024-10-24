@@ -1,0 +1,40 @@
+.reporting-analytics {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-tabs {
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+  
+  .tab-content {
+    padding: 20px;
+  }
+  
+  .tab-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .report-section {
+    margin-top: 20px;
+  }
+  
+  .data-table {
+    margin-top: 20px;
+  }
+  
+  mat-header-cell {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  mat-cell {
+    padding: 12px;
+  }
+  

@@ -1,0 +1,171 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="reservations-management">
+        <mat-tab-group class="custom-tabs">
+          <!-- View All Reservations Tab -->
+          <mat-tab label="View All Reservations">
+            <div class="tab-content">
+              <div class="filter-section">
+                <mat-form-field>
+                  <mat-label>Date</mat-label>
+                  <input matInput type="date">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Room Type</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let roomType of roomTypes" [value]="roomType">
+                      {{ roomType }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Status</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let status of statuses" [value]="status">
+                      {{ status }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="filter-btn">Filter</button>
+              </div>
+      
+              <mat-table [dataSource]="reservations" class="reservations-table custom-table">
+                <!-- Columns for Reservation Table -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="date">
+                  <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.date }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="roomType">
+                  <mat-header-cell *matHeaderCellDef> Room Type </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.roomType }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+                </ng-container>
+      
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+          </mat-tab>
+      
+          <!-- Create/Edit Reservations Tab -->
+          <mat-tab label="Create/Edit Reservation">
+            <div class="tab-content">
+              <form class="reservation-form">
+                <mat-form-field>
+                  <mat-label>Guest Name</mat-label>
+                  <input matInput placeholder="Guest Name">
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Room Type</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let roomType of roomTypes" [value]="roomType">
+                      {{ roomType }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Check-in Date</mat-label>
+                  <input matInput type="date">
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Check-out Date</mat-label>
+                  <input matInput type="date">
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Status</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let status of statuses" [value]="status">
+                      {{ status }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+      
+                <button mat-raised-button color="primary" class="save-btn">Save Reservation</button>
+              </form>
+            </div>
+          </mat-tab>
+      
+          <!-- Manage Bookings Tab -->
+          <mat-tab label="Manage Bookings">
+            <div class="tab-content">
+              <mat-table [dataSource]="bookings" class="bookings-table custom-table">
+                <!-- Columns for Booking Table -->
+                <ng-container matColumnDef="guestName">
+                  <mat-header-cell *matHeaderCellDef> Guest Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.guestName }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="roomType">
+                  <mat-header-cell *matHeaderCellDef> Room Type </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.roomType }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="action">
+                  <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    <button mat-button class="confirm-btn" (click)="confirmBooking(element)">Confirm</button>
+                    <button mat-button class="cancel-btn" color="warn" (click)="cancelBooking(element)">Cancel</button>
+                  </mat-cell>
+                </ng-container>
+      
+                <mat-header-row *matHeaderRowDef="bookingColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: bookingColumns;"></mat-row>
+              </mat-table>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

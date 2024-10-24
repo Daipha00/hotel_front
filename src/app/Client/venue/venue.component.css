@@ -1,0 +1,28 @@
+.venue-booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+  }
+  
+  .booking-card {
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    width: 100%;
+  }
+  

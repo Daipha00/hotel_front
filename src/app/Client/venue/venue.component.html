@@ -1,0 +1,44 @@
+<div class="venue-booking-container">
+    <mat-card class="booking-card">
+      <mat-card-header>
+        <mat-card-title>Book Your Venue</mat-card-title>
+        <mat-card-subtitle>Select from a variety of options</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="venueBookingForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label>Venue Type</mat-label>
+            <mat-select formControlName="venueType">
+              <mat-option value="conference">Conference Room</mat-option>
+              <mat-option value="wedding">Wedding Hall</mat-option>
+              <mat-option value="party">Party Venue</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Number of Guests</mat-label>
+            <input matInput type="number" formControlName="guests">
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Special Requests</mat-label>
+            <textarea matInput formControlName="specialRequests"></textarea>
+          </mat-form-field>
+  
+          <div class="button-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!venueBookingForm.valid">
+              Book Now
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

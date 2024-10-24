@@ -1,0 +1,174 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+       <div class="payment-processing-container">
+        <mat-tab-group>
+          <!-- Tab 1: View Payments -->
+          <mat-tab label="View Payments">
+            <div class="view-payments-section">
+              <h2>Payment Lists</h2>
+              <mat-tab-group mat-stretch-tabs backgroundColor="primary">
+                <!-- Pending Payments -->
+                <mat-tab label="Pending Payments">
+                  <table mat-table [dataSource]="pendingPayments" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef> Payment ID </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.id }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="amount">
+                      <th mat-header-cell *matHeaderCellDef> Amount </th>
+                      <td mat-cell *matCellDef="let payment"> ${{ payment.amount }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.status }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef> Actions </th>
+                      <td mat-cell *matCellDef="let payment">
+                        <button mat-raised-button color="primary" (click)="approvePayment(payment.id)">Approve</button>
+                        <button mat-raised-button color="warn" (click)="rejectPayment(payment.id)">Reject</button>
+                      </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsPending"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsPending;"></tr>
+                  </table>
+                </mat-tab>
+      
+                <!-- Completed Payments -->
+                <mat-tab label="Completed Payments">
+                  <table mat-table [dataSource]="completedPayments" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef> Payment ID </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.id }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="amount">
+                      <th mat-header-cell *matHeaderCellDef> Amount </th>
+                      <td mat-cell *matCellDef="let payment"> ${{ payment.amount }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.status }} </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsCompleted"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsCompleted;"></tr>
+                  </table>
+                </mat-tab>
+      
+                <!-- Refunded Payments -->
+                <mat-tab label="Refunded Payments">
+                  <table mat-table [dataSource]="refundedPayments" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef> Payment ID </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.id }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="amount">
+                      <th mat-header-cell *matHeaderCellDef> Amount </th>
+                      <td mat-cell *matCellDef="let payment"> ${{ payment.amount }} </td>
+                    </ng-container>
+      
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let payment"> {{ payment.status }} </td>
+                    </ng-container>
+      
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsRefunded"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsRefunded;"></tr>
+                  </table>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </mat-tab>
+      
+          <!-- Tab 2: Process Payments -->
+          <mat-tab label="Process Payments">
+            <div class="process-payments-section">
+              <h2>Process Payments</h2>
+              <table mat-table [dataSource]="pendingPayments" class="mat-elevation-z8">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Payment ID </th>
+                  <td mat-cell *matCellDef="let payment"> {{ payment.id }} </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="amount">
+                  <th mat-header-cell *matHeaderCellDef> Amount </th>
+                  <td mat-cell *matCellDef="let payment"> ${{ payment.amount }} </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let payment"> {{ payment.status }} </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Actions </th>
+                  <td mat-cell *matCellDef="let payment">
+                    <button mat-raised-button color="primary" (click)="approvePayment(payment.id)">Approve</button>
+                    <button mat-raised-button color="warn" (click)="rejectPayment(payment.id)">Reject</button>
+                  </td>
+                </ng-container>
+      
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsPending"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsPending;"></tr>
+              </table>
+            </div>
+          </mat-tab>
+      
+          <!-- Tab 3: Payment Reports -->
+          <mat-tab label="Payment Reports">
+            <div class="payment-reports-section">
+              <h2>Financial Reports</h2>
+              <mat-card class="report-card">
+                <h3>Daily Financial Report</h3>
+                <p>Total Revenue: $5000</p>
+                <p>Total Payments Processed: 50</p>
+                <p>Refunds Processed: 5</p>
+                <!-- Additional report metrics can be added here -->
+              </mat-card>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

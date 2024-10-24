@@ -1,0 +1,81 @@
+<div class="container">
+  <!-- Navigation Bar -->
+  <nav class="sidebar" [class.open]="isSidebarOpen">
+    <mat-toolbar color="primary" class="sidebar-toolbar">
+      <span>Hotel System</span>
+    </mat-toolbar>
+    <app-admin-navigation></app-admin-navigation>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Toolbar -->
+    <mat-toolbar color="accent" class="main-toolbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        class="menu-button"
+        (click)="toggleSidebar()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Static Content (Optional) -->
+     <!-- dashboard.component.html -->
+     <div class="admin-dashboard">
+      <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <p>Overview of system performance</p>
+      </div>
+    
+      <!-- Dashboard Metrics Section -->
+      <div class="dashboard-metrics">
+        <!-- Bookings Card -->
+        <div class="metric-card bookings-card">
+          <mat-icon class="metric-icon">hotel</mat-icon>
+          <div class="metric-details">
+            <h2>{{ bookingsCount }}</h2>
+            <p>Total Bookings</p>
+          </div>
+        </div>
+    
+        <!-- Room Occupancy Card -->
+        <div class="metric-card occupancy-card">
+          <mat-icon class="metric-icon">king_bed</mat-icon>
+          <div class="metric-details">
+            <h2>{{ occupancyRate }}%</h2>
+            <p>Room Occupancy Rate</p>
+          </div>
+        </div>
+    
+        <!-- Notifications Card -->
+        <div class="metric-card notifications-card">
+          <mat-icon class="metric-icon">notifications</mat-icon>
+          <div class="metric-details">
+            <h2>{{ notificationsCount }}</h2>
+            <p>New Notifications</p>
+          </div>
+        </div>
+    
+        <!-- System Health Card -->
+        <div class="metric-card health-card">
+          <mat-icon class="metric-icon">monitor_heart</mat-icon>
+          <div class="metric-details">
+            <h2>{{ systemHealthStatus }}</h2>
+            <p>System Health</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+      <!-- Dynamic Content via Router Outlet -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

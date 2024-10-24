@@ -1,0 +1,87 @@
+/* General Container for Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height for centering */
+    background-color: #dee1e4; /* Match sidebar background */
+  }
+  
+  /* Login Card Styling */
+  .login-card {
+    width: 400px;
+    padding: 30px;
+    background-color: #ffffff; /* White card background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+  }
+  
+  .login-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  /* Heading Styles */
+  h2 {
+    text-align: center;
+    color: #1a252f; /* Dark blue for consistency */
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+  }
+  
+  p {
+    text-align: center;
+    color: #555; /* Soft text color */
+    margin-bottom: 20px;
+  }
+  
+  /* Input Field Styles */
+  .input-field {
+    width: 100%; /* Full width fields */
+  }
+  
+  .mat-form-field {
+    background-color: #ecf0f1; /* Match main content background */
+    border-radius: 8px;
+    padding: 0 10px;
+  }
+  
+  /* Error Message Styles */
+  .error-message {
+    color: #ff4d4d; /* Red for error messages */
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Button Styles */
+  .login-button {
+    width: 100%; /* Full width button */
+    margin-top: 20px;
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%); /* Consistent gradient */
+    color: #ffffff; /* White text */
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(45deg, #2575fc 0%, #6a11cb 100%); /* Reverse gradient on hover */
+  }
+  
+  /* Footer Text Styles */
+  .footer-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+  }
+  
+  .footer-text a {
+    color: #1a252f; /* Dark blue for links */
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-text a:hover {
+    color: #6a11cb; /* Light purple on hover */
+  }
+  

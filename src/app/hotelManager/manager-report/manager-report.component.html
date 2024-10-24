@@ -1,0 +1,85 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-manager-nav></app-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+      
+      
+       <div class="reports-section">
+        <div class="section-header">
+          <h1>Reports</h1>
+          <p>Generate detailed reports on revenue, bookings, and room status. View daily occupancy and housekeeping status reports.</p>
+        </div>
+      
+        <!-- Report Generation Buttons -->
+        <div class="report-buttons">
+          <button mat-raised-button color="primary" (click)="generateRevenueReport()">Generate Revenue Report</button>
+          <button mat-raised-button color="accent" (click)="generateBookingReport()">Generate Bookings Report</button>
+          <button mat-raised-button color="warn" (click)="generateRoomStatusReport()">Generate Room Status Report</button>
+        </div>
+      
+        <!-- Daily Reports Section -->
+        <div class="daily-reports">
+          <h2>Daily Reports</h2>
+      
+          <!-- Daily Occupancy Report -->
+          <div class="report-card">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Daily Occupancy Report</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Total Occupied Rooms: {{ occupancyReport.totalOccupiedRooms }}</p>
+                <p>Total Available Rooms: {{ occupancyReport.totalAvailableRooms }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+      
+          <!-- Housekeeping Status Report -->
+          <div class="report-card">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Housekeeping Status Report</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Rooms Cleaned: {{ housekeepingReport.cleanedRooms }}</p>
+                <p>Rooms Pending: {{ housekeepingReport.pendingRooms }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

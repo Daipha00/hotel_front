@@ -1,0 +1,110 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="staff-management">
+        <h2>Staff Management</h2>
+      
+        <mat-tab-group>
+          <!-- Assign Tasks Tab -->
+          <mat-tab label="Assign Tasks">
+            <div class="assign-tasks">
+              <h3>Allocate Reservations & Duties</h3>
+      
+              <!-- Task Assignment Form -->
+              <mat-card>
+                <mat-card-title>Assign Task to Staff</mat-card-title>
+                <mat-card-content>
+                  <form>
+                    <mat-form-field appearance="fill" class="full-width">
+                      <mat-label>Staff Member</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let staff of staffList" [value]="staff">{{ staff.name }}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+      
+                    <mat-form-field appearance="fill" class="full-width">
+                      <mat-label>Reservation</mat-label>
+                      <input matInput placeholder="Reservation ID">
+                    </mat-form-field>
+      
+                    <mat-form-field appearance="fill" class="full-width">
+                      <mat-label>Task</mat-label>
+                      <textarea matInput placeholder="Describe the task"></textarea>
+                    </mat-form-field>
+      
+                    <button mat-raised-button color="primary">Assign Task</button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </mat-tab>
+      
+          <!-- Monitor Staff Performance Tab -->
+          <mat-tab label="Monitor Performance">
+            <div class="monitor-performance">
+              <h3>Track Staff Performance</h3>
+      
+              <div class="performance-metrics">
+                <!-- Mock Performance Metrics -->
+                <mat-card class="metric-card">
+                  <mat-card-title>John Doe</mat-card-title>
+                  <mat-card-content>
+                    <p>Task Completion: 85%</p>
+                    <mat-progress-bar mode="determinate" value="85"></mat-progress-bar>
+                  </mat-card-content>
+                </mat-card>
+      
+                <mat-card class="metric-card">
+                  <mat-card-title>Jane Smith</mat-card-title>
+                  <mat-card-content>
+                    <p>Task Completion: 92%</p>
+                    <mat-progress-bar mode="determinate" value="92"></mat-progress-bar>
+                  </mat-card-content>
+                </mat-card>
+      
+                <mat-card class="metric-card">
+                  <mat-card-title>Michael Brown</mat-card-title>
+                  <mat-card-content>
+                    <p>Task Completion: 75%</p>
+                    <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

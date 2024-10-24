@@ -1,0 +1,94 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="dashboard-container">
+        <h2 class="dashboard-title">Front Office Staff Dashboard</h2>
+        
+        <mat-card class="info-card">
+          <mat-card-header>
+            <mat-card-title>Today's Check-Ins</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul class="task-list">
+              <li *ngFor="let checkIn of todayCheckIns">
+                <span class="task-item">{{ checkIn.guestName }} - Room {{ checkIn.roomNumber }}</span>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      
+        <mat-card class="info-card">
+          <mat-card-header>
+            <mat-card-title>Today's Check-Outs</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul class="task-list">
+              <li *ngFor="let checkOut of todayCheckOuts">
+                <span class="task-item">{{ checkOut.guestName }} - Room {{ checkOut.roomNumber }}</span>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      
+        <mat-card class="info-card">
+          <mat-card-header>
+            <mat-card-title>Active Reservations</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul class="task-list">
+              <li *ngFor="let reservation of activeReservations">
+                <span class="task-item">{{ reservation.guestName }} - Room {{ reservation.roomNumber }}</span>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      
+        <mat-card class="info-card">
+          <mat-card-header>
+            <mat-card-title>Pending Tasks</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul class="task-list">
+              <li *ngFor="let task of pendingTasks">
+                <span class="task-item">{{ task.description }}</span>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

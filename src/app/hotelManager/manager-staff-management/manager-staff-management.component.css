@@ -1,0 +1,100 @@
+/* General Styling for Staff Management Tools */
+.staff-management-tools {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  
+  /* Section Styling */
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .mat-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-card-header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .mat-card-title {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  /* Employee Directory Styling */
+  .employee-profile {
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #2c3e50;
+  }
+  
+  /* Performance Reviews Styling */
+  .performance-card .mat-expansion-panel {
+    margin-bottom: 15px;
+  }
+  
+  .mat-expansion-panel-header {
+    background-color: #ecf0f1;
+  }
+  
+  .mat-panel-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .mat-panel-description {
+    font-size: 14px;
+  }
+  
+  /* Scheduling Table Styling */
+  .mat-table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+  }
+  
+  .mat-header-cell {
+    background-color: #34495e;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+  }
+  
+  .mat-cell {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .mat-row:hover {
+    background-color: #dfe6e9;
+  }
+  

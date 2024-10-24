@@ -1,0 +1,25 @@
+<!-- popup-form.component.html -->
+<h1 mat-dialog-title>Fill in your details</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="data.firstName" name="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="data.lastName" name="lastName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="data.email" name="email" type="email">
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="submitForm()">Submit</button>
+</div>

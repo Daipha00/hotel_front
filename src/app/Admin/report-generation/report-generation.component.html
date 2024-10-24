@@ -1,0 +1,124 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Hotel System</span>
+      </mat-toolbar>
+      <app-admin-navigation></app-admin-navigation>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span></span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+    
+       <div class="report-section">
+        <mat-tab-group>
+          <!-- Report Generation Tab -->
+          <mat-tab label="Reports">
+            <div class="report-generation">
+              <h2>Generate Reports</h2>
+      
+              <!-- Daily Revenue Report -->
+              <mat-card class="report-card">
+                <mat-card-header>
+                  <mat-card-title>Daily Revenue</mat-card-title>
+                  <mat-card-subtitle>Generate revenue reports for the selected period</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <form class="report-form">
+                    <mat-form-field class="full-width">
+                      <mat-label>Select Date</mat-label>
+                      <input matInput [(ngModel)]="reportDate" type="date" placeholder="Pick a date" name="reportDate">
+                    </mat-form-field>
+      
+                    <button mat-raised-button color="primary" (click)="generateRevenueReport()">Generate Report</button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+      
+              <!-- Occupancy Report -->
+              <mat-card class="report-card">
+                <mat-card-header>
+                  <mat-card-title>Occupancy</mat-card-title>
+                  <mat-card-subtitle>View occupancy rates for selected dates</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <form class="report-form">
+                    <mat-form-field class="full-width">
+                      <mat-label>From Date</mat-label>
+                      <input matInput [(ngModel)]="startDate" type="date" placeholder="Pick a start date" name="startDate">
+                    </mat-form-field>
+      
+                    <mat-form-field class="full-width">
+                      <mat-label>To Date</mat-label>
+                      <input matInput [(ngModel)]="endDate" type="date" placeholder="Pick an end date" name="endDate">
+                    </mat-form-field>
+      
+                    <button mat-raised-button color="primary" (click)="generateOccupancyReport()">Generate Report</button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+      
+              <!-- Guest Stay Duration Report -->
+              <mat-card class="report-card">
+                <mat-card-header>
+                  <mat-card-title>Guest Stay Duration</mat-card-title>
+                  <mat-card-subtitle>Track guest stay durations within a specific range</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <form class="report-form">
+                    <mat-form-field class="full-width">
+                      <mat-label>Select Date Range</mat-label>
+                      <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date">
+                        <input matEndDate placeholder="End date">
+                      </mat-date-range-input>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+      
+                    <button mat-raised-button color="primary" (click)="generateStayDurationReport()">Generate Report</button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+      
+              <!-- Long Stay and Returning Guests -->
+              <h2>Long Stay & Returning Guests</h2>
+              <mat-card class="report-card">
+                <mat-card-header>
+                  <mat-card-title>View Reports</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <button mat-raised-button color="accent" (click)="viewLongStayReport()">View Long Stay Guests</button>
+                  <button mat-raised-button color="accent" (click)="viewReturningGuestsReport()">View Returning Guests</button>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

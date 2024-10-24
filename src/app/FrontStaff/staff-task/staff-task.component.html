@@ -1,0 +1,74 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-staff-nav></app-staff-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <!-- <div class="task-management-container"> -->
+        <!-- <h2>Task Management</h2> -->
+      <!--  -->
+        <!-- <mat-tab-group> -->
+          Daily Tasks Tab
+          <!-- <mat-tab label="Daily Tasks"> -->
+            <!-- <div class="task-container"> -->
+              <!-- <h3>Tasks for Today</h3> -->
+              <!-- <mat-list> -->
+                <!-- <mat-list-item *ngFor="let task of dailyTasks; let i = index"> -->
+                  <!-- <mat-icon matListIcon>{{ task.completed ? 'check_circle' : 'assignment' }}</mat-icon> -->
+                  <!-- <h4 matLine>{{ task.task }}</h4> -->
+                  <!-- <button mat-raised-button color="primary" [disabled]="task.completed" (click)="markTaskComplete(i)"> -->
+                    <!-- {{ task.completed ? 'Completed' : 'Mark as Complete' }} -->
+                  <!-- </button> -->
+                <!-- </mat-list-item> -->
+              <!-- </mat-list> -->
+            <!-- </div> -->
+          <!-- </mat-tab> -->
+      <!--  -->
+          Notifications Tab
+          <!-- <mat-tab label="Notifications"> -->
+            <!-- <div class="notification-container"> -->
+              <!-- <h3>Recent Notifications</h3> -->
+              <!-- <mat-list> -->
+                <!-- <mat-list-item *ngFor="let notification of notifications"> -->
+                  <!-- <mat-icon matListIcon> -->
+                    <!-- {{ notification.type === 'reservation' ? 'event' : notification.type === 'guestRequest' ? 'room_service' : 'cleaning_services' }} -->
+                  <!-- </mat-icon> -->
+                  <!-- <p matLine>{{ notification.message }}</p> -->
+                <!-- </mat-list-item> -->
+              <!-- </mat-list> -->
+            <!-- </div> -->
+          <!-- </mat-tab> -->
+        <!-- </mat-tab-group> -->
+      <!-- </div> -->
+      <!--  -->
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

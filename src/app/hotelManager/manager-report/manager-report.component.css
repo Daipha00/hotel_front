@@ -1,0 +1,67 @@
+.reports-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #3f51b5;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #757575;
+    }
+  }
+
+  .report-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+
+    button {
+      width: 220px;
+      height: 60px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  .daily-reports {
+    display: flex;
+    justify-content: space-around;
+
+    .report-card {
+      width: 45%;
+
+      mat-card {
+        padding: 15px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+        mat-card-header {
+          background-color: #3f51b5;
+          color: white;
+          border-radius: 5px 5px 0 0;
+        }
+
+        mat-card-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+
+        mat-card-content {
+          font-size: 1.1rem;
+          color: #424242;
+        }
+
+        p {
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}

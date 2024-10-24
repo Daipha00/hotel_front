@@ -1,0 +1,104 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="manager-dashboard">
+        <div class="dashboard-header">
+          <h1>Front Office Manager Dashboard</h1>
+          <p>Overview of reservations, occupancy rates, and payments.</p>
+        </div>
+      
+        <mat-grid-list cols="3" rowHeight="1:1" gutterSize="20px" class="dashboard-metrics">
+          <mat-grid-tile>
+            <mat-card class="card reservations-card">
+              <mat-card-header>
+                <mat-icon>event_available</mat-icon>
+                <mat-card-title>Reservations</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <h2 class="metric-value">120</h2>
+                <p>Total reservations this month</p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+      
+          <mat-grid-tile>
+            <mat-card class="card occupancy-card">
+              <mat-card-header>
+                <mat-icon>hotel</mat-icon>
+                <mat-card-title>Occupancy Rate</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <h2 class="metric-value">85%</h2>
+                <p>Current occupancy rate</p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+      
+          <mat-grid-tile>
+            <mat-card class="card payments-card">
+              <mat-card-header>
+                <mat-icon>payments</mat-icon>
+                <mat-card-title>Total Payments</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <h2 class="metric-value">$45,000</h2>
+                <p>Payments processed this month</p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      
+        <div class="dashboard-charts">
+          <mat-card class="chart-card">
+            <mat-card-header>
+              <mat-card-title>Reservations Trend</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <canvas id="reservationsChart"></canvas>
+            </mat-card-content>
+          </mat-card>
+      
+          <mat-card class="chart-card">
+            <mat-card-header>
+              <mat-card-title>Revenue Breakdown</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <canvas id="revenueChart"></canvas>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

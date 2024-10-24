@@ -1,0 +1,72 @@
+/* General Financial Management Styling */
+.financial-management {
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+}
+
+.mat-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-header {
+  background-color: #2980b9;
+  color: white;
+  padding: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.mat-card-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Financial Item Styling */
+.financial-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Budgeting Section */
+.budgeting-controls {
+  padding-top: 10px;
+}
+
+.budget-item {
+  margin-bottom: 20px;
+}
+
+.mat-progress-bar {
+  height: 12px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.budget-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #8e44ad;
+  text-align: right;
+}

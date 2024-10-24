@@ -1,0 +1,84 @@
+/* Container for the Staff Reservation Section */
+.staff-reservation {
+    background-color: #ffffff; /* White background for clarity */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for a smooth look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1200px; /* Max width to control layout */
+    margin: 20px auto; /* Center the container */
+  }
+  
+  /* Heading styles */
+  .staff-reservation h2 {
+    color: #343a40; /* Dark gray color for the heading */
+    font-size: 24px; /* Font size for the heading */
+    margin-bottom: 15px; /* Space below the heading */
+    text-align: center; /* Centered heading */
+  }
+  
+  /* Form container styling */
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+  }
+  
+  /* Input fields and select styling */
+  .mat-form-field {
+    width: 100%; /* Full width for inputs */
+  }
+  
+  /* Button styles */
+  .staff-reservation button {
+    background-color: #007bff; /* Primary color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .staff-reservation button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* Table styles */
+  .mat-table {
+    width: 100%; /* Full width for the table */
+    margin-top: 20px; /* Space above the table */
+  }
+  
+  /* Header cell styles */
+  .mat-header-cell {
+    background-color: #f8f9fa; /* Light gray background for headers */
+    color: #343a40; /* Dark gray text */
+    font-weight: bold; /* Bold text for headers */
+  }
+  
+  /* Cell styles */
+  .mat-cell {
+    padding: 12px; /* Padding for table cells */
+    text-align: center; /* Center text */
+    border-bottom: 1px solid #e0e0e0; /* Light border for cells */
+  }
+  
+  /* Hover effect for table rows */
+  .mat-row:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+  }
+  
+  /* Action button styles within the table */
+  .mat-cell button {
+    background-color: #dc3545; /* Danger color for delete */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 3px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for buttons */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .mat-cell button:hover {
+    background-color: #c82333; /* Darker shade on hover */
+  }
+  

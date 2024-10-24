@@ -1,0 +1,107 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-front-manager-nav></app-front-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+      
+       <div class="reporting-analytics">
+        <mat-tab-group class="custom-tabs">
+          <!-- Revenue Reports Tab -->
+          <mat-tab label="Revenue Reports">
+            <div class="tab-content">
+              <h2 class="tab-title">Revenue Reports</h2>
+              <div class="report-section">
+                <!-- <canvas baseChart
+                        [datasets]="revenueChartData"
+                        [labels]="revenueChartLabels"
+                        [chartType]="'bar'"
+                        [options]="chartOptions">
+                </canvas> -->
+                <mat-table [dataSource]="revenueData" class="data-table">
+                  <ng-container matColumnDef="month">
+                    <mat-header-cell *matHeaderCellDef> Month </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.month }} </mat-cell>
+                  </ng-container>
+      
+                  <ng-container matColumnDef="revenue">
+                    <mat-header-cell *matHeaderCellDef> Revenue </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.revenue | currency }} </mat-cell>
+                  </ng-container>
+      
+                  <mat-header-row *matHeaderRowDef="revenueColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: revenueColumns;"></mat-row>
+                </mat-table>
+              </div>
+            </div>
+          </mat-tab>
+      
+          <!-- Occupancy Reports Tab -->
+          <mat-tab label="Occupancy Reports">
+            <div class="tab-content">
+              <h2 class="tab-title">Occupancy Reports</h2>
+              <div class="report-section">
+                <!-- <canvas baseChart
+                        [datasets]="occupancyChartData"
+                        [labels]="occupancyChartLabels"
+                        [chartType]="'line'"
+                        [options]="chartOptions">
+                </canvas> -->
+              </div>
+            </div>
+          </mat-tab>
+      
+          <!-- Guest Demographics Tab -->
+          <mat-tab label="Guest Demographics">
+            <div class="tab-content">
+              <h2 class="tab-title">Guest Demographics</h2>
+              <div class="report-section">
+                <mat-table [dataSource]="guestDemographicsData" class="data-table">
+                  <ng-container matColumnDef="ageGroup">
+                    <mat-header-cell *matHeaderCellDef> Age Group </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.ageGroup }} </mat-cell>
+                  </ng-container>
+      
+                  <ng-container matColumnDef="numberOfGuests">
+                    <mat-header-cell *matHeaderCellDef> Number of Guests </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.numberOfGuests }} </mat-cell>
+                  </ng-container>
+      
+                  <mat-header-row *matHeaderRowDef="demographicsColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: demographicsColumns;"></mat-row>
+                </mat-table>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

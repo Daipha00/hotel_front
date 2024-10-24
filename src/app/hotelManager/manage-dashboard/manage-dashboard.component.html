@@ -1,0 +1,82 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-manager-nav></app-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+       <div class="manager-dashboard">
+        <div class="dashboard-header">
+          <h1>Manager Dashboard</h1>
+          <p>Overview of daily hotel operations, recent bookings, and revenue figures</p>
+        </div>
+      
+        <!-- Dashboard Metrics Section -->
+        <div class="dashboard-metrics">
+          <!-- Daily Operations Card -->
+          <div class="metric-card operations-card">
+            <mat-icon class="metric-icon">engineering</mat-icon>
+            <div class="metric-details">
+              <h2>{{ dailyOperations }}</h2>
+              <p>Daily Operations</p>
+            </div>
+          </div>
+      
+          <!-- Recent Bookings Card -->
+          <div class="metric-card bookings-card">
+            <mat-icon class="metric-icon">book_online</mat-icon>
+            <div class="metric-details">
+              <h2>{{ recentBookings }}</h2>
+              <p>Recent Bookings</p>
+            </div>
+          </div>
+      
+          <!-- Revenue Figures Card -->
+          <div class="metric-card revenue-card">
+            <mat-icon class="metric-icon">attach_money</mat-icon>
+            <div class="metric-details">
+              <h2>{{ revenueFigures | currency:'USD' }}</h2>
+              <p>Revenue Today</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Detailed Summary Section -->
+        <div class="dashboard-summary">
+          <h2>Hotel Operations Summary</h2>
+          <p>{{ operationsSummary }}</p>
+        </div>
+      </div>
+      
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

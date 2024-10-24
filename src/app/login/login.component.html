@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Welcome Back!</h2>
+    <p>Login to continue your journey.</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="userName" required>
+        <mat-error *ngIf="f['userName'].invalid && (f['userName'].dirty || f['userName'].touched)">
+          <span *ngIf="f['userName'].errors?.['required']">Username is required.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="userPassword" formControlName="userPassword" required>
+        <mat-error *ngIf="f['userPassword'].invalid && (f['userPassword'].dirty || f['userPassword'].touched)">
+          <span *ngIf="f['userPassword'].errors?.['required']">Password is required.</span>
+          <span *ngIf="f['userPassword'].errors?.['minlength']">Password must be at least 6 characters long.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="error" class="error-message">{{ error }}</div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading" class="login-button">Login</button>
+    </form>
+
+    <p class="footer-text">Don't have an account? <a routerLink="/register">Sign Up</a></p>
+  </div>
+</div>

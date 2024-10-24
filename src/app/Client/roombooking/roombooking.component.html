@@ -1,0 +1,104 @@
+<div class="header">
+  <div class="logo">
+    <span class="dot"></span>
+    <h1>Rooms</h1>
+  </div>
+  <div class="nav">
+    <a href="#">Home</a>
+    <span>></span>
+    <a href="#">Rooms</a>
+  </div>
+</div>
+
+<div class="hotel-card">
+  <div class="description-container">
+    <h2>SuzaHotel Rooms</h2>
+    <p>Explore over 200 world-class venues for all your event needs</p>
+    
+    <div class="filter">
+        <!-- View Options -->
+        <div class="view">
+            <span>View as</span>
+            <button class="grid">
+                <i class="fas fa-th-large"></i> <!-- Grid Icon -->
+            </button>
+            <button class="list">
+                <i class="fas fa-list"></i> <!-- List Icon -->
+            </button>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="sort">
+            <span>Sort By:</span>
+            <select>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+                <option value="rating">Highest Rating</option>
+                <option value="popularity">Most Popular</option>
+            </select>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search Venues by Name or Location" />
+            <button class="search">Search</button>
+        </div>
+    </div>
+
+    <!-- New feature for rating -->
+    <div class="rating">
+        <p>Rating: ★★★★☆ (4.5/5 based on customer reviews)</p> <!-- Add customer review stats -->
+    </div>
+</div>
+
+
+<div class="venues-section">
+  <h2>Available Rooms</h2>
+  <div class="venue-cards">
+    <mat-card class="venue-card" *ngFor="let room of rooms">
+      <img [src]="room.image ? 'data:image/jpeg;base64,' + room.image : 'default-venue.jpg'" alt="Venue Image">
+      <h3>{{ room.roomType }}</h3>
+      <p>Capacity: {{ room.pax }}</p>
+      <p>Location: {{ room.availabilityStatus }}</p>
+      <p>Price: {{ room.price | currency }}</p>
+      <p>Description: {{ room.description }}</p>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openBookingDialog(room)">Book Now</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+  </div>
+
+
+
+
+ 
+  
+
+  <div class="tech-section">
+    <div class="description-container">
+      <h2>Global Venues at Your Fingertips</h2>
+      <p>With our cutting-edge booking technology, you can now explore and reserve venues from any corner of the world. Our platform utilizes advanced cloud infrastructure, ensuring that your bookings are secure, fast, and accessible anytime, anywhere.</p>
+      <p>Whether you're hosting a local gathering or an international event, we bring you venues that fit your needs, backed by world-class technology to make the booking process seamless and reliable.</p>
+    </div>
+  
+    <div class="features">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li><strong>Real-Time Availability:</strong> Instantly view the current availability of venues worldwide and book on the go.</li>
+        <li><strong>AI-Powered Recommendations:</strong> Get personalized venue suggestions based on your event needs and location preferences.</li>
+        <li><strong>Virtual Venue Tours:</strong> Experience venues like never before with our immersive 360-degree virtual tours, giving you a feel of the space before booking.</li>
+        <li><strong>Blockchain Secured Payments:</strong> Rest assured that your payments are secured with blockchain technology, providing transparency and security for all transactions.</li>
+        <li><strong>Global Customer Support:</strong> Our multilingual support team is available 24/7 to assist you with any inquiries or issues, no matter where you're located.</li>
+      </ul>
+    </div>
+  
+    <div class="book-now">
+      <h2>Book with Confidence</h2>
+      <p>Our platform is built with a focus on security and ease-of-use, ensuring that every booking is smooth and hassle-free. We offer flexible payment options including local currencies and major cryptocurrencies, making it convenient for global customers.</p>
+      <button mat-raised-button color="primary"><a href="/venues">Explore Venues Now</a></button>
+    </div>
+  </div>
+  

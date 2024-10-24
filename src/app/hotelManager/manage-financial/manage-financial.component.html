@@ -1,0 +1,128 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-manager-nav></app-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+       <div class="financial-management mat-elevation-z8">
+        <h1>Financial Management</h1>
+      
+        <!-- Revenue Reports -->
+        <div class="section">
+          <mat-card class="report-card">
+            <mat-card-header>
+              <mat-card-title>Revenue Reports</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-grid-list cols="3" rowHeight="150px" gutterSize="20px">
+                <mat-grid-tile>
+                  <div class="financial-item">
+                    <h3>Daily Earnings</h3>
+                    <p class="stat-value">$2,500</p>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="financial-item">
+                    <h3>Weekly Earnings</h3>
+                    <p class="stat-value">$15,000</p>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="financial-item">
+                    <h3>Monthly Earnings</h3>
+                    <p class="stat-value">$60,000</p>
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      
+        <!-- Expense Tracking -->
+        <div class="section">
+          <mat-card class="expense-card">
+            <mat-card-header>
+              <mat-card-title>Expense Tracking</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-grid-list cols="2" rowHeight="150px" gutterSize="20px">
+                <mat-grid-tile>
+                  <div class="financial-item">
+                    <h3>Operational Expenses</h3>
+                    <p class="stat-value">$20,000</p>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="financial-item">
+                    <h3>Maintenance Expenses</h3>
+                    <p class="stat-value">$5,000</p>
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      
+        <!-- Budgeting Tools -->
+        <div class="section">
+          <mat-card class="budgeting-card">
+            <mat-card-header>
+              <mat-card-title>Budgeting Tools</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="budgeting-controls">
+                <h3>Allocate Budget Across Departments</h3>
+                <div class="budget-item">
+                  <h4>Operations</h4>
+                  <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
+                  <p class="budget-value">$30,000</p>
+                </div>
+                <div class="budget-item">
+                  <h4>Maintenance</h4>
+                  <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+                  <p class="budget-value">$20,000</p>
+                </div>
+                <div class="budget-item">
+                  <h4>Marketing</h4>
+                  <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+                  <p class="budget-value">$10,000</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      
+        
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

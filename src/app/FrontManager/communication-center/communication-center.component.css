@@ -1,0 +1,86 @@
+.communication-center {
+    background: linear-gradient(135deg, #f1f5f8, #a6b1b9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .custom-tabs .mat-tab-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3f51b5;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+  }
+  
+  .custom-tabs .mat-tab-label-active {
+    color: #1e88e5;
+    border-bottom: 3px solid #a5b6c5;
+  }
+  
+  .tab-content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .notifications-section,
+  .guest-communication-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .send-notification-btn,
+  .send-response-btn {
+    background-color: #1e88e5;
+    color: white;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+  }
+  
+  .send-notification-btn:hover,
+  .send-response-btn:hover {
+    background-color: #1976d2;
+  }
+  
+  .notification-messages,
+  .guest-messages {
+    margin-top: 20px;
+  }
+  
+  .notification-messages h3,
+  .guest-messages h3 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .mat-list-item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 5px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+  }
+  
+  .mat-list-item:hover {
+    background: #e0e0e0;
+  }
+  

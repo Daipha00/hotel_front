@@ -1,0 +1,155 @@
+/* General container for Support & Documentation */
+.support-documentation {
+    padding: 20px;
+    background-color: #f0f4f8; /* Light background for better contrast */
+    border-radius: 10px; /* Rounded corners for the overall section */
+  }
+  
+  /* Tab Group Styles */
+  .mat-tab-group {
+    margin-bottom: 20px;
+  }
+  
+  /* User Manuals Section */
+  .manuals-container {
+    background-color: #ffffff; /* White background for manuals */
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: transform 0.3s; /* Add hover effect */
+  }
+  
+  .manuals-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  .manuals-container h2 {
+    color: #1a252f; /* Dark color for headings */
+    font-family: 'Nunito', sans-serif; /* Elegant font for headings */
+    font-size: 24px;
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  .manuals-container ul {
+    list-style: none; /* Remove bullet points */
+  }
+  
+  .manuals-container li {
+    margin-bottom: 10px; /* Space between links */
+  }
+  
+  .manuals-container a {
+    color: #6a11cb; /* Theme color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for link color */
+  }
+  
+  .manuals-container a:hover {
+    color: #2575fc; /* Change color on hover */
+  }
+  
+  /* Troubleshooting Guides Section */
+  .troubleshooting-container {
+    margin-top: 20px;
+  }
+  
+  .issue-card {
+    background-color: #ffffff; /* White background for issue cards */
+    border: 1px solid #e0e0e0; /* Border for cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px; /* Spacing between cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: transform 0.3s; /* Add hover effect */
+  }
+  
+  .issue-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  .issue-card h3 {
+    color: #6a11cb; /* Theme color for issue titles */
+    font-family: 'Nunito', sans-serif; /* Consistent font */
+    margin-bottom: 10px; /* Space below title */
+  }
+  
+  .issue-card p {
+    line-height: 1.6; /* Better line spacing for readability */
+  }
+  
+  /* Contact Support Section */
+  .contact-support-container {
+    background-color: #ffffff; /* White background */
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: transform 0.3s; /* Add hover effect */
+  }
+  
+  .contact-support-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  .contact-support-container h2 {
+    color: #1a252f; /* Dark color for headings */
+    font-family: 'Nunito', sans-serif; /* Elegant font for headings */
+  }
+  
+  /* Full-width Input Fields */
+  .full-width {
+    width: 100%;
+  }
+  
+  /* Input Fields Styling */
+  mat-form-field {
+    margin-bottom: 20px; /* Spacing between form fields */
+  }
+  
+  input, textarea {
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ced4da; /* Border color */
+    padding: 10px; /* Padding for inputs */
+    transition: border-color 0.3s; /* Smooth transition for border */
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #6a11cb; /* Change border color on focus */
+  }
+  
+  /* Button Styles */
+  button.mat-raised-button {
+    margin-top: 20px;
+    background-color: #6a11cb; /* Button color */
+    color: #ffffff; /* White text for better contrast */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s; /* Smooth transition for button color */
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #2575fc; /* Change button color on hover */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .support-documentation {
+      padding: 10px; /* Reduce padding on mobile */
+    }
+  
+    .manuals-container, .troubleshooting-container, .contact-support-container {
+      padding: 20px; /* Adjust padding for inner sections */
+    }
+  
+    .issue-card {
+      padding: 15px; /* Smaller padding for issue cards */
+    }
+  
+    h2 {
+      font-size: 22px; /* Slightly smaller heading on mobile */
+    }
+  
+    .manuals-container h2 {
+      font-size: 20px; /* Adjust heading size */
+    }
+  }
+  

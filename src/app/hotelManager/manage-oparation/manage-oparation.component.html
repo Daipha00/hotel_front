@@ -1,0 +1,85 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+     <app-manager-nav></app-manager-nav>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+     
+      
+       <div class="bookings-reservations">
+        <div class="section-header">
+          <h1>Bookings & Reservations</h1>
+          <p>Manage current and upcoming bookings. Confirm or cancel reservations and allocate rooms/venues.</p>
+        </div>
+      
+        <!-- Current and Upcoming Bookings -->
+        <div class="bookings-list">
+          <h2>Current and Upcoming Bookings</h2>
+      
+          <table mat-table [dataSource]="bookings" class="mat-elevation-z8">
+      
+            <!-- Booking ID Column -->
+            <ng-container matColumnDef="bookingId">
+              <th mat-header-cell *matHeaderCellDef> Booking ID </th>
+              <td mat-cell *matCellDef="let booking"> {{ booking.bookingId }} </td>
+            </ng-container>
+      
+            <!-- Guest Name Column -->
+            <ng-container matColumnDef="guestName">
+              <th mat-header-cell *matHeaderCellDef> Guest Name </th>
+              <td mat-cell *matCellDef="let booking"> {{ booking.guestName }} </td>
+            </ng-container>
+      
+            <!-- Date Column -->
+            <ng-container matColumnDef="bookingDate">
+              <th mat-header-cell *matHeaderCellDef> Date </th>
+              <td mat-cell *matCellDef="let booking"> {{ booking.bookingDate | date }} </td>
+            </ng-container>
+      
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let booking">
+                <button mat-button color="primary" (click)="confirmBooking(booking.bookingId)">Confirm</button>
+                <button mat-button color="warn" (click)="cancelBooking(booking.bookingId)">Cancel</button>
+                <button mat-button (click)="allocateRoom(booking.bookingId)">Allocate Room</button>
+              </td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+      
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+  </div>
+  

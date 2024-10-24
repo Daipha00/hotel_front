@@ -1,0 +1,99 @@
+/* Dashboard Container */
+.manager-dashboard {
+    padding: 20px;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    /* Removed height and overflow so it doesn't create a separate scrollbar */
+  }
+  
+  /* Header Styles */
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.5rem;
+    color: #1f3c88;
+    font-weight: bold;
+  }
+  
+  .dashboard-header p {
+    font-size: 1.2rem;
+    color: #7a7a7a;
+  }
+  
+  /* Grid and Card Styling */
+  .dashboard-metrics {
+    margin-bottom: 40px;
+    flex-shrink: 0;
+  }
+  
+  .card {
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Individual Cards */
+  .reservations-card .mat-card-title,
+  .occupancy-card .mat-card-title,
+  .payments-card .mat-card-title {
+    color: #2575fc;
+  }
+  
+  .mat-card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-card-header mat-icon {
+    font-size: 36px;
+    margin-right: 10px;
+    color: #2575fc;
+  }
+  
+  .metric-value {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #1f3c88;
+  }
+  
+  /* Chart Section */
+  .dashboard-charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  
+  .chart-card {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-card canvas {
+    width: 100%;
+    height: 300px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    mat-grid-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .dashboard-charts {
+      flex-direction: column;
+    }
+  }
+  

@@ -1,0 +1,223 @@
+/* Styles for the hero section */
+.hero-section {
+  background-image: url('/home.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  color: white;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #00C8C8;
+}
+
+.hero-content {
+  text-align: center;
+  margin: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+}
+
+.search-bar {
+  margin-top: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px;
+  font-size: 1em;
+  background-color: #00C8C8;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #008C8C;
+}
+
+/* Styles for main content section */
+.content-section {
+  padding: 50px;
+  background-color: white;
+  text-align: center;
+}
+
+.content-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+.content-section p {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+
+/* Venue Cards */
+.venue-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Make it responsive */
+  gap: 20px;
+}
+
+.venue-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.venue-card:hover {
+  transform: translateY(-5px);
+}
+
+.venue-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.venue-card h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.venue-card .price {
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.venue-card p {
+  color: #777;
+  line-height: 1.5;
+}
+
+
+/* Venue Booking Services Section */
+.venue-booking-section {
+  background-color: #f9f9f9;
+  padding: 50px;
+  text-align: center;
+}
+
+.venue-booking-section h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.venue-booking-section p {
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.venue-booking-features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 3em;
+  color: #00C8C8; /* Icon color */
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #777;
+  line-height: 1.5;
+}
+
+.book-venue-button {
+  margin-top: 30px;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  /* background-color: #00C8C8; */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.book-venue-button:hover {
+  background-color: #008C8C;
+}

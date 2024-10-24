@@ -1,0 +1,26 @@
+<nav mat-nav-list class="admin-nav">
+  <mat-list-item routerLink="/adminDashboard" routerLinkActive="active">
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+  </mat-list-item>
+  <mat-list-item routerLink="/userManagement" routerLinkActive="active">
+    <mat-icon>people</mat-icon>
+    <span>User Management</span>
+  </mat-list-item>
+  <mat-list-item routerLink="/adminRoomVenueConfiguration" routerLinkActive="active">
+    <mat-icon>hotel</mat-icon>
+    <span>Room & Venue Configuration</span>
+  </mat-list-item>
+  <mat-list-item routerLink="/support" routerLinkActive="active">
+    <mat-icon>support</mat-icon>
+    <span>Support & Documentation</span>
+  </mat-list-item>
+  <mat-list-item routerLink="/adminReport" routerLinkActive="active">
+    <mat-icon>analytics</mat-icon>
+    <span>Reporting & Analytics</span>
+  </mat-list-item>
+  <mat-list-item (click)="logout()" routerLink="active">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </mat-list-item>
+</nav>

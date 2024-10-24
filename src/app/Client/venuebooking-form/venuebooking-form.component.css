@@ -1,0 +1,180 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .pricing-section, .booking-section {
+    width: 45%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .booking-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  mat-form-field {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .payment-details {
+    margin-top: 10px;
+  }
+  
+  button {
+    width: 100%;
+  }
+
+
+
+  /* Styles for the hero section */
+.hero-section {
+    background-image: url('/home.jpg');
+    /* background-color: #00C8C8; */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    position: relative;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin: 0 15px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2em;
+  }
+  
+  .search-bar {
+    margin-top: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #00C8C8;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    font-size: 1.2em;
+  }
+  
+  /* Styles for main content section */
+  .content-section {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .content-section h2 {
+    color: #333;
+  }
+  
+  /* Venues Section */
+.venues-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+  }
+  
+  .venues-section h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .venues-section p {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  
+  .venue-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .venue-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .venue-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .venue-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .venue-card .price {
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 10px;
+  }
+  
+  .venue-card p {
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  

@@ -1,0 +1,89 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Menu</span>
+      </mat-toolbar>
+   <app-admin-navigation></app-admin-navigation>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My Application</span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="support-documentation">
+        <mat-tab-group>
+          <!-- User Manuals Tab -->
+          <mat-tab label="User Manuals">
+            <div class="manuals-container">
+              <h2>User Manuals</h2>
+              <ul>
+                <li *ngFor="let manual of userManuals">
+                  <a [href]="manual.link" target="_blank">{{ manual.title }}</a>
+                </li>
+              </ul>
+            </div>
+          </mat-tab>
+      
+          <!-- Troubleshooting Guides Tab -->
+          <mat-tab label="Troubleshooting Guides">
+            <div class="troubleshooting-container">
+              <h2>Troubleshooting Guides</h2>
+              <div *ngFor="let issue of troubleshootingIssues" class="issue-card">
+                <h3>{{ issue.title }}</h3>
+                <p>{{ issue.description }}</p>
+                <h4>Solution:</h4>
+                <p>{{ issue.solution }}</p>
+              </div>
+            </div>
+          </mat-tab>
+      
+          <!-- Contact Support Tab -->
+          <mat-tab label="Contact Support">
+            <div class="contact-support-container">
+              <h2>Contact Support</h2>
+              <form (ngSubmit)="submitSupportInquiry()">
+                <mat-form-field class="full-width">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Enter your name" [(ngModel)]="supportInquiry.name" name="name" required>
+                </mat-form-field>
+      
+                <mat-form-field class="full-width">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" placeholder="Enter your email" [(ngModel)]="supportInquiry.email" name="email" required>
+                </mat-form-field>
+      
+                <mat-form-field class="full-width">
+                  <mat-label>Inquiry</mat-label>
+                  <textarea matInput placeholder="Describe your inquiry" [(ngModel)]="supportInquiry.message" name="message" required></textarea>
+                </mat-form-field>
+      
+                <button mat-raised-button color="primary" type="submit">Submit Inquiry</button>
+              </form>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+        <!-- Dynamic Content via Router Outlet -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

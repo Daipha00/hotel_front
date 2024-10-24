@@ -1,0 +1,95 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* General Container */
+  .container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    width: 250px;
+    background-color: #dee1e4;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Fix the sidebar to the viewport */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbar on sidebar */
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #1a252f;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    margin-left: 250px; /* Same as sidebar width */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Toolbar Styling */
+  .main-toolbar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .menu-button {
+    margin-right: 16px;
+  }
+  
+  /* Content Area Styling */
+  .content {
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #ecf0f1;
+    flex: 1;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: absolute;
+      left: -250px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+  
+    .sidebar.open {
+      left: 0;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  
+    .menu-button {
+      display: block;
+    }
+  }
+  
