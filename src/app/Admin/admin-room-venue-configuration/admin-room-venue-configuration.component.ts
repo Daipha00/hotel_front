@@ -157,15 +157,13 @@ export class AdminRoomVenueConfigurationComponent {
         console.error('Error updating room', error);
       });
   }
-  
-  
-  
 
   // API: Delete Room
   deleteRoom(room: any) {
     this.http.delete(`http://localhost:9090/room/${room.id}`).subscribe(() => {
       console.log('Room deleted successfully');
       this.loadRooms(); // Refresh room data after deletion
+      this.resetForm();
     }, error => {
       console.error('Error deleting room:', error);
     });
