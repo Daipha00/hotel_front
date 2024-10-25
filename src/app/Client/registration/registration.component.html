@@ -1,0 +1,100 @@
+<!-- registration.component.html -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header">
+            <h3>Registration Form</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="userName">User  Name:</label>
+                  <input type="text" formControlName="userName" class="form-control" id="userName">
+                  <div *ngIf="(registrationForm.get('userName')?.invalid ?? false) && (registrationForm.get('userName')?.touched ?? false)" class="text-danger">
+                    User Name is required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="userPassword">Password:</label>
+                  <input type="password" formControlName="userPassword" class="form-control" id="userPassword">
+                  <div *ngIf="(registrationForm.get('userPassword')?.invalid ?? false) && (registrationForm.get('userPassword')?.touched ?? false)" class="text-danger">
+                    Password is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="userFirstName">First Name:</label>
+                  <input type="text" formControlName="userFirstName" class="form-control" id="userFirstName">
+                  <div *ngIf="(registrationForm.get('userFirstName')?.invalid ?? false) && (registrationForm.get('userFirstName')?.touched ?? false)" class="text-danger">
+                    First Name is required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="userLastName">Last Name:</label>
+                  <input type="text" formControlName="userLastName" class="form-control" id="userLastName">
+                  <div *ngIf="(registrationForm.get('userLastName')?.invalid ?? false) && (registrationForm.get('userLastName')?.touched ?? false)" class="text-danger">
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="address">Address:</label>
+                  <input type="text" formControlName="address" class="form-control" id="address">
+                  <div *ngIf="(registrationForm.get('address')?.invalid ?? false) && (registrationForm.get('address')?.touched ?? false)" class="text-danger">
+                    Address is required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email:</label>
+                  <input type="email" formControlName="email" class="form-control" id="email">
+                  <div *ngIf="(registrationForm.get('email')?.invalid ?? false) && (registrationForm.get('email')?.touched ?? false)" class="text-danger">
+                    Email is required and must be a valid email
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="phoneNumber">Phone Number:</label>
+                  <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber">
+                  <div *ngIf="(registrationForm.get('phoneNumber')?.invalid ?? false) && (registrationForm.get('phoneNumber')?.touched ?? false)" class="text-danger">
+                    Phone Number is required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="country">Country:</label>
+                    <select formControlName="country" class="form-control" id="country">
+                      <option value="" disabled selected>Select your country</option>
+                      <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+                    </select>
+                    <div *ngIf="(registrationForm.get('country')?.invalid ?? false) && (registrationForm.get('country')?.touched ?? false)" class="text-danger">
+                      Country is required
+                    </div>
+                    </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="city">City:</label>
+                  <input type="text" formControlName="city" class="form-control" id="city">
+                  <div *ngIf="(registrationForm.get('city')?.invalid ?? false) && (registrationForm.get('city')?.touched ?? false)" class="text-danger">
+                    City is required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="address">Zipcode:</label>
+                    <input type="text" formControlName="zipcode" class="form-control" id="zipcode">
+                    <div *ngIf="(registrationForm.get('zipcode')?.invalid ?? false) && (registrationForm.get('zipcode')?.touched ?? false)" class="text-danger">
+                     Zipcode is required
+                    </div>
+                  </div>
+                </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

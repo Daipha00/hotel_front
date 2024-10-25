@@ -36,11 +36,13 @@ import { AuthGuard } from './login/auth-guard';
 import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.component';
 import { RoombookingComponent } from './Client/roombooking/roombooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
+import { RegistrationComponent } from './Client/registration/registration.component';
 
 const routes: Routes = [
   //Admin
   {path:'',component:LoginComponent},
   {path: 'login', component: LoginComponent},
+  {path:'login', component:LoginComponent},
 
   {path: 'adminDashboard', component: AdminDashboardComponent},
   {path: 'userManagement', component: UserManagementComponent},
@@ -62,6 +64,7 @@ const routes: Routes = [
   {path: 'Client/venuebooking-form', component: VenuebookingFormComponent},
   {path: 'venue',component:VenueComponent},
   {path: 'booking-dialog', component:BookingDialogComponent},
+  {path:'registration',component:RegistrationComponent},
 
   //FrontManager
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},

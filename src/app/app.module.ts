@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
@@ -66,6 +67,8 @@ import { PopupformComponent } from './Client/popupform/popupform.component';
 import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
+import { RegistrationComponent } from './Client/registration/registration.component';
+
 
 
 
@@ -96,7 +99,8 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
     PopupformComponent,
     BookingDialogComponent,
-    ImageDialogComponent, 
+    ImageDialogComponent,
+    RegistrationComponent, 
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,

@@ -1,31 +1,39 @@
 <div class="login-container">
-  <div class="login-card">
-    <h2>Welcome Back!</h2>
-    <p>Login to continue your journey.</p>
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="userName">Username</label>
+      <input
+        type="text"
+        id="userName"
+        formControlName="userName"
+        class="form-control"
+      />
+      <div *ngIf="f['userName'].invalid && (f['userName'].dirty || f['userName'].touched)" class="invalid-feedback">
+        Username is required.
+      </div>
+    </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill" class="input-field">
-        <mat-label>Username</mat-label>
-        <input matInput formControlName="userName" required>
-        <mat-error *ngIf="f['userName'].invalid && (f['userName'].dirty || f['userName'].touched)">
-          <span *ngIf="f['userName'].errors?.['required']">Username is required.</span>
-        </mat-error>
-      </mat-form-field>
+    <div class="form-group">
+      <label for="userPassword">Password</label>
+      <div class="password-container">
+        <input
+          [type]="isPasswordVisible ? 'text' : 'password'" 
+          id="userPassword"
+          formControlName="userPassword"
+          class="form-control"
+        />
+        <span class="eye-icon" (click)="togglePasswordVisibility()">
+          <i [ngClass]="isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+        </span>
+      </div>
+      <div *ngIf="f['userPassword'].invalid && (f['userPassword'].dirty || f['userPassword'].touched)" class="invalid-feedback">
+        Password is required.
+      </div>
+    </div>
 
-      <mat-form-field appearance="fill" class="input-field">
-        <mat-label>Password</mat-label>
-        <input matInput type="userPassword" formControlName="userPassword" required>
-        <mat-error *ngIf="f['userPassword'].invalid && (f['userPassword'].dirty || f['userPassword'].touched)">
-          <span *ngIf="f['userPassword'].errors?.['required']">Password is required.</span>
-          <span *ngIf="f['userPassword'].errors?.['minlength']">Password must be at least 6 characters long.</span>
-        </mat-error>
-      </mat-form-field>
+    <button type="submit" class="btn btn-primary" [disabled]="loading">Login</button>
 
-      <div *ngIf="error" class="error-message">{{ error }}</div>
-
-      <button mat-raised-button color="primary" type="submit" [disabled]="loading" class="login-button">Login</button>
-    </form>
-
-    <p class="footer-text">Don't have an account? <a routerLink="/register">Sign Up</a></p>
-  </div>
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+  </form>
 </div>
