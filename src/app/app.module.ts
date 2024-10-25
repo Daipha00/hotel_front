@@ -72,6 +72,7 @@ import { RegistrationComponent } from './Client/registration/registration.compon
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +109,7 @@ import { RegistrationComponent } from './Client/registration/registration.compon
     MatCardModule,MatGridListModule,MatTabsModule,MatFormFieldModule,MatInputModule,MatTableModule,
     FormsModule,ReactiveFormsModule,BrowserAnimationsModule,CommonModule,MatDatepickerModule,MatOptionModule,
     MatProgressBarModule,MatNativeDateModule,HttpClientModule,MatDialogModule,    MatDialogModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
