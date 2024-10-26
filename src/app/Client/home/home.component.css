@@ -1,23 +1,39 @@
-/* Styles for the hero section */
+/* Reset some default styles */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
 .hero-section {
-  background-image: url('/home.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 80vh;
-  color: white;
-  position: relative;
+  background: url('/home.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
 }
 
 .navbar {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  width: 100%;
-  
+  width: 80%;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFD700; /* Gold color */
 }
 
 .navbar ul {
@@ -26,32 +42,32 @@
 }
 
 .navbar ul li {
-  margin: 0 15px;
+  margin-left: 20px;
 }
 
 .navbar ul li a {
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #fff;
   transition: color 0.3s;
 }
 
 .navbar ul li a:hover {
-  color: #00C8C8;
+  color: #FFD700; /* Gold color */
 }
 
 .hero-content {
-  text-align: center;
-  margin: 20px;
+  z-index: 1;
 }
 
 .hero-content h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
+  font-size: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content p {
-  font-size: 1.2em;
+  font-size: 24px;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .search-bar {
@@ -60,164 +76,151 @@
 
 .search-bar input {
   padding: 10px;
-  font-size: 1em;
-  margin-right: 10px;
+  margin: 5px;
   border: none;
   border-radius: 5px;
+  outline: none;
 }
 
 .search-bar button {
-  padding: 10px;
-  font-size: 1em;
-  background-color: #00C8C8;
+  padding: 10px 20px;
+  background: #FFD700; /* Gold color */
   border: none;
   border-radius: 5px;
-  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 .search-bar button:hover {
-  background-color: #008C8C;
+  background: #FFC107; /* Darker gold color */
 }
 
-/* Styles for main content section */
+/* Content Section */
 .content-section {
-  padding: 50px;
-  background-color: white;
+  padding: 60px 20px;
+  background: #f4f4f4;
   text-align: center;
 }
 
 .content-section h2 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 2.5em;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .content-section p {
-  color: #666;
-  font-size: 1.1em;
+  font-size: 18px;
   margin-bottom: 40px;
 }
 
-/* Venue Cards */
 .venue-cards {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; /* Make it responsive */
+  justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .venue-card {
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 8px;
-  width: 30%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
   transition: transform 0.3s;
 }
 
 .venue-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .venue-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
 }
 
 .venue-card h3 {
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin: 10px 0;
 }
 
-.venue-card .price {
-  font-weight: bold;
-  color: #ffcc00;
-  margin-bottom: 10px;
+.price {
+  font-size: 20px;
+  color: #FFD700; /* Gold color */
 }
 
-.venue-card p {
-  color: #777;
-  line-height: 1.5;
+.book-venue-button {
+  margin-top: 40px;
 }
 
+.book-venue-button a {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #FFD700; /* Gold color */
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.book-venue-button a:hover {
+  background: #FFC107; /* Darker gold color */
+}
 
 /* Venue Booking Services Section */
 .venue-booking-section {
-  background-color: #f9f9f9;
-  padding: 50px;
+  padding: 60px 20px;
+  background: #fff;
   text-align: center;
 }
 
 .venue-booking-section h2 {
-  font-size: 2.5em;
-  color: #333;
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
 .venue-booking-section p {
-  color: #666;
-  font-size: 1.2em;
+  font-size: 18px;
   margin-bottom: 40px;
 }
 
-.venue-booking-features {
+ .venue-booking-features {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 30px;
 }
 
 .feature {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 30%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
   transition: transform 0.3s;
-  text-align: center;
 }
 
 .feature:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+}
+
+.feature img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .feature i {
-  font-size: 3em;
-  color: #00C8C8; /* Icon color */
-  margin-bottom: 15px;
+  font-size: 36px;
+  margin: 20px;
+  color: #FFD700; /* Gold color */
 }
 
 .feature h3 {
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin: 10px 0;
 }
 
 .feature p {
-  color: #777;
-  line-height: 1.5;
-}
-
-.book-venue-button {
-  margin-top: 30px;
-  padding: 15px 25px;
-  font-size: 1.1em;
-  /* background-color: #00C8C8; */
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-}
-
-.book-venue-button:hover {
-  background-color: #008C8C;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
