@@ -37,6 +37,8 @@ import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.c
 import { RoombookingComponent } from './Client/roombooking/roombooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
 import { RegistrationComponent } from './Client/registration/registration.component';
+import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
+import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
 
 const routes: Routes = [
   //Admin
@@ -50,7 +52,8 @@ const routes: Routes = [
   {path:'adminRoomVenueConfiguration',component:AdminRoomVenueConfigurationComponent},
   {path:'adminReport',component:ReportGenerationComponent},
   {path:'imageDialog',component:ImageDialogComponent},
-  
+  {path:'adminFrontManager',component:FrontManagerComponent},
+  {path:'adminFrontStaff',component:FrontStaffManagerComponent},
 
 
   

@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
+import { HotelManager } from './hotel-manager.model';
+import { MatTableDataSource } from '@angular/material/table';
+import { HotelManagerService } from './hotel-manager.service';
+import { FrontOfficeManagerService } from './front-office-manager.service';
+import { FrontOfficeManager } from './front-office-manager.model';
 
 interface User {
   username: string;
@@ -10,30 +14,39 @@ interface User {
   email: string;
   phoneNumber: string;
 }
+
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
-  styleUrl: './user-management.component.css'
+  styleUrls: ['./user-management.component.css']
 })
-export class UserManagementComponent {
+export class UserManagementComponent implements OnInit{
   isSidebarOpen = false;
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
-  newManager: User = {
-    username: '',
-    password: '',
-    firstName: '',
+
+  hotelManagers: HotelManager[] = [];
+  frontOfficeManagers: FrontOfficeManager[] = [];
+
+  newManager: HotelManager = {
+    id: 0,
+    userName: '',
+    userPassword: '',
+    userFirstName: '',
+    userLastName: '',
     address: '',
     email: '',
     phoneNumber: ''
   };
 
-  newFrontOfficeManager: User = {
-    username: '',
-    password: '',
-    firstName: '',
+  newFrontOfficeManager: FrontOfficeManager = {
+    id: 0,
+    userName: '',
+    userPassword: '',
+    userFirstName: '',
+    userLastName: '',
     address: '',
     email: '',
     phoneNumber: ''
@@ -48,49 +61,63 @@ export class UserManagementComponent {
     phoneNumber: ''
   };
 
-  managerData: User[] = [];
+  managerData: MatTableDataSource<HotelManager> = new MatTableDataSource<HotelManager>();
+  displayedColumns: string[] = ['username', 'email', 'phoneNumber', 'actions'];
+  
+  frontManagerData: MatTableDataSource<FrontOfficeManager> = new MatTableDataSource<FrontOfficeManager>();
+  frontOfficeDisplayedColumns: string[] = ['username', 'email', 'phoneNumber'];
+
+
   frontOfficeManagerData: User[] = [];
   frontOfficeStaffData: User[] = [];
 
-  displayedColumns: string[] = ['username', 'email', 'phoneNumber'];
-  frontOfficeDisplayedColumns: string[] = ['username', 'email', 'phoneNumber'];
   frontOfficeStaffDisplayedColumns: string[] = ['username', 'email', 'phoneNumber'];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private hotelManagerService: HotelManagerService,private frontOfficeManagerService: FrontOfficeManagerService) {}
 
   ngOnInit(): void {
-    // Load existing user data (this could be fetched from a service)
-    this.loadUsers();
+    this.loadManagers();
+    this.loadFrontOfficeManagers();
   }
 
-  loadUsers() {
-    // Simulated data; replace this with actual service calls
-    this.managerData = [
-      { username: 'manager1', password: 'pass1', firstName: 'John', address: '123 Street', email: 'manager1@example.com', phoneNumber: '1234567890' },
-      // More managers...
-    ];
-    this.frontOfficeManagerData = [
-      { username: 'frontmanager1', password: 'pass1', firstName: 'Jane', address: '456 Avenue', email: 'frontmanager1@example.com', phoneNumber: '0987654321' },
-      // More front office managers...
-    ];
-    this.frontOfficeStaffData = [
-      { username: 'staff1', password: 'pass1', firstName: 'Alice', address: '789 Boulevard', email: 'staff1@example.com', phoneNumber: '1122334455' },
-      // More staff...
-    ];
+  // Method to submit new manager
+  onSubmitManager(): void {
+    this.hotelManagerService.registerManager(this.newManager).subscribe({
+      next: () => {
+        this.loadManagers(); // Reload the manager list after adding a new manager
+        this.resetForm(); // Reset the form
+      },
+      error: (error: any) => {
+        console.error('Error adding manager', error);
+      }
+    });
   }
 
-  onSubmitManager() {
-    if (this.newManager.username && this.newManager.email) {
-      this.managerData.push({ ...this.newManager });
-      this.resetManagerForm();
-    }
+  // Handle Edit/Update
+  onEditManager(manager: any) {
+    this.newManager = { ...manager }; // Copy manager data into the form model
+  }
+
+  onDeleteManager(id: number) {
+    this.hotelManagerService.deleteHotelManager(id).subscribe({
+      next: () => {
+        // Update the UI after successful deletion
+        this.managerData.data = this.managerData.data.filter(manager => manager.id !== id);
+      },
+      error: (err) => console.error('Error deleting manager: ', err)
+    });
   }
 
   onSubmitFrontOfficeManager() {
-    if (this.newFrontOfficeManager.username && this.newFrontOfficeManager.email) {
-      this.frontOfficeManagerData.push({ ...this.newFrontOfficeManager });
-      this.resetFrontOfficeManagerForm();
-    }
+    this.frontOfficeManagerService.registerNewFrontManager(this.newManager).subscribe({
+      next: () => {
+        this.loadFrontOfficeManagers(); // Reload the manager list after adding a new manager
+        this.resetForm(); // Reset the form
+      },
+      error: (error: any) => {
+        console.error('Error adding manager', error);
+      }
+    });
   }
 
   onSubmitFrontOfficeStaff() {
@@ -100,14 +127,55 @@ export class UserManagementComponent {
     }
   }
 
-  resetManagerForm() {
-    this.newManager = { username: '', password: '', firstName: '', address: '', email: '', phoneNumber: '' };
+  // Method to reset form after successful submission
+  resetForm(): void {
+    this.newManager = {
+      id: 0,
+      userName: '',
+      userPassword: '',
+      userFirstName: '',
+      userLastName: '',
+      address: '',
+      email: '',
+      phoneNumber: ''
+    };
   }
 
   resetFrontOfficeManagerForm() {
-    this.newFrontOfficeManager = { username: '', password: '', firstName: '', address: '', email: '', phoneNumber: '' };
+    this.newFrontOfficeManager = { id: 0,
+      userName: '',
+      userPassword: '',
+      userFirstName: '',
+      userLastName: '',
+      address: '',
+      email: '',
+      phoneNumber: ''
+    };
   }
 
   resetFrontOfficeStaffForm() {
     this.newFrontOfficeStaff = { username: '', password: '', firstName: '', address: '', email: '', phoneNumber: '' };
-  }}
+  }
+
+  // Method to load hotel managers
+  loadManagers(): void {
+    this.hotelManagerService.getAllHotelManagers().subscribe({
+      next: (data: HotelManager[]) => {
+        this.managerData = new MatTableDataSource(data);
+      },
+      error: (error: any) => {
+        console.error('Error fetching managers', error);
+      }
+    });
+  }
+  loadFrontOfficeManagers(): void {
+    this.frontOfficeManagerService.getAllFrontOfficeManagers().subscribe({
+      next: (data: FrontOfficeManager[]) => {
+        this.frontManagerData = new MatTableDataSource(data);
+      },
+      error: (error: any) => {
+        console.error('Error fetching managers', error);
+      }
+    });
+  }
+}

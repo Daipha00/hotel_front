@@ -68,6 +68,8 @@ import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.c
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
 import { RegistrationComponent } from './Client/registration/registration.component';
+import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
+import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
 
 
 
@@ -101,7 +103,7 @@ import { RegistrationComponent } from './Client/registration/registration.compon
     PopupformComponent,
     BookingDialogComponent,
     ImageDialogComponent,
-    RegistrationComponent, 
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,

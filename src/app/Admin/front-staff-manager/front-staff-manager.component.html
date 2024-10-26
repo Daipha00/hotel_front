@@ -1,0 +1,123 @@
+<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="sidebar" [class.open]="isSidebarOpen">
+      <mat-toolbar color="primary" class="sidebar-toolbar">
+        <span>Hotel System</span>
+      </mat-toolbar>
+      <app-admin-navigation></app-admin-navigation>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Toolbar -->
+      <mat-toolbar color="accent" class="main-toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="menu-button"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span></span>
+      </mat-toolbar>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Static Content (Optional) -->
+       <!-- dashboard.component.html -->
+       <div class="user-management">
+      
+     
+          
+      
+   
+                <!-- Front Office Staff Tab -->
+        
+                <div class="form-container">
+                    <h2>{{ editMode ? 'Edit' : 'Add' }} Front Office Staff</h2>
+                    <form #frontOfficeStaffForm="ngForm" (ngSubmit)="onSubmit(frontOfficeStaffForm)">
+                      <mat-form-field class="full-width">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Enter username" required [(ngModel)]="newFrontOfficeStaff.userName" name="username">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Enter password" required [(ngModel)]="newFrontOfficeStaff.userPassword" name="password">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Enter first name" required [(ngModel)]="newFrontOfficeStaff.userFirstName" name="firstName">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Enter last name" required [(ngModel)]="newFrontOfficeStaff.userLastName" name="lastName">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="Enter address" required [(ngModel)]="newFrontOfficeStaff.address" name="address">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" placeholder="Enter email" required [(ngModel)]="newFrontOfficeStaff.email" name="email">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="full-width">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput type="tel" placeholder="Enter phone number" required [(ngModel)]="newFrontOfficeStaff.phoneNumber" name="phoneNumber">
+                      </mat-form-field>
+                  
+                      <button mat-raised-button color="primary" type="submit">{{ editMode ? 'Update' : 'Add' }} Front Office Staff</button>
+                      <button *ngIf="editMode" mat-button color="warn" (click)="cancelEdit()">Cancel</button>
+                    </form>
+                  
+                    <!-- Table of Front Office Staff -->
+                    <h3>Front Office Staff List</h3>
+                    <table mat-table [dataSource]="frontOfficeStaffData" class="mat-elevation-z8">
+                      <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef> Username </th>
+                        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="phoneNumber">
+                        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let element">
+                          <button mat-button (click)="onEdit(element)">Edit</button>
+                          <button mat-button color="warn" (click)="onDelete(element.id)">Delete</button>
+                        </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="frontOfficeStaffDisplayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: frontOfficeStaffDisplayedColumns;"></tr>
+                    </table>
+                  </div>
+                  
+       
+          
+          <!-- Front Office Staff Tab -->
+        
+        
+      </div>
+      
+      
+        <!-- Dynamic Content via Router Outlet -->
+      </div>
+    </div>
+  </div>
+  

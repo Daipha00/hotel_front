@@ -28,196 +28,109 @@
         <!-- Static Content (Optional) -->
        <!-- dashboard.component.html -->
        <div class="user-management">
-        <mat-tab-group>
+    
           <!-- Manager Tab -->
-          <mat-tab label="Manager">
+   
             <div class="form-container">
               <h2>Add Manager</h2>
               <form (ngSubmit)="onSubmitManager()" #managerForm="ngForm">
+                
+                <!-- Username Field -->
                 <mat-form-field class="full-width">
                   <mat-label>Username</mat-label>
-                  <input matInput placeholder="Enter username" required [(ngModel)]="newManager.username" name="username">
+                  <input matInput placeholder="Enter username" required [(ngModel)]="newManager.userName" name="username">
                 </mat-form-field>
-      
+          
+                <!-- Password Field -->
                 <mat-form-field class="full-width">
                   <mat-label>Password</mat-label>
-                  <input matInput type="password" placeholder="Enter password" required [(ngModel)]="newManager.password" name="password">
+                  <input matInput type="password" placeholder="Enter password" required [(ngModel)]="newManager.userPassword" name="password">
                 </mat-form-field>
-      
+          
+                <!-- First Name Field -->
                 <mat-form-field class="full-width">
                   <mat-label>First Name</mat-label>
-                  <input matInput placeholder="Enter first name" required [(ngModel)]="newManager.firstName" name="firstName">
+                  <input matInput placeholder="Enter first name" required [(ngModel)]="newManager.userFirstName" name="firstName">
                 </mat-form-field>
-      
+          
+                <!-- Last Name Field -->
+                <mat-form-field class="full-width">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Enter last name" required [(ngModel)]="newManager.userLastName" name="lastName">
+                </mat-form-field>
+          
+                <!-- Address Field -->
                 <mat-form-field class="full-width">
                   <mat-label>Address</mat-label>
                   <input matInput placeholder="Enter address" required [(ngModel)]="newManager.address" name="address">
                 </mat-form-field>
-      
+          
+                <!-- Email Field -->
                 <mat-form-field class="full-width">
                   <mat-label>Email</mat-label>
                   <input matInput type="email" placeholder="Enter email" required [(ngModel)]="newManager.email" name="email">
                 </mat-form-field>
-      
+          
+                <!-- Phone Number Field -->
                 <mat-form-field class="full-width">
                   <mat-label>Phone Number</mat-label>
                   <input matInput type="tel" placeholder="Enter phone number" required [(ngModel)]="newManager.phoneNumber" name="phoneNumber">
                 </mat-form-field>
-      
+          
+                <!-- Submit Button -->
                 <button mat-raised-button color="primary" type="submit">Add Manager</button>
               </form>
-      
+          
               <!-- Table of Managers -->
               <h3>Manager List</h3>
               <table mat-table [dataSource]="managerData" class="mat-elevation-z8">
-                <!-- Columns for the table -->
+                
+                <!-- Username Column -->
                 <ng-container matColumnDef="username">
                   <th mat-header-cell *matHeaderCellDef> Username </th>
-                  <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                  <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
                 </ng-container>
-      
+          
+                <!-- Email Column -->
                 <ng-container matColumnDef="email">
                   <th mat-header-cell *matHeaderCellDef> Email </th>
                   <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                 </ng-container>
-      
+          
+                <!-- Phone Number Column -->
                 <ng-container matColumnDef="phoneNumber">
                   <th mat-header-cell *matHeaderCellDef> Phone Number </th>
                   <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
                 </ng-container>
-      
+          
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Actions </th>
+                  <td mat-cell *matCellDef="let element">
+                    <!-- Update Button -->
+                    <button mat-raised-button color="accent" (click)="onEditManager(element)">
+                      Update
+                    </button>
+          
+                    <!-- Delete Button -->
+                    <button mat-raised-button color="warn" (click)="onDeleteManager(element.id)">
+                      Delete
+                    </button>
+                  </td>
+                </ng-container>
+          
+                <!-- Table Rows -->
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
             </div>
-          </mat-tab>
+          
+          
       
-          <!-- Front Office Manager Tab -->
-          <mat-tab label="Front Office Manager">
-            <div class="form-container">
-              <h2>Add Front Office Manager</h2>
-              <form (ngSubmit)="onSubmitFrontOfficeManager()" #frontOfficeManagerForm="ngForm">
-                <mat-form-field class="full-width">
-                  <mat-label>Username</mat-label>
-                  <input matInput placeholder="Enter username" required [(ngModel)]="newFrontOfficeManager.username" name="username">
-                </mat-form-field>
+        
+          
+     
       
-                <mat-form-field class="full-width">
-                  <mat-label>Password</mat-label>
-                  <input matInput type="password" placeholder="Enter password" required [(ngModel)]="newFrontOfficeManager.password" name="password">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>First Name</mat-label>
-                  <input matInput placeholder="Enter first name" required [(ngModel)]="newFrontOfficeManager.firstName" name="firstName">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Address</mat-label>
-                  <input matInput placeholder="Enter address" required [(ngModel)]="newFrontOfficeManager.address" name="address">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Email</mat-label>
-                  <input matInput type="email" placeholder="Enter email" required [(ngModel)]="newFrontOfficeManager.email" name="email">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Phone Number</mat-label>
-                  <input matInput type="tel" placeholder="Enter phone number" required [(ngModel)]="newFrontOfficeManager.phoneNumber" name="phoneNumber">
-                </mat-form-field>
-      
-                <button mat-raised-button color="primary" type="submit">Add Front Office Manager</button>
-              </form>
-      
-              <!-- Table of Front Office Managers -->
-              <h3>Front Office Manager List</h3>
-              <table mat-table [dataSource]="frontOfficeManagerData" class="mat-elevation-z8">
-                <!-- Table columns for Front Office Managers -->
-                <ng-container matColumnDef="username">
-                  <th mat-header-cell *matHeaderCellDef> Username </th>
-                  <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-                </ng-container>
-      
-                <ng-container matColumnDef="email">
-                  <th mat-header-cell *matHeaderCellDef> Email </th>
-                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                </ng-container>
-      
-                <ng-container matColumnDef="phoneNumber">
-                  <th mat-header-cell *matHeaderCellDef> Phone Number </th>
-                  <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
-                </ng-container>
-      
-                <tr mat-header-row *matHeaderRowDef="frontOfficeDisplayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: frontOfficeDisplayedColumns;"></tr>
-              </table>
-            </div>
-          </mat-tab>
-      
-          <!-- Front Office Staff Tab -->
-          <mat-tab label="Front Office Staff">
-            <div class="form-container">
-              <h2>Add Front Office Staff</h2>
-              <form (ngSubmit)="onSubmitFrontOfficeStaff()" #frontOfficeStaffForm="ngForm">
-                <mat-form-field class="full-width">
-                  <mat-label>Username</mat-label>
-                  <input matInput placeholder="Enter username" required [(ngModel)]="newFrontOfficeStaff.username" name="username">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Password</mat-label>
-                  <input matInput type="password" placeholder="Enter password" required [(ngModel)]="newFrontOfficeStaff.password" name="password">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>First Name</mat-label>
-                  <input matInput placeholder="Enter first name" required [(ngModel)]="newFrontOfficeStaff.firstName" name="firstName">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Address</mat-label>
-                  <input matInput placeholder="Enter address" required [(ngModel)]="newFrontOfficeStaff.address" name="address">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Email</mat-label>
-                  <input matInput type="email" placeholder="Enter email" required [(ngModel)]="newFrontOfficeStaff.email" name="email">
-                </mat-form-field>
-      
-                <mat-form-field class="full-width">
-                  <mat-label>Phone Number</mat-label>
-                  <input matInput type="tel" placeholder="Enter phone number" required [(ngModel)]="newFrontOfficeStaff.phoneNumber" name="phoneNumber">
-                </mat-form-field>
-      
-                <button mat-raised-button color="primary" type="submit">Add Front Office Staff</button>
-              </form>
-      
-              <!-- Table of Front Office Staff -->
-              <h3>Front Office Staff List</h3>
-              <table mat-table [dataSource]="frontOfficeStaffData" class="mat-elevation-z8">
-                <!-- Table columns for Front Office Staff -->
-                <ng-container matColumnDef="username">
-                  <th mat-header-cell *matHeaderCellDef> Username </th>
-                  <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-                </ng-container>
-      
-                <ng-container matColumnDef="email">
-                  <th mat-header-cell *matHeaderCellDef> Email </th>
-                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                </ng-container>
-      
-                <ng-container matColumnDef="phoneNumber">
-                  <th mat-header-cell *matHeaderCellDef> Phone Number </th>
-                  <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
-                </ng-container>
-      
-                <tr mat-header-row *matHeaderRowDef="frontOfficeStaffDisplayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: frontOfficeStaffDisplayedColumns;"></tr>
-              </table>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
       </div>
       
       
