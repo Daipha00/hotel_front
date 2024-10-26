@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BookingDialogComponent } from '../booking-dialog/booking-dialog.component';
 import { HttpClient } from '@angular/common/http';
+import { BookingDialogVenueComponent } from '../booking-dialog-venue/booking-dialog-venue.component';
 
 @Component({
   selector: 'app-venue-booking',
@@ -25,7 +26,7 @@ export class VenuebookingComponent implements OnInit{
   }
 
   openBookingDialog(room: any): void {
-    const dialogRef = this.dialog.open(BookingDialogComponent, {
+    const dialogRef = this.dialog.open(BookingDialogVenueComponent, {
       width: '400px',
       data: {} // You can pass any data to the dialog if needed
     });

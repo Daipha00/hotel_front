@@ -26,7 +26,7 @@ export class RoombookingComponent implements OnInit{
   }
 
   openBookingDialog(room: any): void {
-    const dialogRef = this.dialog.open(BookingDialogVenueComponent, {
+    const dialogRef = this.dialog.open(BookingDialogComponent, {
       width: '400px',
       data: {} // You can pass any data to the dialog if needed
     });

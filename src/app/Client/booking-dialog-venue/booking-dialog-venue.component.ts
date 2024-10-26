@@ -23,12 +23,14 @@ export class BookingDialogVenueComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.bookingForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      
+      checkInDate: ['', Validators.required],
+      checkOutDate: ['', Validators.required],
+      arrivalTime: ['', Validators.required],
       eventDate: ['', Validators.required],
+      eventTime: ['', Validators.required],
       payment: ['', Validators.required],
+      specialRequest: [''] // Optional, no validators
     });
   }
 

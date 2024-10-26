@@ -1,35 +1,63 @@
 <h1 mat-dialog-title>Book a Venue</h1>
 <div mat-dialog-content>
   <form [formGroup]="bookingForm">
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="check" formControlName="firstName"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Last name" formControlName="lastName"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Email" formControlName="email"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Phone" formControlName="phone"> -->
-    <!-- </mat-form-field> -->
- 
-    <mat-form-field>
-      <input matInput placeholder="Event date" [matDatepicker]="picker" formControlName="eventDate">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Payment" formControlName="payment">
-        <mat-option value="advance">Advance</mat-option>
-        <mat-option value="full">Full Payment</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <!-- Row for Date Fields -->
+    <div fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field fxFlex>
+        <mat-label>Check-in Date</mat-label>
+        <input matInput [matDatepicker]="checkInPicker" formControlName="checkInDate">
+        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkInPicker></mat-datepicker>
+      </mat-form-field>
 
-  
+      <mat-form-field fxFlex>
+        <mat-label>Check-out Date</mat-label>
+        <input matInput [matDatepicker]="checkOutPicker" formControlName="checkOutDate">
+        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkOutPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Row for Arrival Time and Event Time -->
+    <div fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field fxFlex>
+        <mat-label>Arrival Time</mat-label>
+        <input matInput type="time" formControlName="arrivalTime">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <mat-label>Event Time</mat-label>
+        <input matInput type="time" formControlName="eventTime" (change)="onTimeChange($event)">
+      </mat-form-field>
+    </div>
+
+    <!-- Event Date and Payment Type -->
+    <div fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field fxFlex>
+        <mat-label>Event Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="eventDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <mat-label>Payment Type</mat-label>
+        <mat-select formControlName="payment">
+          <mat-option value="advance">Advance</mat-option>
+          <mat-option value="full">Full Payment</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Special Request Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Special Request</mat-label>
+      <textarea matInput formControlName="specialRequest"></textarea>
+    </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
+
+<div mat-dialog-actions align="end">
   <button mat-raised-button color="primary" (click)="onSubmit()">BOOK NOW</button>
   <button mat-button (click)="onCancel()">Cancel</button>
 </div>

@@ -54,6 +54,7 @@ export class BookingDialogComponent {
     advance: 50000,
     price: 150000,
   };
+  bookingService: any;
 
 
   constructor(
@@ -62,10 +63,7 @@ export class BookingDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.bookingForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+ 
       eventDate: ['', Validators.required],
       payment: ['', Validators.required],
     });
@@ -73,8 +71,26 @@ export class BookingDialogComponent {
 
   onSubmit(): void {
     if (this.bookingForm.valid) {
-      console.log(this.bookingForm.value);
-      this.dialogRef.close(this.bookingForm.value); // You can handle the form submission here
+      const selectedDate = this.bookingForm.value.eventDate;
+      const selectedTime = this.bookingForm.value.eventTime;
+
+      // Combine date and time if needed
+      const fullDateTime = new Date(`${selectedDate}T${selectedTime}`);
+
+      this.bookingService.checkAvailability(fullDateTime.toISOString()).subscribe(
+        (isAvailable: any) => {
+          if (isAvailable) {
+            console.log('Booking successful', this.bookingForm.value);
+            this.dialogRef.close(this.bookingForm.value); // Close the dialog with form values
+          } else {
+            alert('The room is not available on this date.');
+          }
+        },
+        (error: any) => {
+          console.error('Error checking availability', error);
+          alert('An error occurred while checking availability. Please try again.');
+        }
+      );
     }
   }
 
@@ -82,17 +98,8 @@ export class BookingDialogComponent {
     this.dialogRef.close();
   }
 
+
+
   
-  onTimeChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const timeValue = input.value; // This will be in HH:mm format
-    const [hours, minutes] = timeValue.split(':');
-    
-    // Convert to 12-hour format
-    const ampm = +hours >= 12 ? 'PM' : 'AM';
-    const hours12 = (+hours % 12) || 12; // Convert to 12-hour format
-    const formattedTime = `${hours12}:${minutes} ${ampm}`;
-    
-    console.log(formattedTime); // You can save this formatted time or use it as needed
-  }
+
 }

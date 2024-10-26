@@ -1,0 +1,13 @@
+.full-width {
+    width: 100%;
+  }
+  
+  mat-dialog-content {
+    padding: 16px;
+  }
+  
+  mat-dialog-actions {
+    padding: 16px;
+    text-align: right;
+  }
+  

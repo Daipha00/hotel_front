@@ -1,22 +1,7 @@
 <h1 mat-dialog-title>Book a Venue</h1>
 <div mat-dialog-content>
   <form [formGroup]="bookingForm">
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="check" formControlName="firstName"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Last name" formControlName="lastName"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Email" formControlName="email"> -->
-    <!-- </mat-form-field> -->
-    <!-- <mat-form-field> -->
-      <!-- <input matInput placeholder="Phone" formControlName="phone"> -->
-    <!-- </mat-form-field> -->
-    <mat-form-field>
-      <input matInput placeholder="Event time" type="time" formControlName="eventTime" (change)="onTimeChange($event)">
-    </mat-form-field>
-    <mat-form-field>
+      <mat-form-field>
       <input matInput placeholder="Event date" [matDatepicker]="picker" formControlName="eventDate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

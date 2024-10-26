@@ -56,8 +56,7 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
   
     formData.append('roomType', this.roomType);
     formData.append('pax', this.roomPax.toString());
-    formData.append('price', this.roomPrice.toString());
-   
+    formData.append('price', this.roomPrice.toString());   
     formData.append('description', this.roomDescription);
     if (this.roomImage) { // Check if the image is selected
       formData.append('image', this.roomImage); // Make sure this is a File object
@@ -86,8 +85,7 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
   editRoom(room: any) {
     this.roomType = room.roomType;
     this.roomPax = room.pax;
-    this.roomPrice = room.price;
-   
+    this.roomPrice = room.price;   
     this.roomDescription = room.description;
     // Handle the image as needed
   }
