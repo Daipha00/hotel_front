@@ -70,6 +70,7 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
 
 
 
@@ -103,7 +104,7 @@ import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-st
     PopupformComponent,
     BookingDialogComponent,
     ImageDialogComponent,
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,

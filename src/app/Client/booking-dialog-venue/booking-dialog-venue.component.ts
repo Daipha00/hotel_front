@@ -1,53 +1,14 @@
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { MatDialogRef } from '@angular/material/dialog';
-
-// @Component({
-//   selector: 'app-booking-dialog',
-//   templateUrl: './booking-dialog.component.html',
-//   styleUrl: './booking-dialog.component.css'
-// })
-// export class BookingDialogComponent implements OnInit {
-//   bookingForm: FormGroup | undefined;
-// selectedDay: any;
-//   any: any;
-
-//   constructor(
-//     private fb: FormBuilder,
-//     private dialogRef: MatDialogRef<BookingDialogComponent>
-//   ) {}
-
-//   ngOnInit(): void {
-//     this.bookingForm = this.fb.group({
-//       firstName: ['', Validators.required],
-//       lastName: ['', Validators.required],
-//       email: ['', [Validators.required, Validators.email]],
-//       phone: ['', Validators.required],
-//       eventDate: ['', Validators.required],
-//       payment: ['', Validators.required]
-//     });
-//   }
-
-//   onSubmit() {
-//     if (this.any.valid) {
-//       // Handle the form submission
-//       console.log(this.any.value);
-//       this.dialogRef.close(); // Close the dialog on successful form submission
-//     }
-//   }
-// }
-
-
-
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BookingDialogComponent } from '../booking-dialog/booking-dialog.component';
 
 @Component({
-  selector: 'app-booking-dialog',
-  templateUrl: './booking-dialog.component.html',
+  selector: 'app-booking-dialog-venue',
+  templateUrl: './booking-dialog-venue.component.html',
+  styleUrl: './booking-dialog-venue.component.css'
 })
-export class BookingDialogComponent {
+export class BookingDialogVenueComponent {
   bookingForm: FormGroup;
 
   selectedDay = {
@@ -96,3 +57,4 @@ export class BookingDialogComponent {
     console.log(formattedTime); // You can save this formatted time or use it as needed
   }
 }
+

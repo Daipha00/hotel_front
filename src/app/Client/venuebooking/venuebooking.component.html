@@ -59,7 +59,7 @@
     <div class="venue-cards">
       <mat-card class="venue-card" *ngFor="let venue of venues">
         <img [src]="venue.image ? 'data:image/jpeg;base64,' + venue.image : 'default-venue.jpg'" alt="Venue Image">
-        <h3>{{ venue.venueType }}</h3>
+        <h3>VenueType:{{ venue.venueType }}</h3>
         <p>Capacity: {{ venue.capacity }}</p>
         <p>Location: {{ venue.location }}</p>
         <p>Price: {{ venue.price | currency }}</p>

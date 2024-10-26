@@ -27,6 +27,7 @@ h1 {
 .nav a {
   color: #fff;
   text-decoration: none;
+  margin: 0 15px; 
 }
 
 .container {
@@ -111,7 +112,7 @@ select {
 }
 
 .search-bar button:hover {
-  background-color: #008080;
+  background-color: #4a474b;
 }
 
 .rating {

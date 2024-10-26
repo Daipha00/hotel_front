@@ -16,11 +16,11 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
   roomType: string = '';
   roomPax: number = 0;
   roomPrice: number = 0;
-  roomAvailabilityStatus: string = '';
+  
   roomDescription: string = '';
   roomImage: File | null = null;
   roomData: any[] = [];
-  displayedColumns: string[] = ['roomType', 'pax', 'price', 'availabilityStatus', 'description', 'actions'];
+  displayedColumns: string[] = ['roomType', 'pax', 'price', 'description', 'actions'];
 
   // Venue properties
   venueType: string = '';
@@ -32,7 +32,7 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
   venueImage: File | null = null;
   venuePackage: string = '';
   venueData: any[] = [];
-  venueColumns: string[] = ['venueType', 'capacity', 'price', 'location', 'availabilityStatus', 'description', 'actions'];
+  venueColumns: string[] = ['venueType', 'capacity', 'price', 'location','description', 'actions'];
 
   constructor(private http: HttpClient) {}
 
@@ -57,7 +57,7 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
     formData.append('roomType', this.roomType);
     formData.append('pax', this.roomPax.toString());
     formData.append('price', this.roomPrice.toString());
-    formData.append('availabilityStatus', this.roomAvailabilityStatus);
+   
     formData.append('description', this.roomDescription);
     if (this.roomImage) { // Check if the image is selected
       formData.append('image', this.roomImage); // Make sure this is a File object
@@ -87,7 +87,7 @@ export class AdminRoomVenueConfigurationComponent implements OnInit{
     this.roomType = room.roomType;
     this.roomPax = room.pax;
     this.roomPrice = room.price;
-    this.roomAvailabilityStatus = room.availabilityStatus;
+   
     this.roomDescription = room.description;
     // Handle the image as needed
   }
