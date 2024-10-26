@@ -2,38 +2,30 @@
 <div mat-dialog-content>
   <form [formGroup]="bookingForm">
     <mat-form-field>
-      <input matInput placeholder="Check-in Date" [matDatepicker]="checkInPicker" formControlName="checkIn">
-      <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
-      <mat-datepicker #checkInPicker></mat-datepicker>
+      <input matInput placeholder="check" formControlName="firstName">
     </mat-form-field>
-
     <mat-form-field>
-      <input matInput placeholder="Check-out Date" [matDatepicker]="checkOutPicker" formControlName="checkOut">
-      <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
-      <mat-datepicker #checkOutPicker></mat-datepicker>
+      <input matInput placeholder="Last name" formControlName="lastName">
     </mat-form-field>
-
-    <!-- <mat-form-field>
-      <input matInput placeholder="Arrival Time" [matTimepicker]="arrivalTimePicker" formControlName="arrivalTime">
-      <mat-timepicker-toggle matSuffix [for]="arrivalTimePicker"></mat-timepicker-toggle>
-      <mat-timepicker #arrivalTimePicker></mat-timepicker>
-    </mat-form-field> -->
-
     <mat-form-field>
-      <input matInput type="number" placeholder="Number of Guests" formControlName="numberOfGuests">
+      <input matInput placeholder="Email" formControlName="email">
     </mat-form-field>
-
     <mat-form-field>
-      <textarea matInput placeholder="Special Requests" formControlName="specialRequest"></textarea>
+      <input matInput placeholder="Phone" formControlName="phone">
     </mat-form-field>
-
     <mat-form-field>
-      <mat-select placeholder="Status" formControlName="status">
-        <mat-option value="pending">Pending</mat-option>
-        <mat-option value="confirmed">Confirmed</mat-option>
-        <mat-option value="canceled">Canceled</mat-option>
+      <input matInput placeholder="Event date" [matDatepicker]="picker" formControlName="eventDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Payment" formControlName="payment">
+        <mat-option value="advance">Advance</mat-option>
+        <mat-option value="full">Full Payment</mat-option>
       </mat-select>
     </mat-form-field>
+
+  
   </form>
 </div>
 <div mat-dialog-actions>
