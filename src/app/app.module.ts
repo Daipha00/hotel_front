@@ -39,9 +39,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { MatNativeDateModule } from '@angular/material/core';  // Correct import
-import { VenuebookingFormComponent } from './Client/venuebooking-form/venuebooking-form.component';
 import { RoombookingComponent } from './Client/roombooking/roombooking.component';
-import { RoombookingFormComponent } from './Client/roombooking-form/roombooking-form.component';
 import { ReservationManagementComponent } from './FrontManager/reservation-management/reservation-management.component';
 import { PaymentProcessingComponent } from './FrontManager/payment-processing/payment-processing.component';
 import { StaffManagementComponent } from './FrontManager/staff-management/staff-management.component';
@@ -63,7 +61,6 @@ import { ManagerReportComponent } from './hotelManager/manager-report/manager-re
 import { AdminRoomVenueConfigurationComponent } from './Admin/admin-room-venue-configuration/admin-room-venue-configuration.component';
 import { ReportGenerationComponent } from './Admin/report-generation/report-generation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PopupformComponent } from './Client/popupform/popupform.component';
 import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
@@ -82,12 +79,11 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
   declarations: [
     AppComponent,
     RoombookingComponent,
-    RoombookingFormComponent,
+    
     AdminNavigationComponent,
     AdminDashboardComponent,
     LayoutComponent,
     VenuebookingComponent,
-    VenuebookingFormComponent,
     LoginComponent,
     UserManagementComponent,
     FrontManagerNavComponent,
@@ -96,17 +92,21 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
     ManageDashboardComponent,
     StaffNavComponent,AdminRoomVenueConfigurationComponent,
     StaffDashboardComponent,VenueComponent,
-    SupportComponent,VenuebookingFormComponent, ReservationManagementComponent, 
+    SupportComponent, ReservationManagementComponent, 
     PaymentProcessingComponent, StaffManagementComponent, CommunicationCenterComponent,
     ReportAnalyticsComponent, RoomVenueConfigurationComponent, StaffReservationComponent, 
     StaffCheckinOutComponent, StaffCommunicationComponent, StaffReportsComponent, 
     StaffProcessingComponent, StaffGuestComponent, StaffTaskComponent, ManageFinancialComponent,
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
-    PopupformComponent,
+    
     BookingDialogComponent,
     ImageDialogComponent,
+<<<<<<< HEAD
     RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, ClientFormsComponent, ReservationFormComponent
+=======
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, 
+>>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
@@ -114,7 +114,11 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
     MatCardModule,MatGridListModule,MatTabsModule,MatFormFieldModule,MatInputModule,MatTableModule,
     FormsModule,ReactiveFormsModule,BrowserAnimationsModule,CommonModule,MatDatepickerModule,MatOptionModule,
     MatProgressBarModule,MatNativeDateModule,HttpClientModule,MatDialogModule,    MatDialogModule,
+<<<<<<< HEAD
     ReactiveFormsModule, MatTabsModule 
+=======
+    ReactiveFormsModule,
+>>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
   ],
   providers: [
     provideClientHydration()

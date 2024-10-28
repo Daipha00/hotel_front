@@ -4,9 +4,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
 import { LoginComponent } from './login/login.component';
 import { UserManagementComponent } from './Admin/user-management/user-management.component';
 import { HomeComponent } from './Client/home/home.component';
-import { RoombookingFormComponent } from './Client/roombooking-form/roombooking-form.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
-import { VenuebookingFormComponent } from './Client/venuebooking-form/venuebooking-form.component';
 import { SupportComponent } from './Admin/support/support.component';
 import { FrontManagerDashboardComponent } from './FrontManager/front-manager-dashboard/front-manager-dashboard.component';
 import { ReservationManagementComponent } from './FrontManager/reservation-management/reservation-management.component';
@@ -39,9 +37,12 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+<<<<<<< HEAD
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
+=======
+>>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
 const routes: Routes = [
   //Admin
   {path:'',component:LoginComponent},
@@ -64,14 +65,21 @@ const routes: Routes = [
   //Client
   {path: 'Client/home', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
+<<<<<<< HEAD
   {path: 'client/roombooking-form', component: RoombookingFormComponent},
+=======
+>>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
   {path: 'venuebooking', component: VenuebookingComponent},
-  {path: 'Client/venuebooking-form', component: VenuebookingFormComponent},
   {path: 'venue',component:VenueComponent},
   {path: 'booking-dialog', component:BookingDialogComponent},
   {path:'registration',component:RegistrationComponent},
+<<<<<<< HEAD
   {path:'client-tabs',component:ClientFormsComponent},
 {path:'reservation-form',component:ReservationFormComponent},
+=======
+  
+
+>>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
   //FrontManager
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},
