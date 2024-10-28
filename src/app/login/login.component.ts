@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ClientServiceService } from '../client-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   error: string | null = null;
   isPasswordVisible = false; // Property for password visibility
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,private clientServiceService:ClientServiceService, private router: Router) {
     this.loginForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       userPassword: new FormControl('', Validators.required)
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
             next: (response: any) => {
                 // Check if the response indicates success
                 if (response.message === "Login successful") {
+                  this.clientServiceService.setClientId(response.id);
                     // Navigate to the dashboard or home page
                     this.router.navigate(['/roombooking']);
                 } else {

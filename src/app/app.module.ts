@@ -71,6 +71,8 @@ import { RegistrationComponent } from './Client/registration/registration.compon
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
 import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
+import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
+import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
 
 
@@ -104,7 +106,7 @@ import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booki
     PopupformComponent,
     BookingDialogComponent,
     ImageDialogComponent,
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, ClientFormsComponent, ReservationFormComponent
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
@@ -112,7 +114,7 @@ import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booki
     MatCardModule,MatGridListModule,MatTabsModule,MatFormFieldModule,MatInputModule,MatTableModule,
     FormsModule,ReactiveFormsModule,BrowserAnimationsModule,CommonModule,MatDatepickerModule,MatOptionModule,
     MatProgressBarModule,MatNativeDateModule,HttpClientModule,MatDialogModule,    MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, MatTabsModule 
   ],
   providers: [
     provideClientHydration()

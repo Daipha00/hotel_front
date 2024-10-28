@@ -39,6 +39,8 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
+import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
 const routes: Routes = [
   //Admin
@@ -62,13 +64,14 @@ const routes: Routes = [
   //Client
   {path: 'Client/home', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
-  {path: 'Client/roombooking-form', component: RoombookingFormComponent},
+  {path: 'client/roombooking-form', component: RoombookingFormComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'Client/venuebooking-form', component: VenuebookingFormComponent},
   {path: 'venue',component:VenueComponent},
   {path: 'booking-dialog', component:BookingDialogComponent},
   {path:'registration',component:RegistrationComponent},
-
+  {path:'client-tabs',component:ClientFormsComponent},
+{path:'reservation-form',component:ReservationFormComponent},
   //FrontManager
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},

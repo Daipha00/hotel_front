@@ -14,8 +14,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) {
     this.registrationForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
-      userPassword: new FormControl('', Validators.required),
+      // userName: new FormControl('', Validators.required),
+      // userPassword: new FormControl('', Validators.required),
       userFirstName: new FormControl('', Validators.required),
       userLastName: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
@@ -46,9 +46,11 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.http.post('http://localhost:9090/client', this.registrationForm.value)
         .subscribe({
-          next: (response) => {
+          next: (response: any) => {
             console.log('Registration successful', response);
-            this.router.navigate(['/login']);
+            localStorage.setItem('clientId', response.id);
+            
+            this.router.navigate(['/reservation-form']);
           },
           error: (error) => {
             console.error('There was an error during registration!', error);
