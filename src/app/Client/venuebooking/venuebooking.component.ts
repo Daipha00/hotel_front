@@ -11,11 +11,13 @@ import { BookingDialogVenueComponent } from '../booking-dialog-venue/booking-dia
 })
 export class VenuebookingComponent implements OnInit{
   venues: any[] = [];
+reservationMenu: any;
   constructor(public dialog: MatDialog, private http: HttpClient) {}
 
   ngOnInit() {
     this.loadVenues();
   }
+  
 
   loadVenues() {
     this.http.get<any[]>('http://localhost:9090/venue').subscribe(data => {
@@ -39,5 +41,11 @@ export class VenuebookingComponent implements OnInit{
       }
     });
     console.log('Booking venue:', this.venues);
+  }
+
+  isDropdownVisible = false;
+
+  toggleDropdown() {
+    this.isDropdownVisible = !this.isDropdownVisible;
   }
 }

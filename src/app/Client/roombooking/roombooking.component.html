@@ -4,7 +4,7 @@
     <h1>Rooms</h1>
   </div>
   <div class="nav">
-    <a href="#">Home</a>
+    <a href="Client/home">Home</a>
     <a href="roombooking">Rooms</a>
     <a href="venuebooking">Venue</a>
   </div>
@@ -27,16 +27,6 @@
             </button>
         </div>
 
-        <!-- Sort Options -->
-        <div class="sort">
-            <span>Sort By:</span>
-            <select>
-                <option value="low-high">Price: Low to High</option>
-                <option value="high-low">Price: High to Low</option>
-                <option value="rating">Highest Rating</option>
-                <option value="popularity">Most Popular</option>
-            </select>
-        </div>
 
         <!-- Search Bar -->
         <div class="search-bar">
@@ -63,7 +53,7 @@
       <p>Price: {{ room.price | currency }}</p>
       <p>Description: {{ room.description }}</p>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="openBookingDialog(room)">Book Now</button>
+        <button mat-raised-button color="primary"><a href="/resevation-room">Book Now</a></button>
       </mat-card-actions>
     </mat-card>
   </div>

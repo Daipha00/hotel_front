@@ -4,9 +4,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
 import { LoginComponent } from './login/login.component';
 import { UserManagementComponent } from './Admin/user-management/user-management.component';
 import { HomeComponent } from './Client/home/home.component';
-import { RoombookingFormComponent } from './Client/roombooking-form/roombooking-form.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
-import { VenuebookingFormComponent } from './Client/venuebooking-form/venuebooking-form.component';
 import { SupportComponent } from './Admin/support/support.component';
 import { FrontManagerDashboardComponent } from './FrontManager/front-manager-dashboard/front-manager-dashboard.component';
 import { ReservationManagementComponent } from './FrontManager/reservation-management/reservation-management.component';
@@ -39,7 +37,6 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
-
 const routes: Routes = [
   //Admin
   {path:'',component:LoginComponent},
@@ -62,12 +59,11 @@ const routes: Routes = [
   //Client
   {path: 'Client/home', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
-  {path: 'Client/roombooking-form', component: RoombookingFormComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
-  {path: 'Client/venuebooking-form', component: VenuebookingFormComponent},
   {path: 'venue',component:VenueComponent},
   {path: 'booking-dialog', component:BookingDialogComponent},
   {path:'registration',component:RegistrationComponent},
+  
 
   //FrontManager
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},

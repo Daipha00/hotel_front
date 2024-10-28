@@ -16,6 +16,252 @@ body, h1, h2, h3, p {
   text-align: center;
   position: relative;
 }
+.header {
+  background-color: #1e4adb;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #43c7a6;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px; 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 30px;
+  
+}
+
+.results {
+  width: 80%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.description-container {
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.view span, .sort span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+button.grid, button.list {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button.grid:hover, button.list:hover {
+  color: #2b5dc9;
+}
+
+select {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #00C8C8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #4a474b;
+}
+
+.rating {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #ffa500;
+}
+
+
+
+
+/* Venues Section */
+.venues-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.venues-section h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.venues-section p {
+  color: #666;
+  margin: 10px 0; /* Adjusted margin to reduce space between paragraphs */
+  font-size: 1.1em;
+}
+
+.venue-cards {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: space-between; /* Space between cards */
+  gap: 20px; /* Space between cards */
+}
+
+.venue-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  width: calc(33.33% - 20px); /* Set width to 1/3 of the container minus gap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+
+.venue-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.venue-card h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.venue-card .price {
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.venue-card p {
+  color: #777;
+  line-height: 1.5;
+}
+
+
+.tech-section {
+  padding: 50px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.tech-section h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.tech-section p {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2em;
+}
+
+.book-now {
+  margin-top: 30px;
+}
+
+.book-now a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
 
 .navbar {
   position: absolute;
@@ -70,30 +316,6 @@ body, h1, h2, h3, p {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.search-bar {
-  margin-top: 20px;
-}
-
-.search-bar input {
-  padding: 10px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  background: #FFD700; /* Gold color */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.search-bar button:hover {
-  background: #FFC107; /* Darker gold color */
-}
 
 /* Content Section */
 .content-section {
@@ -155,16 +377,13 @@ body, h1, h2, h3, p {
 .book-venue-button a {
   display: inline-block;
   padding: 15px 30px;
-  background: #FFD700; /* Gold color */
-  border-radius: 5px;
+  background-color: #1e4adb; /* Gold color */
+  
   color: #fff;
   text-decoration: none;
   transition: background 0.3s;
 }
 
-.book-venue-button a:hover {
-  background: #FFC107; /* Darker gold color */
-}
 
 /* Venue Booking Services Section */
 .venue-booking-section {
