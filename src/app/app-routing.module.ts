@@ -37,6 +37,7 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
 const routes: Routes = [
   //Admin
   {path:'',component:LoginComponent},
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
   {path: 'booking-dialog', component:BookingDialogComponent},
-  {path:'registration',component:RegistrationComponent},
+  {path: 'registration',component:RegistrationComponent},
+  {path: 'customerPayment',component:CustomerPaymentComponent},
   
 
   //FrontManager

@@ -68,6 +68,7 @@ import { RegistrationComponent } from './Client/registration/registration.compon
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
 import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
+import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
 
 
 
@@ -100,7 +101,7 @@ import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booki
     
     BookingDialogComponent,
     ImageDialogComponent,
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, 
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, CustomerPaymentComponent, 
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
