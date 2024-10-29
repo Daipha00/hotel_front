@@ -17,7 +17,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutComponent } from './layout/layout.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { LoginComponent } from './login/login.component';
 import { UserManagementComponent } from './Admin/user-management/user-management.component';
 import { FrontManagerNavComponent } from './FrontManager/front-manager-nav/front-manager-nav.component';
 import { FrontManagerDashboardComponent } from './FrontManager/front-manager-dashboard/front-manager-dashboard.component';
@@ -29,7 +28,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { VenueComponent } from './Client/venue/venue.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -61,15 +59,15 @@ import { ManagerReportComponent } from './hotelManager/manager-report/manager-re
 import { AdminRoomVenueConfigurationComponent } from './Admin/admin-room-venue-configuration/admin-room-venue-configuration.component';
 import { ReportGenerationComponent } from './Admin/report-generation/report-generation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
-import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
 
 
 
@@ -79,12 +77,12 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
   declarations: [
     AppComponent,
     RoombookingComponent,
+    RegistrationComponent,
     
-    AdminNavigationComponent,
     AdminDashboardComponent,
     LayoutComponent,
     VenuebookingComponent,
-    LoginComponent,
+  
     UserManagementComponent,
     FrontManagerNavComponent,
     FrontManagerDashboardComponent,ReportGenerationComponent,
@@ -99,29 +97,29 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
     StaffProcessingComponent, StaffGuestComponent, StaffTaskComponent, ManageFinancialComponent,
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
-    
-    BookingDialogComponent,
     ImageDialogComponent,
-<<<<<<< HEAD
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, ClientFormsComponent, ReservationFormComponent
-=======
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, 
->>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
+    ReservationFormComponent,
+    ClientFormsComponent,
+AdminDashboardComponent,
+AdminNavigationComponent,
+    UserManagementComponent,
+    FrontManagerNavComponent,
+    FrontStaffManagerComponent,
+    FrontManagerComponent
+
+
+
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
     AppRoutingModule,MatSidenavModule,MatListModule,MatIconModule,MatToolbarModule,MatButtonModule,
     MatCardModule,MatGridListModule,MatTabsModule,MatFormFieldModule,MatInputModule,MatTableModule,
     FormsModule,ReactiveFormsModule,BrowserAnimationsModule,CommonModule,MatDatepickerModule,MatOptionModule,
-    MatProgressBarModule,MatNativeDateModule,HttpClientModule,MatDialogModule,    MatDialogModule,
-<<<<<<< HEAD
-    ReactiveFormsModule, MatTabsModule 
-=======
-    ReactiveFormsModule,
->>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
+    MatProgressBarModule,MatNativeDateModule,HttpClientModule,MatDialogModule,    MatDialogModule, MatIconModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
     
   ],
   bootstrap: [AppComponent],

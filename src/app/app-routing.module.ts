@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
-import { LoginComponent } from './login/login.component';
+
+
 import { UserManagementComponent } from './Admin/user-management/user-management.component';
 import { HomeComponent } from './Client/home/home.component';
 import { VenuebookingComponent } from './Client/venuebooking/venuebooking.component';
@@ -30,24 +31,19 @@ import { ManagerReportComponent } from './hotelManager/manager-report/manager-re
 import { AdminRoomVenueConfigurationComponent } from './Admin/admin-room-venue-configuration/admin-room-venue-configuration.component';
 import { ReportGenerationComponent } from './Admin/report-generation/report-generation.component';
 import { VenueComponent } from './Client/venue/venue.component';
-import { AuthGuard } from './login/auth-guard';
-import { BookingDialogComponent } from './Client/booking-dialog/booking-dialog.component';
 import { RoombookingComponent } from './Client/roombooking/roombooking.component';
 import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.component';
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
-<<<<<<< HEAD
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
+import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
 
-=======
->>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
+
 const routes: Routes = [
   //Admin
-  {path:'',component:LoginComponent},
-  {path: 'login', component: LoginComponent},
-  {path:'login', component:LoginComponent},
+ 
 
   {path: 'adminDashboard', component: AdminDashboardComponent},
   {path: 'userManagement', component: UserManagementComponent},
@@ -57,30 +53,20 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
+  {path:'admin-nav',component:AdminNavigationComponent},
 
 
   
   
   
   //Client
-  {path: 'Client/home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
-<<<<<<< HEAD
-  {path: 'client/roombooking-form', component: RoombookingFormComponent},
-=======
->>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-  {path: 'booking-dialog', component:BookingDialogComponent},
   {path:'registration',component:RegistrationComponent},
-<<<<<<< HEAD
   {path:'client-tabs',component:ClientFormsComponent},
 {path:'reservation-form',component:ReservationFormComponent},
-=======
-  
-
->>>>>>> ac199b82d8a59e79c29bc83dca81da87ee17a7f6
-  //FrontManager
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},
   {path: 'communicationCenter', component: CommunicationCenterComponent},
