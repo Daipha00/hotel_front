@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { RoomReservation } from '../../Classes/room-reservation';
 import { RoomReservationService } from '../../services/room-reservation.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -13,14 +13,13 @@ import { isPlatformBrowser } from '@angular/common';
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup;
   clientId!: number; // This will be retrieved from local storage
-  roomId!: number; // This should also be set based on the selected room
-  venueId!: number; // This should be set based on the selected venue
+  roomId!: number | null; // This should also be set based on the selected room
+  venueId!: number | null; // This should be set based on the selected venue
 
   constructor(
     private fb: FormBuilder,
     private reservationService: RoomReservationService,
     private router: Router,
-    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.reservationForm = this.fb.group({
@@ -43,15 +42,11 @@ export class ReservationFormComponent implements OnInit {
   
       // Retrieve roomId from local storage
       const storedRoomId = localStorage.getItem('selectedRoomId');
-      if (storedRoomId) {
-        this.roomId = +storedRoomId; // Convert to number
-      }
+      this.roomId = storedRoomId ? +storedRoomId : null; // Convert to number or null
 
       // Retrieve venueId from local storage
       const storedVenueId = localStorage.getItem('selectedVenueId');
-      if (storedVenueId) {
-        this.venueId = +storedVenueId; // Convert to number
-      }
+      this.venueId = storedVenueId ? +storedVenueId : null; // Convert to number or null
     }
   }
 
