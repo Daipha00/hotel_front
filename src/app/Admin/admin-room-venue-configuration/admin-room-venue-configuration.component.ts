@@ -18,23 +18,23 @@ export class AdminRoomVenueConfigurationComponent {
   roomType: string = '';
   roomPax: number = 0;
   roomPrice: number = 0;
-  roomAvailabilityStatus: string = '';
+
   roomDescription: string = '';
   roomImage: File | null = null;
   roomData: any[] = [];
-  displayedColumns: string[] = ['roomType', 'pax', 'price', 'availabilityStatus', 'description','roomImage', 'actions'];
+  displayedColumns: string[] = ['roomType', 'pax', 'price', 'description','roomImage', 'actions'];
 
   // Venue properties
   venueType: string = '';
   venueCapacity: number = 0;
   venuePrice: number = 0;
   venueLocation: string = '';
-  venueAvailabilityStatus: string = '';
+
   venueDescription: string = '';
   venueImage: File | null = null;
   venuePackage: string = '';
   venueData: any[] = [];
-  venueColumns: string[] = ['venueType', 'capacity', 'price', 'location', 'availabilityStatus', 'description','venuePackage','venueImage','actions'];
+  venueColumns: string[] = ['venueType', 'capacity', 'price', 'location', 'description','venuePackage','venueImage','actions'];
 
   constructor(private http: HttpClient, private dialog: MatDialog) {}
 
@@ -65,7 +65,7 @@ export class AdminRoomVenueConfigurationComponent {
     formData.append('roomType', this.roomType);
     formData.append('pax', this.roomPax.toString());
     formData.append('price', this.roomPrice.toString());
-    formData.append('availabilityStatus', this.roomAvailabilityStatus);
+   
     formData.append('description', this.roomDescription);
     
     // Append the image if it's selected
@@ -113,7 +113,7 @@ export class AdminRoomVenueConfigurationComponent {
     this.roomType = room.roomType;
     this.roomPax = room.pax;
     this.roomPrice = room.price;
-    this.roomAvailabilityStatus = room.availabilityStatus;
+   
     this.roomDescription = room.description;
    
   
@@ -141,7 +141,6 @@ export class AdminRoomVenueConfigurationComponent {
     formData.append('roomType', this.roomType);
     formData.append('pax', this.roomPax.toString());
     formData.append('price', this.roomPrice.toString());
-    formData.append('availabilityStatus', this.venueAvailabilityStatus);
     formData.append('description', this.venueDescription);
     
     if (this.roomImage) {
@@ -197,7 +196,6 @@ export class AdminRoomVenueConfigurationComponent {
     formData.append('capacity', this.venueCapacity.toString());
     formData.append('price', this.venuePrice.toString());
     formData.append('location', this.venueLocation);
-    formData.append('availabilityStatus', this.venueAvailabilityStatus);
     formData.append('venuePackage', this.venuePackage);  // Add this field
     formData.append('description', this.venueDescription);
     
@@ -253,7 +251,6 @@ export class AdminRoomVenueConfigurationComponent {
     this.venueCapacity = venue.capacity;
     this.venuePrice = venue.price;
     this.venueLocation = venue.location;
-    this.venueAvailabilityStatus = venue.availabilityStatus;
     this.venuePackage = venue.venuePackage;
     this.venueDescription = venue.description;
   
