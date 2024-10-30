@@ -40,17 +40,16 @@ import { CustomerPaymentComponent } from './Client/customer-payment/customer-pay
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
-<<<<<<< HEAD
 import { LayoutComponent } from './layout/layout.component';
-=======
 import { PaymentComponent } from './Client/payment/payment.component';
->>>>>>> ff7fe52efbc970f808c5e2ebf0720195612d97ff
+import { HeaderComponent } from './Client/header/header.component';
+import { CustoerComponent } from './Admin/custoer/custoer.component';
 
 
 const routes: Routes = [
   //Admin
  
-
+{path:'',component:HomeComponent},
   {path: 'adminDashboard', component: AdminDashboardComponent},
   {path: 'userManagement', component: UserManagementComponent},
   {path:'support',component:SupportComponent},
@@ -59,6 +58,7 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
+  {path: 'customer',component:CustoerComponent},
   // {path:'admin-nav',component:AdminNavigationComponent},
 
 
@@ -66,11 +66,13 @@ const routes: Routes = [
   
   
   //Client
-  {path: '', component: HomeComponent},
+{path:'home',component:HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
   {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
+  {path:'client-tabs',component:ClientFormsComponent},
+  {path: 'header', component:HeaderComponent},
   // {path: 'booking-dialog', component:BookingDialogComponent},
   {path: 'registration',component:RegistrationComponent},
   {path: 'customerPayment',component:CustomerPaymentComponent},

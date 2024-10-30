@@ -70,8 +70,10 @@ import { ClientFormsComponent } from './Client/client-forms/client-forms.compone
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PaymentComponent } from './Client/payment/payment.component';
+import { HeaderComponent } from './Client/header/header.component';
 
-
+import { HomeComponent } from './Client/home/home.component';
+import { CustoerComponent } from './Admin/custoer/custoer.component';
 
 
 
@@ -81,11 +83,11 @@ import { PaymentComponent } from './Client/payment/payment.component';
     AppComponent,
     RoombookingComponent,
     RegistrationComponent,
-    
+    HeaderComponent,
     AdminDashboardComponent,
     LayoutComponent,
     VenuebookingComponent,
-  
+    HomeComponent,
     UserManagementComponent,
     FrontManagerNavComponent,
     FrontManagerDashboardComponent,ReportGenerationComponent,
@@ -110,7 +112,9 @@ AdminNavigationComponent,
     FrontManagerNavComponent,
     FrontStaffManagerComponent,
     FrontManagerComponent,
-    PaymentComponent
+    PaymentComponent,
+    CustoerComponent,
+   
 
 
 

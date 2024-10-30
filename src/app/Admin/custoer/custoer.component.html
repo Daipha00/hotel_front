@@ -1,0 +1,61 @@
+<!-- client-list.component.html -->
+<div class="client-list-container">
+    <h2>Client List</h2>
+  
+    <!-- Client List Table -->
+    <table class="client-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.userName }}</td>
+          <td>{{ client.userFirstName }}</td>
+          <td>{{ client.userLastName }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.phoneNumber }}</td>
+          <td>
+            <button (click)="editClient(client)">Edit</button>
+            <!-- <button (click)="deleteClient(client.id)">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Client Form for Add/Edit -->
+    <h3>{{ isEditMode ? 'Edit Client' : 'Add Client' }}</h3>
+    <form (submit)="saveClient()">
+      <div class="form-group">
+        <label for="userName">Username:</label>
+        <input id="userName" type="text" [(ngModel)]="currentClient.userName" name="userName" required />
+      </div>
+      <div class="form-group">
+        <label for="userFirstName">First Name:</label>
+        <input id="userFirstName" type="text" [(ngModel)]="currentClient.userFirstName" name="userFirstName" required />
+      </div>
+      <div class="form-group">
+        <label for="userLastName">Last Name:</label>
+        <input id="userLastName" type="text" [(ngModel)]="currentClient.userLastName" name="userLastName" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" [(ngModel)]="currentClient.email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" type="text" [(ngModel)]="currentClient.phoneNumber" name="phoneNumber" required />
+      </div>
+      <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
+      <button type="button" (click)="resetForm()">Cancel</button>
+    </form>
+  </div>
+  
