@@ -64,11 +64,16 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+<<<<<<< HEAD
+import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
+import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
+=======
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PaymentComponent } from './Client/payment/payment.component';
 
+>>>>>>> 6cb793068c682f02f2d767cbdf383065641e1ec7
 
 
 
@@ -99,6 +104,9 @@ import { PaymentComponent } from './Client/payment/payment.component';
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
     ImageDialogComponent,
+<<<<<<< HEAD
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, BookingDialogVenueComponent, CustomerPaymentComponent, 
+=======
     ReservationFormComponent,
     ClientFormsComponent,
 AdminDashboardComponent,
@@ -111,6 +119,7 @@ AdminNavigationComponent,
 
 
 
+>>>>>>> 6cb793068c682f02f2d767cbdf383065641e1ec7
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
