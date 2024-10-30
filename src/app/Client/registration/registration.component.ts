@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  @Output() registrationComplete: EventEmitter<void> = new EventEmitter<void>();
   registrationForm: FormGroup;
   countries: any[] = []; // Array to hold the list of countries
 
@@ -47,7 +48,7 @@ export class RegistrationComponent implements OnInit {
           next: (response: any) => {
             console.log('Registration successful', response);
             localStorage.setItem('clientId', response.id);
-            
+           
             // Navigate to the reservation form
             this.router.navigate(['/reservation-form']);
           },

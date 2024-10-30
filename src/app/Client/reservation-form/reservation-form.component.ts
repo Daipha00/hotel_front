@@ -14,6 +14,7 @@ export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup;
   clientId!: number; // This will be retrieved from local storage
   roomId!: number; // This should also be set based on the selected room
+  venueId!: number; // This should be set based on the selected venue
 
   constructor(
     private fb: FormBuilder,
@@ -45,6 +46,12 @@ export class ReservationFormComponent implements OnInit {
       if (storedRoomId) {
         this.roomId = +storedRoomId; // Convert to number
       }
+
+      // Retrieve venueId from local storage
+      const storedVenueId = localStorage.getItem('selectedVenueId');
+      if (storedVenueId) {
+        this.venueId = +storedVenueId; // Convert to number
+      }
     }
   }
 
@@ -53,7 +60,8 @@ export class ReservationFormComponent implements OnInit {
       const reservationData: RoomReservation = {
         ...this.reservationForm.value,
         clientId: this.clientId,
-        roomId: this.roomId
+        roomId: this.roomId,
+        venueId: this.venueId // Include venueId in the reservation data
       };
   
       this.reservationService.createReservation(reservationData).subscribe(

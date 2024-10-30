@@ -34,7 +34,7 @@ reservationMenu: any;
     localStorage.setItem('selectedVenueId', venue.id); // Assuming room.id is the room ID
      
     // Log the room information to the console
-    console.log('Selected Room:', venue);
+    console.log('Selected Venue:', venue);
 
     // Optionally, navigate to the registration form or reservation page
     this.router.navigate(['/client-tabs']); 
