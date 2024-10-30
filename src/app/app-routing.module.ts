@@ -40,7 +40,11 @@ import { CustomerPaymentComponent } from './Client/customer-payment/customer-pay
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
+<<<<<<< HEAD
 import { LayoutComponent } from './layout/layout.component';
+=======
+import { PaymentComponent } from './Client/payment/payment.component';
+>>>>>>> ff7fe52efbc970f808c5e2ebf0720195612d97ff
 
 
 const routes: Routes = [
@@ -64,6 +68,7 @@ const routes: Routes = [
   //Client
   {path: '', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
+  {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
   // {path: 'booking-dialog', component:BookingDialogComponent},

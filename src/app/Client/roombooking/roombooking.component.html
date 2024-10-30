@@ -54,9 +54,14 @@
       <p>Description: {{ room.description }}</p>
       <mat-card-actions>
 
-        <button mat-raised-button color="primary" routerLink="/client-tabs">Book Now</button>
+        <button mat-raised-button color="primary" (click)="bookRoom(room)">Book Now</button>
 
+<<<<<<< HEAD
         <button mat-raised-button color="primary"><a href="/reservation-form">Book Now</a></button>
+=======
+
+        <!-- <button mat-raised-button color="primary"><a href="/resevation-room">Book Now</a></button> -->
+>>>>>>> ff7fe52efbc970f808c5e2ebf0720195612d97ff
       </mat-card-actions>
     </mat-card>
   </div>

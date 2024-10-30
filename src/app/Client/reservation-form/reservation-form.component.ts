@@ -39,12 +39,13 @@ export class ReservationFormComponent implements OnInit {
       if (storedClientId) {
         this.clientId = +storedClientId; // Convert to number
       }
+  
+      // Retrieve roomId from local storage
+      const storedRoomId = localStorage.getItem('selectedRoomId');
+      if (storedRoomId) {
+        this.roomId = +storedRoomId; // Convert to number
+      }
     }
-
-    // Retrieve roomId from route parameters or set it in another way
-    this.route.params.subscribe(params => {
-      this.roomId = +params['roomId']; // Assuming the route has a roomId parameter
-    });
   }
 
   onSubmit(): void {
@@ -54,12 +55,12 @@ export class ReservationFormComponent implements OnInit {
         clientId: this.clientId,
         roomId: this.roomId
       };
-
+  
       this.reservationService.createReservation(reservationData).subscribe(
         response => {
           console.log('Reservation successful', response);
           // Redirect or show a success message
-          this.router.navigate(['/success']); // Adjust the route as necessary
+          this.router.navigate(['/payment']); // Adjust the route as necessary
         },
         error => {
           console.error('Error creating reservation', error);

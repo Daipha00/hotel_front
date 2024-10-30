@@ -1,42 +1,46 @@
-<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <h2>Reservation Form</h2>
-  
-    <div class="form-group">
-      <label for="check_in">Check-in Date:</label>
-      <input type="date" id="check_in" formControlName="check_in">
-      <div *ngIf="reservationForm.get('check_in')?.invalid && reservationForm.get('check_in')?.touched" class="text-danger">
-        Check-in date is required.
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="reservation-form">
+  <h2>Reservation Form</h2>
+
+  <div class="form-row">
+      <div class="form-group">
+          <label for="check_in">Check-in Date:</label>
+          <input type="date" id="check_in" formControlName="check_in">
+          <div *ngIf="reservationForm.get('check_in')?.invalid && reservationForm.get('check_in')?.touched" class="text-danger">
+              Check-in date is required.
+          </div>
       </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="check_out">Check-out Date:</label>
-      <input type="date" id="check_out" formControlName="check_out">
-      <div *ngIf="reservationForm.get('check_out')?.invalid && reservationForm.get('check_out')?.touched" class="text-danger">
-        Check-out date is required.
+
+      <div class="form-group">
+          <label for="check_out">Check-out Date:</label>
+          <input type="date" id="check_out" formControlName="check_out">
+          <div *ngIf="reservationForm.get('check_out')?.invalid && reservationForm.get('check_out')?.touched" class="text-danger">
+              Check-out date is required.
+          </div>
       </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="arrival_time">Arrival Time:</label>
-      <input type="time" id="arrival_time" formControlName="arrival_time">
-      <div *ngIf="reservationForm.get('arrival_time')?.invalid && reservationForm.get('arrival_time')?.touched" class="text-danger">
-        Arrival time is required.
+  </div>
+
+  <div class="form-row">
+      <div class="form-group">
+          <label for="arrival_time">Arrival Time:</label>
+          <input type="time" id="arrival_time" formControlName="arrival_time">
+          <div *ngIf="reservationForm.get('arrival_time')?.invalid && reservationForm.get('arrival_time')?.touched" class="text-danger">
+              Arrival time is required.
+          </div>
       </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="numberOfGuests">Number of Guests:</label>
-      <input type="number" id="numberOfGuests" formControlName="numberOfGuests" min="1">
-      <div *ngIf="reservationForm.get('numberOfGuests')?.invalid && reservationForm.get('numberOfGuests')?.touched" class="text-danger">
-        Number of guests must be at least 1.
+
+      <div class="form-group">
+          <label for="numberOfGuests">Number of Guests:</label>
+          <input type="number" id="numberOfGuests" formControlName="numberOfGuests" min="1">
+          <div *ngIf="reservationForm.get('numberOfGuests')?.invalid && reservationForm.get('numberOfGuests')?.touched" class="text-danger">
+              Number of guests must be at least 1.
+          </div>
       </div>
-    </div>
-  
-    <div class="form-group">
+  </div>
+
+  <div class="form-group">
       <label for="special_request">Special Requests:</label>
       <textarea id="special_request" formControlName="special_request"></textarea>
-    </div>
-  
-    <button type="submit" [disabled]="reservationForm.invalid">Submit Reservation</button>
-  </form>
+  </div>
+
+  <button type="submit" [disabled]="reservationForm.invalid">Submit Reservation</button>
+</form>

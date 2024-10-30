@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-room-booking',
   templateUrl: './roombooking.component.html',
-  styleUrl: './roombooking.component.css'
+  styleUrls: ['./roombooking.component.css'] // Corrected to styleUrls
 })
-export class RoombookingComponent implements OnInit{
+export class RoombookingComponent implements OnInit {
   rooms: any[] = [];
-  constructor(public dialog: MatDialog, private http: HttpClient) {}
+
+  constructor(public dialog: MatDialog, private http: HttpClient,private router: Router) {}
 
   ngOnInit() {
     this.loadRooms();
@@ -24,19 +25,16 @@ export class RoombookingComponent implements OnInit{
     });
   }
 
-  // openBookingDialog(room: any): void {
-  //   const dialogRef = this.dialog.open(BookingDialogComponent, {
-  //     width: '400px',
-  //     data: {} // You can pass any data to the dialog if needed
-  //   });
+  bookRoom(room: any) {
+    // Store the room ID in local storage
+    localStorage.setItem('selectedRoomId', room.id); // Assuming room.id is the room ID
+     
+    // Log the room information to the console
+    console.log('Selected Room:', room);
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       console.log('Booking confirmed:', result);
-  //     } else {
-  //       console.log('Booking canceled');
-  //     }
-  //   });
-  //   console.log('Booking room:', room);
-  // }
+    // Optionally, navigate to the registration form or reservation page
+    this.router.navigate(['/client-tabs']); 
+  }
 }
+
+
