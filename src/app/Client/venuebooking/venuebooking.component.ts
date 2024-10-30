@@ -30,19 +30,13 @@ reservationMenu: any;
 
 
   bookVenue(venue: any) {
-    // Store the room ID in local storage
-    localStorage.setItem('selectedVenueId', venue.id); // Assuming room.id is the room ID
-     
-    // Log the room information to the console
-    console.log('Selected Room:', venue);
-
+    // Store the venue ID in local storage
+    localStorage.setItem('selectedVenueId', venue.id); // Assuming venue.id is the venue ID
+       
+    // Log the venue information to the console
+    console.log('Selected Venue:', venue);
+  
     // Optionally, navigate to the registration form or reservation page
     this.router.navigate(['/client-tabs']); 
-  }
-
-  isDropdownVisible = false;
-
-  toggleDropdown() {
-    this.isDropdownVisible = !this.isDropdownVisible;
   }
 }

@@ -51,14 +51,17 @@
           <input matInput [(ngModel)]="roomPrice" placeholder="Enter room price" type="number" name="roomPrice">
         </mat-form-field>
 
-       
+        <mat-form-field class="full-width">
+          <mat-label>Availability Status</mat-label>
+          <input matInput [(ngModel)]="roomAvailabilityStatus" placeholder="Enter availability status" name="roomAvailabilityStatus">
+        </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Description</mat-label>
           <textarea matInput [(ngModel)]="roomDescription" placeholder="Enter room description" name="roomDescription"></textarea>
         </mat-form-field>
         
-        <input type="file" (change)="onFileSelected($event)" />
+        <input type="file" (change)="onRoomFileSelected($event)" />
 
         <button mat-raised-button color="primary" (click)="saveRoom()">Save Room</button>
       </form>
@@ -79,15 +82,24 @@
           <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
           <mat-cell *matCellDef="let room"> {{ room.price | currency }} </mat-cell>
         </ng-container>
-<!--  -->
-        <!-- <ng-container matColumnDef="availabilityStatus"> -->
-          <!-- <mat-header-cell *matHeaderCellDef> Availability Status </mat-header-cell> -->
-          <!-- <mat-cell *matCellDef="let room"> {{ room.availabilityStatus }} </mat-cell> -->
-        <!-- </ng-container> -->
+
+        <ng-container matColumnDef="availabilityStatus">
+          <mat-header-cell *matHeaderCellDef> Availability Status </mat-header-cell>
+          <mat-cell *matCellDef="let room"> {{ room.availabilityStatus }} </mat-cell>
+        </ng-container>
 
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
           <mat-cell *matCellDef="let room"> {{ room.description }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="roomImage">
+          <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+          <mat-cell *matCellDef="let room">
+            <button mat-icon-button (click)="openImageDialog(room.image)" style="color: rgba(0, 0, 255, 0.73);">
+              <mat-icon>image</mat-icon>
+            </button>
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="actions">
@@ -135,7 +147,10 @@
           <input matInput [(ngModel)]="venueLocation" placeholder="Enter venue location" name="venueLocation">
         </mat-form-field>
 
-      
+        <mat-form-field class="full-width">
+          <mat-label>Availability Status</mat-label>
+          <input matInput [(ngModel)]="venueAvailabilityStatus" placeholder="Enter availability status" name="venueAvailabilityStatus">
+        </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Description</mat-label>
@@ -181,6 +196,20 @@
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
           <mat-cell *matCellDef="let venue"> {{ venue.description }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="venuePackage">
+          <mat-header-cell *matHeaderCellDef> VenuePackage </mat-header-cell>
+          <mat-cell *matCellDef="let venue"> {{ venue.venuePackage }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="venueImage">
+          <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+          <mat-cell *matCellDef="let venue">
+            <button mat-icon-button (click)="openImageDialog(venue.image)" style="color: rgba(0, 0, 255, 0.73);">
+              <mat-icon>image</mat-icon>
+            </button>
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="actions">

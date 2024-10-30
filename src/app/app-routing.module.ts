@@ -36,7 +36,10 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
+<<<<<<< HEAD
 import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
+=======
+>>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
@@ -71,6 +74,7 @@ const routes: Routes = [
   {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
+<<<<<<< HEAD
   {path:'client-tabs',component:ClientFormsComponent},
   {path: 'header', component:HeaderComponent},
   // {path: 'booking-dialog', component:BookingDialogComponent},
@@ -79,6 +83,8 @@ const routes: Routes = [
   
 {path:'layout',component:LayoutComponent},
   //FrontManager
+=======
+>>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
   {path:'registration',component:RegistrationComponent},
   {path:'client-tabs',component:ClientFormsComponent},
 {path:'reservation-form',component:ReservationFormComponent},
