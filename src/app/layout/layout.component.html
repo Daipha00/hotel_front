@@ -29,7 +29,40 @@
       <div class="content">
         <!-- Static Content (Optional) -->
        <!-- dashboard.component.html -->
-
+       <div class="room-container">
+        <h1 class="title">Room Management</h1>
+      
+        <div class="room-form">
+          <h2>Add New Room</h2>
+          <form (submit)="addRoom()" class="form">
+            <input type="text" placeholder="Room Type" [(ngModel)]="newRoom.roomType" name="roomType" required />
+            <input type="number" placeholder="Pax" [(ngModel)]="newRoom.pax" name="pax" required />
+            <input type="number" placeholder="Price" [(ngModel)]="newRoom.price" name="price" required />
+            <select [(ngModel)]="newRoom.availabilityStatus" name="availabilityStatus" required>
+              <option value="Available">Available</option>
+              <option value="Unavailable">Unavailable</option>
+            </select>
+            <textarea placeholder="Description" [(ngModel)]="newRoom.description" name="description"></textarea>
+            <input type="file" (change)="onFileSelected($event)" required />
+      
+            <button type="submit">Add Room</button>
+          </form>
+        </div>
+      
+        <div class="room-list">
+          <h2>Rooms List</h2>
+          <div class="room-card" *ngFor="let room of rooms">
+            <h3>{{ room.roomType }} - {{ room.pax }} Pax</h3>
+            <p>{{ room.description }}</p>
+            <span class="price">${{ room.price.toFixed(2) }}</span>
+            <span class="status" [ngClass]="{'available': room.availabilityStatus === 'Available', 'unavailable': room.availabilityStatus === 'Unavailable'}">
+              {{ room.availabilityStatus }}
+            </span>
+            <!-- <img *ngIf="room.image" [src]="room.image | safeImage" alt="Room image" /> -->
+          </div>
+        </div>
+      </div>
+      
         <!-- Dynamic Content via Router Outlet -->
         <!-- <router-outlet></router-outlet> -->
       </div>

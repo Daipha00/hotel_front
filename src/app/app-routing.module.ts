@@ -36,15 +36,13 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
-<<<<<<< HEAD
 import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
-=======
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
->>>>>>> 6cb793068c682f02f2d767cbdf383065641e1ec7
 const routes: Routes = [
   //Admin
  
@@ -57,7 +55,7 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
-  {path:'admin-nav',component:AdminNavigationComponent},
+  // {path:'admin-nav',component:AdminNavigationComponent},
 
 
   
@@ -68,18 +66,15 @@ const routes: Routes = [
   {path: 'roombooking', component: RoombookingComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-<<<<<<< HEAD
-  {path: 'booking-dialog', component:BookingDialogComponent},
+  // {path: 'booking-dialog', component:BookingDialogComponent},
   {path: 'registration',component:RegistrationComponent},
   {path: 'customerPayment',component:CustomerPaymentComponent},
   
-
+{path:'layout',component:LayoutComponent},
   //FrontManager
-=======
   {path:'registration',component:RegistrationComponent},
   {path:'client-tabs',component:ClientFormsComponent},
 {path:'reservation-form',component:ReservationFormComponent},
->>>>>>> 6cb793068c682f02f2d767cbdf383065641e1ec7
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},
   {path: 'communicationCenter', component: CommunicationCenterComponent},

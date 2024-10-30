@@ -1,19 +1,13 @@
-import { Component } from '@angular/core';
-import { Room } from './room.model';
+import { Component, OnInit } from '@angular/core';
 import { RoomService } from './room.service';
+import { Room } from './room.model';
 
 @Component({
-  selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  selector: 'app-room',
+  templateUrl: './room.component.html',
+//   styleUrls: ['./room.component.css']
 })
-export class LayoutComponent {
-  isSidebarOpen = false;
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
-
+export class RoomComponent implements OnInit {
   rooms: Room[] = [];
   newRoom: Partial<Room> = {};
   selectedFile: File | null = null;
@@ -49,6 +43,6 @@ export class LayoutComponent {
         this.newRoom = {};
         this.selectedFile = null;
       });
-    }}
-
+    }
+  }
 }
