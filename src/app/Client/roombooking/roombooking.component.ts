@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BookingDialogComponent } from '../booking-dialog/booking-dialog.component';
 import { HttpClient } from '@angular/common/http';
-import { BookingDialogVenueComponent } from '../booking-dialog-venue/booking-dialog-venue.component';
+
 
 @Component({
   selector: 'app-room-booking',
@@ -25,19 +24,19 @@ export class RoombookingComponent implements OnInit{
     });
   }
 
-  openBookingDialog(room: any): void {
-    const dialogRef = this.dialog.open(BookingDialogComponent, {
-      width: '400px',
-      data: {} // You can pass any data to the dialog if needed
-    });
+  // openBookingDialog(room: any): void {
+  //   const dialogRef = this.dialog.open(BookingDialogComponent, {
+  //     width: '400px',
+  //     data: {} // You can pass any data to the dialog if needed
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Booking confirmed:', result);
-      } else {
-        console.log('Booking canceled');
-      }
-    });
-    console.log('Booking room:', room);
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       console.log('Booking confirmed:', result);
+  //     } else {
+  //       console.log('Booking canceled');
+  //     }
+  //   });
+  //   console.log('Booking room:', room);
+  // }
 }

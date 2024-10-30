@@ -4,26 +4,11 @@
       <div class="col-md-6 offset-md-3">
         <div class="card">
           <div class="card-header">
-            <h3>Registration Form</h3>
+            <h3> Personal details</h3>
           </div>
           <div class="card-body">
             <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="userName">User  Name:</label>
-                  <input type="text" formControlName="userName" class="form-control" id="userName">
-                  <div *ngIf="(registrationForm.get('userName')?.invalid ?? false) && (registrationForm.get('userName')?.touched ?? false)" class="text-danger">
-                    User Name is required
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="userPassword">Password:</label>
-                  <input type="password" formControlName="userPassword" class="form-control" id="userPassword">
-                  <div *ngIf="(registrationForm.get('userPassword')?.invalid ?? false) && (registrationForm.get('userPassword')?.touched ?? false)" class="text-danger">
-                    Password is required
-                  </div>
-                </div>
-              </div>
+             
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="userFirstName">First Name:</label>
@@ -91,7 +76,7 @@
                     </div>
                   </div>
                 </div>
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
