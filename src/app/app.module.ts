@@ -67,6 +67,7 @@ import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-st
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PaymentComponent } from './Client/payment/payment.component';
 
 
 
@@ -105,7 +106,8 @@ AdminNavigationComponent,
     UserManagementComponent,
     FrontManagerNavComponent,
     FrontStaffManagerComponent,
-    FrontManagerComponent
+    FrontManagerComponent,
+    PaymentComponent
 
 
 

@@ -58,7 +58,7 @@
         <p>Package: {{ venue.venuePackage }}</p>
         <p>Description: {{ venue.description }}</p>
         <mat-card-actions>
-          <button mat-raised-button color="primary" routerLink="/client-tabs">Book Now</button>
+          <button mat-raised-button color="primary" (click)="bookVenue(venue)">Book Now</button>
         </mat-card-actions>
       </mat-card>
     </div>

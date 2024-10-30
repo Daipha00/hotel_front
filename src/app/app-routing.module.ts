@@ -39,6 +39,7 @@ import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-st
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { AdminNavigationComponent } from './Admin/admin-navigation/admin-navigation.component';
+import { PaymentComponent } from './Client/payment/payment.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
   //Client
   {path: '', component: HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
+  {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
   {path:'registration',component:RegistrationComponent},

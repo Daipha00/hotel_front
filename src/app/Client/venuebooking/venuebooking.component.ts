@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class VenuebookingComponent implements OnInit{
   venues: any[] = [];
 reservationMenu: any;
-  constructor(public dialog: MatDialog, private http: HttpClient) {}
+  constructor(public dialog: MatDialog, private http: HttpClient, private router:Router) {}
 
   ngOnInit() {
     this.loadVenues();
@@ -26,21 +28,17 @@ reservationMenu: any;
     });
   }
 
-  // openBookingDialog(room: any): void {
-  //   const dialogRef = this.dialog.open(BookingDialogVenueComponent, {
-  //     width: '400px',
-  //     data: {} // You can pass any data to the dialog if needed
-  //   });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       console.log('Booking confirmed:', result);
-  //     } else {
-  //       console.log('Booking canceled');
-  //     }
-  //   });
-  //   console.log('Booking venue:', this.venues);
-  // }
+  bookVenue(venue: any) {
+    // Store the room ID in local storage
+    localStorage.setItem('selectedVenueId', venue.id); // Assuming room.id is the room ID
+     
+    // Log the room information to the console
+    console.log('Selected Room:', venue);
+
+    // Optionally, navigate to the registration form or reservation page
+    this.router.navigate(['/client-tabs']); 
+  }
 
   isDropdownVisible = false;
 
