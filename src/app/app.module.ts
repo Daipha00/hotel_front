@@ -64,23 +64,17 @@ import { ImageDialogComponent } from './Admin/image-dialog/image-dialog.componen
 import { RegistrationComponent } from './Client/registration/registration.component';
 import { FrontManagerComponent } from './Admin/front-manager/front-manager.component';
 import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-staff-manager.component';
-<<<<<<< HEAD
 // import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
 import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
-=======
->>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
 
-<<<<<<< HEAD
 import { HomeComponent } from './Client/home/home.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
-=======
 
->>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
 
 
 
@@ -110,10 +104,8 @@ import { CustoerComponent } from './Admin/custoer/custoer.component';
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
     ImageDialogComponent,
-<<<<<<< HEAD
+
     RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, CustomerPaymentComponent, 
-=======
->>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
     ReservationFormComponent,
     ClientFormsComponent,
 AdminDashboardComponent,
@@ -122,17 +114,8 @@ AdminNavigationComponent,
     FrontManagerNavComponent,
     FrontStaffManagerComponent,
     FrontManagerComponent,
-<<<<<<< HEAD
-    PaymentComponent,
-    CustoerComponent,
-   
-
-
-
-=======
     PaymentComponent
     
->>>>>>> b2da68f672eb985782a65ee7f90ac726b2289828
   ],
   imports: [
     BrowserModule,MatExpansionModule,MatSelectModule,
