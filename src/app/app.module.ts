@@ -74,6 +74,7 @@ import { HeaderComponent } from './Client/header/header.component';
 
 import { HomeComponent } from './Client/home/home.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
+import { ClientComponent } from './Admin/client/client.component';
 
 
 
@@ -114,7 +115,8 @@ AdminNavigationComponent,
     FrontManagerNavComponent,
     FrontStaffManagerComponent,
     FrontManagerComponent,
-    PaymentComponent
+    PaymentComponent,
+    ClientComponent
     
   ],
   imports: [

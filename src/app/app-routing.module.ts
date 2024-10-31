@@ -46,6 +46,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
+import { ClientComponent } from './Admin/client/client.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
-  {path: 'customer',component:CustoerComponent},
+  
+  {path: 'customer',component:ClientComponent},
   // {path:'admin-nav',component:AdminNavigationComponent},
 
 
