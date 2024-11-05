@@ -46,6 +46,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
+import { ClientComponent } from './Admin/client/client.component';
+import { ReservationComponent } from './Admin/reservation/reservation.component';
+import { ReservationlistComponent } from './Admin/reservationlist/reservationlist.component';
+
 
 
 const routes: Routes = [
@@ -60,7 +64,9 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
-  {path: 'customer',component:CustoerComponent},
+    {path: 'customer-list',component:ClientComponent},
+    {path: 'reser',component:ReservationComponent},
+    {path: 'reserve',component:ReservationlistComponent},
   // {path:'admin-nav',component:AdminNavigationComponent},
 
 
@@ -72,18 +78,14 @@ const routes: Routes = [
   {path: 'roombooking', component: RoombookingComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-    { path: 'client-forms', component: ClientFormsComponent, children: [
-        { path: 'registration', component: RegistrationComponent },
-        { path: 'reservation-form', component: ReservationFormComponent },
-        { path: 'payment', component: PaymentComponent },
-        { path: '', redirectTo: 'registration', pathMatch: 'full' } // Default to registration
-      ] 
-    },
-    { path: '', redirectTo: '/client-forms', pathMatch: 'full' },
-    { path: '**', redirectTo: '/client-forms' },
-  
-  {path: 'header', component:HeaderComponent},
+  {path:'reservation-form',component:ReservationFormComponent},
+  {path:'payment',component:PaymentComponent},
 
+  {path:'client-forms',component:ClientFormsComponent},
+  {path: 'header', component:HeaderComponent},
+  // {path: 'booking-dialog', component:BookingDialogComponent},
+  {path: 'registration',component:RegistrationComponent},
+  {path: 'customerPayment',component:CustomerPaymentComponent},
   
 {path:'layout',component:LayoutComponent},
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},

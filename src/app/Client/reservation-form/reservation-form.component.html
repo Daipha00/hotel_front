@@ -2,60 +2,59 @@
 
 <!-- reservation.component.html -->
 <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-header">
-            <h2>Reservation Form</h2>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="reservation-form">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="check_in">Check-in Date:</label>
-                  <input type="date" id="check_in" formControlName="check_in" class="form-control">
-                  <div *ngIf="reservationForm.get('check_in')?.invalid && reservationForm.get('check_in')?.touched" class="text-danger">
-                    Check-in date is required.
-                  </div>
-                </div>
-  
-                <div class="form-group col-md-6">
-                  <label for="check_out">Check-out Date:</label>
-                  <input type="date" id="check_out" formControlName="check_out" class="form-control">
-                  <div *ngIf="reservationForm.get('check_out')?.invalid && reservationForm.get('check_out')?.touched" class="text-danger">
-                    Check-out date is required.
-                  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h2>Reservation Form</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="reservation-form">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="check_in">Check-in Date:</label>
+                <input type="date" id="check_in" formControlName="check_in" class="form-control">
+                <div *ngIf="reservationForm.get('check_in')?.invalid && reservationForm.get('check_in')?.touched" class="text-danger">
+                  Check-in date is required.
                 </div>
               </div>
-  
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="arrival_time">Arrival Time:</label>
-                  <input type="time" id="arrival_time" formControlName="arrival_time" class="form-control">
-                  <div *ngIf="reservationForm.get('arrival_time')?.invalid && reservationForm.get('arrival_time')?.touched" class="text-danger">
-                    Arrival time is required.
-                  </div>
-                </div>
-  
-                <div class="form-group col-md-6">
-                  <label for="numberOfGuests">Number of Guests:</label>
-                  <input type="number" id="numberOfGuests" formControlName="numberOfGuests" class="form-control" min="1">
-                  <div *ngIf="reservationForm.get('numberOfGuests')?.invalid && reservationForm.get('numberOfGuests')?.touched" class="text-danger">
-                    Number of guests must be at least 1.
-                  </div>
+
+              <div class="form-group col-md-6">
+                <label for="check_out">Check-out Date:</label>
+                <input type="date" id="check_out" formControlName="check_out" class="form-control">
+                <div *ngIf="reservationForm.get('check_out')?.invalid && reservationForm.get('check_out')?.touched" class="text-danger">
+                  Check-out date is required.
                 </div>
               </div>
-  
-              <div class="form-group">
-                <label for="special_request">Special Requests:</label>
-                <textarea id="special_request" formControlName="special_request" class="form-control"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="arrival_time">Arrival Time:</label>
+                <input type="time" id="arrival_time" formControlName="arrival_time" class="form-control">
+                <div *ngIf="reservationForm.get('arrival_time')?.invalid && reservationForm.get('arrival_time')?.touched" class="text-danger">
+                  Arrival time is required.
+                </div>
               </div>
-  
-              <button type="submit" [disabled]="reservationForm.invalid" class="btn btn-primary">Submit Reservation</button>
-            </form>
-          </div>
+
+              <div class="form-group col-md-6">
+                <label for="numberOfGuests">Number of Guests:</label>
+                <input type="number" id="numberOfGuests" formControlName="numberOfGuests" class="form-control" min="1">
+                <div *ngIf="reservationForm.get('numberOfGuests')?.invalid && reservationForm.get('numberOfGuests')?.touched" class="text-danger">
+                  Number of guests must be at least 1.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="special_request">Special Requests:</label>
+              <textarea id="special_request" formControlName="special_request" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" [disabled]="reservationForm.invalid" class="btn btn-primary">Submit Reservation</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

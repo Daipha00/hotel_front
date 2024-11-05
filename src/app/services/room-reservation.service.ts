@@ -7,6 +7,7 @@ import { RoomReservation } from '../Classes/room-reservation';
   providedIn: 'root'
 })
 export class RoomReservationService {
+  [x: string]: any;
 
 
 

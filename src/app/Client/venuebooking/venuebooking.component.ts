@@ -17,26 +17,30 @@ export class VenuebookingComponent implements OnInit {
     this.loadVenues();
   }
 
+
   loadVenues() {
     this.http.get<any[]>('http://localhost:9090/venue').subscribe(
-      data => {
-        this.venues = data;
-      },
-      error => {
-        console.error('Error fetching venues:', error);
-      }
+        data => {
+            console.log('Fetched Venues:', data); // Log the fetched rooms
+            this.venues = data;
+        },
+        error => {
+            console.error('Error fetching venues:', error);
+        }
     );
-  }
+}
 
   bookVenue(venue: any) {
-    // Store the venue ID in local storage
-    localStorage.setItem('selectedVenueId', venue.id); // Assuming venue.id is the venue ID
-    localStorage.removeItem('selectedRoomId'); // Clear any previous room ID
-  
-    // Log the venue information to the console for debugging
-    console.log('Selected Venue:', venue);
-  
-    // Navigate to the registration form or reservation page
-    this.router.navigate(['/client-forms'], { queryParams: { isRoom: false, venueId: venue.id } });
+    console.log('Selected Venue:', venue); // Log the entire room object
+    
+    // Use 'id' instead of 'roomId'
+    if (typeof venue.id === 'number') {
+        localStorage.setItem('selectedVenueId', venue.id.toString()); // Store as string
+    } else {
+        console.error('Invalid venueId:', venue.id);
+    }
+    
+    localStorage.removeItem('selectedRoomId'); // Clear previous venue selection
+    this.router.navigate(['/client-forms'], { queryParams: { isVenue: true, venueId: venue.id } }); // Use 'id' instead of 'roomId'
   }
 }

@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RoomReservation } from '../../Classes/room-reservation';
 import { RoomReservationService } from '../../services/room-reservation.service';
+import { isPlatformBrowser } from '@angular/common';
 import { VenueBookingServiceService } from '../../services/venue-booking-service.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-form',
@@ -10,16 +12,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./reservation-form.component.css']
 })
 export class ReservationFormComponent implements OnInit {
-  @Input() isRoom: boolean = true;  // `true` for room, `false` for venue
-  @Input() roomId?: number;         // Room ID if isRoom is true
-  @Input() venueId?: number;        // Venue ID if isRoom is false
   reservationForm: FormGroup;
+  clientId!: number; // This will be retrieved from local storage
+  roomId!: number | null; // This will be set based on the selected room
+  venueId!: number | null; // This will be set based on the selected venue
 
   constructor(
     private fb: FormBuilder,
-    private roomReservationService: RoomReservationService,
-    private venueBookingService: VenueBookingServiceService,
-    private route: ActivatedRoute
+    private reservationService: RoomReservationService,
+    private venueReservationService:VenueBookingServiceService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.reservationForm = this.fb.group({
       check_in: ['', Validators.required],
@@ -31,69 +34,81 @@ export class ReservationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Read query parameters to set isRoom, roomId, and venueId
-    this.route.queryParams.subscribe(params => {
-      this.isRoom = params['isRoom'] === 'true'; // Convert string to boolean
-      this.roomId = params['roomId'] ? Number(params['roomId']) : undefined; // Convert to number if present
-      this.venueId = params['venueId'] ? Number(params['venueId']) : undefined; // Convert to number if present
-  
-      console.log('isRoom:', this.isRoom);
-      console.log('roomId:', this.roomId);
-      console.log('venueId:', this.venueId);
-  
-      if (this.isRoom && !this.roomId) {
-        console.error('Room ID is required for room reservation.');
-      } else if (!this.isRoom && !this.venueId) {
-        console.error('Venue ID is required for venue reservation.');
+    // Check if running in the browser
+    if (isPlatformBrowser(this.platformId)) {
+      // Retrieve the clientId from local storage
+      const storedClientId = localStorage.getItem('clientId');
+      if (storedClientId) {
+        this.clientId = +storedClientId; // Convert to number
       }
-    });
+
+      // Retrieve roomId from local storage
+      const storedRoomId = localStorage.getItem('selectedRoomId');
+      this.roomId = storedRoomId ? +storedRoomId : null; // Convert to number or null
+
+      // Retrieve venueId from local storage
+      const storedVenueId = localStorage.getItem('selectedVenueId');
+      this.venueId = storedVenueId ? +storedVenueId : null; // Convert to number or null
+
+      // Conditional logging based on selected venue or room
+      if (this.roomId !== null) {
+        console.log('Stored Room ID:', this.roomId); // Log the retrieved room ID
+      }
+      if (this.venueId !== null) {
+        console.log('Stored Venue ID:', this.venueId); // Log the retrieved venue ID
+      }
+    }
   }
 
-  onSubmit() {
-    if (this.reservationForm.invalid) {
-      console.error('Form is invalid.');
-      return;
-    }
-
-    const clientIdStr = localStorage.getItem('clientId');
-    const clientId = Number(clientIdStr);
-
-    // Check for clientId validity and roomId/venueId availability
-    if (!clientIdStr || isNaN(clientId)) {
-      console.error('Client ID is not found or is invalid.');
-      return;
-    }
-    if (this.isRoom && !this.roomId) {
-      console.error('Room ID is required for room reservation.');
-      return;
-    } else if (!this.isRoom && !this.venueId) {
-      console.error('Venue ID is required for venue reservation.');
-      return;
-    }
-
-    const reservationData = {
-      clientId,
-      check_in: this.reservationForm.get('check_in')?.value,
-      check_out: this.reservationForm.get('check_out')?.value,
-      arrival_time: this.reservationForm.get('arrival_time')?.value,
-      numberOfGuests: this.reservationForm.get('numberOfGuests')?.value,
-      special_request: this.reservationForm.get('special_request')?.value,
-      ...(this.isRoom ? { roomId: this.roomId } : { venueId: this.venueId })
-    };
-
-    // Call the appropriate reservation service based on `isRoom`
-    const reservationService = this.isRoom
-      ? this.roomReservationService.createReservation(reservationData)
-      : this.venueBookingService.createReservation(reservationData);
-
-    reservationService.subscribe({
-      next: (response) => {
-        console.log('Reservation successful:', response);
-        // Optional: Handle success (e.g., show success message or navigate to another page)
-      },
-      error: (error) => {
-        console.error('Error making reservation:', error);
+  onSubmit(): void {
+    if (this.reservationForm.valid) {
+      const reservationData: RoomReservation = {
+        ...this.reservationForm.value,
+        clientId: this.clientId,
+        venueId: this.venueId, // Include venueId
+        roomId: this.roomId // Include roomId, but check if it's null
+      };
+  
+      // Check if roomId or venueId is available and adjust the reservation data accordingly
+      if (this.roomId) {
+        console.log('Making reservation for Room ID:', this.roomId);
+        // Room reservation logic can go here
+        console.log('Reservation Data:', reservationData); // Log the reservation data
+        this.reservationService.createReservation(reservationData).subscribe(
+          response => {
+            console.log('Reservation successful', response);
+            this.router.navigate(['/payment']); // Adjust the route as necessary
+          },
+          error => {
+            console.error('Error creating reservation', error);
+          }
+        );
+      } 
+      
+      
+      
+      else if (this.venueId) {
+        console.log('Making reservation for Venue ID:', this.venueId);
+        // If roomId is null, we may want to remove it from the reservation data
+        delete reservationData.roomId; // Remove roomId from the data if it's null
+        console.log('Reservation Data:', reservationData); // Log the reservation data
+        this.venueReservationService.createReservation(reservationData).subscribe(
+          response => {
+            console.log('Reservation successful', response);
+            this.router.navigate(['/payment']); // Adjust the route as necessary
+          },
+          error => {
+            console.error('Error creating reservation', error);
+          }
+        );
+      } else {
+        console.error('No Room or Venue selected for reservation');
+        return; // Exit if neither is selected
       }
-    });
+  
+     
+    } else {
+      console.log('Form is invalid');
+    }
   }
 }

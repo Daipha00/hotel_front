@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Reservation } from './Admin/reservation/reservation.model';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +73,9 @@ import { HeaderComponent } from './Client/header/header.component';
 
 import { HomeComponent } from './Client/home/home.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
+import { ClientComponent } from './Admin/client/client.component';
+import { ReservationComponent } from './Admin/reservation/reservation.component';
+import { ReservationlistComponent } from './Admin/reservationlist/reservationlist.component';
 import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
 
@@ -89,11 +92,13 @@ import { ReservationFormComponent } from './Client/reservation-form/reservation-
     LayoutComponent,
     VenuebookingComponent,
     HomeComponent,
+    ReservationFormComponent,
     UserManagementComponent,
     FrontManagerNavComponent,
     FrontManagerDashboardComponent,ReportGenerationComponent,
     ManagerNavComponent,
     ManageDashboardComponent,
+    ReservationComponent,
     StaffNavComponent,AdminRoomVenueConfigurationComponent,
     StaffDashboardComponent,VenueComponent,
     SupportComponent, ReservationManagementComponent, 
@@ -113,7 +118,12 @@ AdminNavigationComponent,
     FrontManagerNavComponent,
     FrontStaffManagerComponent,
     FrontManagerComponent,
-    PaymentComponent
+    PaymentComponent,
+    ClientComponent,
+    ReservationComponent,
+    ReservationlistComponent,
+    
+    
     
   ],
   imports: [

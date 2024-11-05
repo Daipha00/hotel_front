@@ -1,0 +1,15 @@
+<!-- reservation-list.component.html -->
+<h1>Reservation List</h1>
+<ul>
+  <li *ngFor="let reservation of reservations">
+    <div>
+      <p><strong>Check-in:</strong> {{ reservation.checkIn | date }}</p>
+      <p><strong>Check-out:</strong> {{ reservation.checkOut | date }}</p>
+      <p><strong>Number of Guests:</strong> {{ reservation.numberOfGuests }}</p>
+      <p><strong>Special Request:</strong> {{ reservation.specialRequest }}</p>
+      <p><strong>Client Name:</strong> {{ reservation.client?.userFirstName }} {{ reservation.client?.userLastName }}</p>
+      <p><strong>Room Type:</strong> {{ reservation.room?.roomType }}</p>
+      <!-- Add more fields as necessary -->
+    </div>
+  </li>
+</ul>

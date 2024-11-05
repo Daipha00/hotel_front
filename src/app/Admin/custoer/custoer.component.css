@@ -1,80 +1,84 @@
-/* client-list.component.css */
-.client-list-container {
-    width: 80%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    color: #333;
+/* General container styling */
+.container {
+  margin-top: 20px;
+}
+
+/* Card styling for registration form */
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.card-header {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Button styling */
+.btn {
+  margin-right: 5px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9; /* Slightly transparent on hover */
+}
+
+/* Error message styling */
+.text-danger {
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card {
+    margin: 10px;
   }
-  
-  h2, h3 {
-    text-align: center;
-    color: #4CAF50;
+
+  table {
+    font-size: 14px; /* Smaller font on mobile */
   }
-  
-  .client-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .client-table th, .client-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .client-table th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .client-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .client-table tr:hover {
-    background-color: #ddd;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button[type="submit"] {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
+}

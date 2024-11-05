@@ -15,6 +15,6 @@ export class VenueBookingServiceService {
   constructor(private http: HttpClient) {}
 
   createReservation(venuereservation: VenueReservation): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}?clientId=${venuereservation.clientId}&roomId=${venuereservation.venueId}`, venuereservation);
+    return this.http.post<any>(`${this.apiUrl}?clientId=${venuereservation.clientId}&venueId=${venuereservation.venueId}`, venuereservation);
   }
 }

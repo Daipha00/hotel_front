@@ -19,18 +19,27 @@ export class RoombookingComponent implements OnInit {
 
   loadRooms() {
     this.http.get<any[]>('http://localhost:9090/room').subscribe(
-      data => {
-        this.rooms = data;
-      },
-      error => {
-        console.error('Error fetching rooms:', error);
-      }
+        data => {
+            console.log('Fetched Rooms:', data); // Log the fetched rooms
+            this.rooms = data;
+        },
+        error => {
+            console.error('Error fetching rooms:', error);
+        }
     );
-  }
+}
 
-  bookRoom(room: any) {
-    localStorage.setItem('selectedRoomId', room.roomId);
-    localStorage.removeItem('selectedVenueId'); // clear previous venue selection
-    this.router.navigate(['/client-forms'], { queryParams: { isRoom: true, roomId: room.roomId } });
+bookRoom(room: any) {
+  console.log('Selected Room:', room); // Log the entire room object
+  
+  // Use 'id' instead of 'roomId'
+  if (typeof room.id === 'number') {
+      localStorage.setItem('selectedRoomId', room.id.toString()); // Store as string
+  } else {
+      console.error('Invalid roomId:', room.id);
+  }
+  
+  localStorage.removeItem('selectedVenueId'); // Clear previous venue selection
+  this.router.navigate(['/client-forms'], { queryParams: { isRoom: true, roomId: room.id } }); // Use 'id' instead of 'roomId'
 }
 }
