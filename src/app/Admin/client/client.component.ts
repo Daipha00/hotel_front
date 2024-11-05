@@ -11,6 +11,12 @@ import { Client } from './client.model';
 })
 export class ClientComponent {
 
+  isSidebarOpen = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
   clients: Client[] = []; // You can use any interface or type here
 
   private apiUrl = 'http://localhost:9090/client'; // Adjust based on your API endpoint

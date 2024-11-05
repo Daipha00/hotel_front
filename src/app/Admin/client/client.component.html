@@ -1,24 +1,58 @@
-<h1>Client List</h1>
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let client of clients">
-      <td>{{ client.userFirstName }}</td>
-      <td>{{ client.userLastName }}</td>
-      <td>{{ client.email }}</td>
-      <td>{{ client.phoneNumber }}</td>
-      <td>
-        <button (click)="editClient(client.id)">Edit</button>
-        <button (click)="deleteClient(client.id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <!-- Navigation Bar -->
+  <nav class="sidebar" [class.open]="isSidebarOpen">
+    <mat-toolbar color="primary" class="sidebar-toolbar">
+      <span>Hotel System</span>
+    </mat-toolbar>
+    <app-admin-navigation></app-admin-navigation>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Toolbar -->
+    <mat-toolbar color="accent" class="main-toolbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        class="menu-button"
+        (click)="toggleSidebar()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Static Content (Optional) -->
+      <h1>Client List</h1>
+      <table class="client-table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.userFirstName }}</td>
+            <td>{{ client.userLastName }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.phoneNumber }}</td>
+            <td>
+              <button (click)="editClient(client.id)" class="edit-btn">Edit</button>
+              <button (click)="deleteClient(client.id)" class="delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <!-- Dynamic Content via Router Outlet -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

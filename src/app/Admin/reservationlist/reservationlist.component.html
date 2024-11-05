@@ -1,0 +1,30 @@
+<div>
+    <h2>Reservations</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Check-in</th>
+          <th>Check-out</th>
+          <th>Guests</th>
+          <th>Special Requests</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.id }}</td>
+          <td>{{ reservation.check_in }}</td>
+          <td>{{ reservation.check_out }}</td>
+          <td>{{ reservation.numberOfGuests }}</td>
+          <td>{{ reservation.special_request }}</td>
+          <td>
+            
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/reservations/new">Create New Reservation</button>
+  </div>
+  

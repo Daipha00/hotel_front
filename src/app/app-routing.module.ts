@@ -47,6 +47,9 @@ import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
 import { ClientComponent } from './Admin/client/client.component';
+import { ReservationComponent } from './Admin/reservation/reservation.component';
+import { ReservationlistComponent } from './Admin/reservationlist/reservationlist.component';
+
 
 
 const routes: Routes = [
@@ -61,8 +64,9 @@ const routes: Routes = [
   {path:'imageDialog',component:ImageDialogComponent},
   {path:'adminFrontManager',component:FrontManagerComponent},
   {path:'adminFrontStaff',component:FrontStaffManagerComponent},
-  
-  {path: 'customer',component:ClientComponent},
+    {path: 'customer-list',component:ClientComponent},
+    {path: 'reser',component:ReservationComponent},
+    {path: 'reserve',component:ReservationlistComponent},
   // {path:'admin-nav',component:AdminNavigationComponent},
 
 
@@ -75,13 +79,11 @@ const routes: Routes = [
   {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-
   {path:'client-tabs',component:ClientFormsComponent},
   {path: 'header', component:HeaderComponent},
   // {path: 'booking-dialog', component:BookingDialogComponent},
   {path: 'registration',component:RegistrationComponent},
-  {path: 'customerPayment',component:CustomerPaymentComponent},
-  
+  {path: 'customerPayment',component:CustomerPaymentComponent},  
 {path:'layout',component:LayoutComponent},
   //FrontManager
 
