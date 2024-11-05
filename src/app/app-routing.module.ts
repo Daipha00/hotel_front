@@ -70,22 +70,22 @@ const routes: Routes = [
   //Client
 {path:'home',component:HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
-  {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-
-  {path:'client-tabs',component:ClientFormsComponent},
+    { path: 'client-forms', component: ClientFormsComponent, children: [
+        { path: 'registration', component: RegistrationComponent },
+        { path: 'reservation-form', component: ReservationFormComponent },
+        { path: 'payment', component: PaymentComponent },
+        { path: '', redirectTo: 'registration', pathMatch: 'full' } // Default to registration
+      ] 
+    },
+    { path: '', redirectTo: '/client-forms', pathMatch: 'full' },
+    { path: '**', redirectTo: '/client-forms' },
+  
   {path: 'header', component:HeaderComponent},
-  // {path: 'booking-dialog', component:BookingDialogComponent},
-  {path: 'registration',component:RegistrationComponent},
-  {path: 'customerPayment',component:CustomerPaymentComponent},
+
   
 {path:'layout',component:LayoutComponent},
-  //FrontManager
-
-  {path:'registration',component:RegistrationComponent},
-  {path:'client-tabs',component:ClientFormsComponent},
-{path:'reservation-form',component:ReservationFormComponent},
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},
   {path: 'communicationCenter', component: CommunicationCenterComponent},

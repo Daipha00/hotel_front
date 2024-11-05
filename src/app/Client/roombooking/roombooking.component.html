@@ -3,22 +3,19 @@
   <h2>Available Rooms</h2>
   <div class="venue-cards">
     <mat-card class="venue-card" *ngFor="let room of rooms">
-      <img [src]="room.image ? 'data:image/jpeg;base64,' + room.image : 'default-venue.jpg'" alt="Venue Image">
-      <h3> {{ room.roomType }}</h3>
+      <img [src]="room.image ? 'data:image/jpeg;base64,' + room.image : 'default-venue.jpg'" alt="Room Image for {{ room.roomType }}">
+      <h3>{{ room.roomType }}</h3>
       <p>Capacity: {{ room.pax }}</p>
       <p>Floor: {{ room.location }}</p>
       <p>Price: {{ room.price | currency }}</p>
       <p>Description: {{ room.description }}</p>
       <mat-card-actions>
-
         <button mat-raised-button color="primary" (click)="bookRoom(room)">Book Now</button>
-
-
-        <!-- <button mat-raised-button color="primary"><a href="/resevation-room">Book Now</a></button> -->
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+
 
   <div class="tech-section">
     <div class="description-container">

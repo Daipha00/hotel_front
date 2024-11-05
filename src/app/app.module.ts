@@ -67,13 +67,13 @@ import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-st
 // import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
 import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
-import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
 
 import { HomeComponent } from './Client/home/home.component';
 import { CustoerComponent } from './Admin/custoer/custoer.component';
+import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
 
 
@@ -104,9 +104,8 @@ import { CustoerComponent } from './Admin/custoer/custoer.component';
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
     ImageDialogComponent,
-
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, CustomerPaymentComponent, 
     ReservationFormComponent,
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, CustomerPaymentComponent, 
     ClientFormsComponent,
 AdminDashboardComponent,
 AdminNavigationComponent,

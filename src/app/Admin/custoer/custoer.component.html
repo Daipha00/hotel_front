@@ -1,8 +1,8 @@
-<!-- client-list.component.html -->
+<!-- client-list.component.html
 <div class="client-list-container">
     <h2>Client List</h2>
   
-    <!-- Client List Table -->
+  
     <table class="client-table">
       <thead>
         <tr>
@@ -25,13 +25,13 @@
           <td>{{ client.phoneNumber }}</td>
           <td>
             <button (click)="editClient(client)">Edit</button>
-            <!-- <button (click)="deleteClient(client.id)">Delete</button> -->
+          
           </td>
         </tr>
       </tbody>
     </table>
   
-    <!-- Client Form for Add/Edit -->
+ 
     <h3>{{ isEditMode ? 'Edit Client' : 'Add Client' }}</h3>
     <form (submit)="saveClient()">
       <div class="form-group">
@@ -58,4 +58,4 @@
       <button type="button" (click)="resetForm()">Cancel</button>
     </form>
   </div>
-  
+   -->
