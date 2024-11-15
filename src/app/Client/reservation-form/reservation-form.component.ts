@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RoomReservation } from '../../Classes/room-reservation';
 import { RoomReservationService } from '../../services/room-reservation.service';
 import { isPlatformBrowser } from '@angular/common';
+import { VenueBookingServiceService } from '../../services/venue-booking-service.service';
 
 @Component({
   selector: 'app-reservation-form',
@@ -13,12 +14,13 @@ import { isPlatformBrowser } from '@angular/common';
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup;
   clientId!: number; // This will be retrieved from local storage
-  roomId!: number | null; // This should also be set based on the selected room
-  venueId!: number | null; // This should be set based on the selected venue
+  roomId!: number | null; // This will be set based on the selected room
+  venueId!: number | null; // This will be set based on the selected venue
 
   constructor(
     private fb: FormBuilder,
     private reservationService: RoomReservationService,
+    private venueReservationService:VenueBookingServiceService,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -39,7 +41,7 @@ export class ReservationFormComponent implements OnInit {
       if (storedClientId) {
         this.clientId = +storedClientId; // Convert to number
       }
-  
+
       // Retrieve roomId from local storage
       const storedRoomId = localStorage.getItem('selectedRoomId');
       this.roomId = storedRoomId ? +storedRoomId : null; // Convert to number or null
@@ -47,6 +49,14 @@ export class ReservationFormComponent implements OnInit {
       // Retrieve venueId from local storage
       const storedVenueId = localStorage.getItem('selectedVenueId');
       this.venueId = storedVenueId ? +storedVenueId : null; // Convert to number or null
+
+      // Conditional logging based on selected venue or room
+      if (this.roomId !== null) {
+        console.log('Stored Room ID:', this.roomId); // Log the retrieved room ID
+      }
+      if (this.venueId !== null) {
+        console.log('Stored Venue ID:', this.venueId); // Log the retrieved venue ID
+      }
     }
   }
 
@@ -55,21 +65,48 @@ export class ReservationFormComponent implements OnInit {
       const reservationData: RoomReservation = {
         ...this.reservationForm.value,
         clientId: this.clientId,
-        roomId: this.roomId,
-        venueId: this.venueId // Include venueId in the reservation data
+        venueId: this.venueId, // Include venueId
+        roomId: this.roomId // Include roomId, but check if it's null
       };
   
-      this.reservationService.createReservation(reservationData).subscribe(
-        response => {
-          console.log('Reservation successful', response);
-          // Redirect or show a success message
-          this.router.navigate(['/payment']); // Adjust the route as necessary
-        },
-        error => {
-          console.error('Error creating reservation', error);
-          // Handle error (e.g., show an error message)
-        }
-      );
+      // Check if roomId or venueId is available and adjust the reservation data accordingly
+      if (this.roomId) {
+        console.log('Making reservation for Room ID:', this.roomId);
+        // Room reservation logic can go here
+        console.log('Reservation Data:', reservationData); // Log the reservation data
+        this.reservationService.createReservation(reservationData).subscribe(
+          response => {
+            console.log('Reservation successful', response);
+            this.router.navigate(['/payment']); // Adjust the route as necessary
+          },
+          error => {
+            console.error('Error creating reservation', error);
+          }
+        );
+      } 
+      
+      
+      
+      else if (this.venueId) {
+        console.log('Making reservation for Venue ID:', this.venueId);
+        // If roomId is null, we may want to remove it from the reservation data
+        delete reservationData.roomId; // Remove roomId from the data if it's null
+        console.log('Reservation Data:', reservationData); // Log the reservation data
+        this.venueReservationService.createReservation(reservationData).subscribe(
+          response => {
+            console.log('Reservation successful', response);
+            this.router.navigate(['/payment']); // Adjust the route as necessary
+          },
+          error => {
+            console.error('Error creating reservation', error);
+          }
+        );
+      } else {
+        console.error('No Room or Venue selected for reservation');
+        return; // Exit if neither is selected
+      }
+  
+     
     } else {
       console.log('Form is invalid');
     }

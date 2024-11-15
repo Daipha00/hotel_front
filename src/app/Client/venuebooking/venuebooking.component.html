@@ -1,23 +1,23 @@
 <app-header></app-header>
-   <!-- venue-booking.component.html -->
-   <div class="venues-section">
-    <h2>Available Venues</h2>
-    <div class="venue-cards">
-      <mat-card class="venue-card" *ngFor="let venue of venues">
-        <img [src]="venue.image ? 'data:image/jpeg;base64,' + venue.image : 'default-venue.jpg'" alt="Venue Image">
-        <h3>VenueType:{{ venue.venueType }}</h3>
-        <p>Capacity: {{ venue.capacity }}</p>
-        <p>Location: {{ venue.location }}</p>
-        <p>Price: {{ venue.price | currency }}</p>
-        <p>Availability Status: {{ venue.availabilityStatus }}</p>
-        <p>Package: {{ venue.venuePackage }}</p>
-        <p>Description: {{ venue.description }}</p>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="bookVenue(venue)">Book Now</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+<div class="venues-section">
+  <h2>Available Venues</h2>
+  <div class="venue-cards">
+    <mat-card class="venue-card" *ngFor="let venue of venues">
+      <img [src]="venue.image ? 'data:image/jpeg;base64,' + venue.image : 'default-venue.jpg'" alt="Venue Image for {{ venue.venueType }}">
+      <h3>Venue Type: {{ venue.venueType }}</h3>
+      <p>Capacity: {{ venue.capacity }}</p>
+      <p>Location: {{ venue.location }}</p>
+      <p>Price: {{ venue.price | currency }}</p>
+      <p>Availability Status: {{ venue.availabilityStatus }}</p>
+      <p>Package: {{ venue.venuePackage }}</p>
+      <p>Description: {{ venue.description }}</p>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="bookVenue(venue)">Book Now</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
+</div>
+
 
 
 

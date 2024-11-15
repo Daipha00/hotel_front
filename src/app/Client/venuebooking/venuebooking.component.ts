@@ -3,40 +3,44 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-venue-booking',
   templateUrl: './venuebooking.component.html',
-  styleUrl: './venuebooking.component.css'
+  styleUrls: ['./venuebooking.component.css'] // Corrected to styleUrls
 })
-export class VenuebookingComponent implements OnInit{
+export class VenuebookingComponent implements OnInit {
   venues: any[] = [];
-reservationMenu: any;
-  constructor(public dialog: MatDialog, private http: HttpClient, private router:Router) {}
+
+  constructor(public dialog: MatDialog, private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.loadVenues();
   }
-  
+
 
   loadVenues() {
-    this.http.get<any[]>('http://localhost:9090/venue').subscribe(data => {
-      this.venues = data;
-    }, error => {
-      console.error('Error fetching rooms:', error);
-    });
-  }
-
+    this.http.get<any[]>('http://localhost:9090/venue').subscribe(
+        data => {
+            console.log('Fetched Venues:', data); // Log the fetched rooms
+            this.venues = data;
+        },
+        error => {
+            console.error('Error fetching venues:', error);
+        }
+    );
+}
 
   bookVenue(venue: any) {
-    // Store the venue ID in local storage
-    localStorage.setItem('selectedVenueId', venue.id); // Assuming venue.id is the venue ID
-       
-    // Log the venue information to the console
-    console.log('Selected Venue:', venue);
-  
-    // Optionally, navigate to the registration form or reservation page
-    this.router.navigate(['/client-tabs']); 
+    console.log('Selected Venue:', venue); // Log the entire room object
+    
+    // Use 'id' instead of 'roomId'
+    if (typeof venue.id === 'number') {
+        localStorage.setItem('selectedVenueId', venue.id.toString()); // Store as string
+    } else {
+        console.error('Invalid venueId:', venue.id);
+    }
+    
+    localStorage.removeItem('selectedRoomId'); // Clear previous venue selection
+    this.router.navigate(['/client-forms'], { queryParams: { isVenue: true, venueId: venue.id } }); // Use 'id' instead of 'roomId'
   }
 }

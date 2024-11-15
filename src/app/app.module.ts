@@ -67,7 +67,6 @@ import { FrontStaffManagerComponent } from './Admin/front-staff-manager/front-st
 // import { BookingDialogVenueComponent } from './Client/booking-dialog-venue/booking-dialog-venue.component';
 import { CustomerPaymentComponent } from './Client/customer-payment/customer-payment.component';
 import { ClientFormsComponent } from './Client/client-forms/client-forms.component';
-import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { HeaderComponent } from './Client/header/header.component';
@@ -77,8 +76,7 @@ import { CustoerComponent } from './Admin/custoer/custoer.component';
 import { ClientComponent } from './Admin/client/client.component';
 import { ReservationComponent } from './Admin/reservation/reservation.component';
 import { ReservationlistComponent } from './Admin/reservationlist/reservationlist.component';
-
-
+import { ReservationFormComponent } from './Client/reservation-form/reservation-form.component';
 
 
 
@@ -94,6 +92,7 @@ import { ReservationlistComponent } from './Admin/reservationlist/reservationlis
     LayoutComponent,
     VenuebookingComponent,
     HomeComponent,
+    ReservationFormComponent,
     UserManagementComponent,
     FrontManagerNavComponent,
     FrontManagerDashboardComponent,ReportGenerationComponent,
@@ -110,9 +109,8 @@ import { ReservationlistComponent } from './Admin/reservationlist/reservationlis
     ManageOparationComponent, ManagerStaffManagementComponent, ManagerPaymentComponent, 
     ManagerReportComponent, AdminRoomVenueConfigurationComponent, ReportGenerationComponent,
     ImageDialogComponent,
-
-    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, CustomerPaymentComponent, 
     ReservationFormComponent,
+    RegistrationComponent, FrontManagerComponent,FrontStaffManagerComponent, CustomerPaymentComponent, 
     ClientFormsComponent,
 AdminDashboardComponent,
 AdminNavigationComponent,

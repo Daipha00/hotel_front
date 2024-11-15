@@ -76,20 +76,18 @@ const routes: Routes = [
   //Client
 {path:'home',component:HomeComponent},
   {path: 'roombooking', component: RoombookingComponent},
-  {path:'payment',component:PaymentComponent},
   {path: 'venuebooking', component: VenuebookingComponent},
   {path: 'venue',component:VenueComponent},
-  {path:'client-tabs',component:ClientFormsComponent},
+  {path:'reservation-form',component:ReservationFormComponent},
+  {path:'payment',component:PaymentComponent},
+
+  {path:'client-forms',component:ClientFormsComponent},
   {path: 'header', component:HeaderComponent},
   // {path: 'booking-dialog', component:BookingDialogComponent},
   {path: 'registration',component:RegistrationComponent},
-  {path: 'customerPayment',component:CustomerPaymentComponent},  
+  {path: 'customerPayment',component:CustomerPaymentComponent},
+  
 {path:'layout',component:LayoutComponent},
-  //FrontManager
-
-  {path:'registration',component:RegistrationComponent},
-  {path:'client-tabs',component:ClientFormsComponent},
-{path:'reservation-form',component:ReservationFormComponent},
   {path: 'frontManagerDashboard', component: FrontManagerDashboardComponent},
   {path: 'reservationManagement', component: ReservationManagementComponent},
   {path: 'communicationCenter', component: CommunicationCenterComponent},

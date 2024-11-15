@@ -1,11 +1,18 @@
 <app-header></app-header>
-<mat-tab-group>
-    <mat-tab label="Personal details"> 
-        <app-registration></app-registration>
-    </mat-tab>
-    <mat-tab label="Reservation details"> 
-    <app-reservation-form></app-reservation-form>    
-    </mat-tab>
-    <mat-tab label="Payment">  Payment </mat-tab>
-  </mat-tab-group>
-  
+<mat-tab-group [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)">
+  <mat-tab label="Personal details">
+    <ng-container *ngIf="selectedIndex === 0">
+      <app-registration></app-registration> <!-- Directly load the component -->
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="Reservation details">
+    <ng-container *ngIf="selectedIndex === 1">
+      <app-reservation-form></app-reservation-form>
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="Payment">
+    <ng-container *ngIf="selectedIndex === 2">
+      <app-payment></app-payment>
+    </ng-container>
+  </mat-tab>
+</mat-tab-group>
